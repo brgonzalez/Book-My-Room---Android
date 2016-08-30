@@ -100,7 +100,7 @@ public class SocketTestFragment extends Fragment {
                 //tablet
                 Socket deviceSocket;
                 InetAddress addr = InetAddress.getByName("10.110.10.125");
-                ServerSocket serverSocket = new ServerSocket(6500,0,addr);
+                ServerSocket serverSocket = new ServerSocket(6500);
                 while(true) {
                     deviceSocket = serverSocket.accept();
                     InputStream is = deviceSocket.getInputStream();
