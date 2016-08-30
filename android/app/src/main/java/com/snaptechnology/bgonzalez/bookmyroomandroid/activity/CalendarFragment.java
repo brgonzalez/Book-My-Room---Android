@@ -10,15 +10,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 
 public class CalendarFragment extends Fragment {
+
+    MaterialBetterSpinner materialBetterSpinner ;
+    String[] SPINNER_DATA = {"Room name 1","Room name 2","Room name 3"};
 
 
     public CalendarFragment() {
@@ -34,6 +39,8 @@ public class CalendarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_calendar, container, false);
+
+
 
         final TableLayout table = (TableLayout) rootView.findViewById(R.id.table_calendar);
 
@@ -60,15 +67,25 @@ public class CalendarFragment extends Fragment {
                         LayoutInflater inflater = getActivity().getLayoutInflater();
 
 
+                        View dialogView = inflater.inflate(R.layout.dialog_book_room,null);
                         String[] data =((String) v.getTag()).split(" ");
-                        builder.setView(inflater.inflate(R.layout.dialog_book_room,null));
-
-// 2. Chain together various setter methods to set the dialog characteristics
-                       // builder.setMessage("Hour: " + data[1])
-                         //       .setTitle("Day: " + data[0]);
+                        builder.setView(dialogView);
 
 
-// 3. Get the AlertDialog from create()
+                        String[] time = {"15 min","30 min","45 min", "1 hour", "1 hour 15 min"};
+
+
+                        MaterialBetterSpinner spinnerBook = (MaterialBetterSpinner)dialogView.findViewById(R.id.spinner_time_book);
+                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, time);
+
+                        spinnerBook.setAdapter(adapter);
+
+
+                        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_dropdown_item_1line, SPINNER_DATA);
+
+                        //innerBook.setAdapter(adapter);
+
+
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }

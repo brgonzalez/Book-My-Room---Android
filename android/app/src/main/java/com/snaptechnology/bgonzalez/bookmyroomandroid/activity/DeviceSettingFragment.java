@@ -18,9 +18,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 
 public class DeviceSettingFragment extends Fragment {
+
+
 
 
     public DeviceSettingFragment() {
