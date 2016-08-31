@@ -5,7 +5,401 @@
     android:orientation="vertical"
     tools:context="com.snaptechnology.bgonzalez.bookmyroomandroid.activity.HomeFragment">
 
+    <!---->
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
 
+        android:id="@+id/table_calendar"
+        android:clickable="true">
+
+
+        <TableRow>
+
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:text="15 min"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/text_circle_time"
+                    android:textStyle="bold"
+                    android:layout_margin="@dimen/margin_circle_time"/>
+
+            </RelativeLayout>
+
+
+
+
+        </TableRow>
+
+            <!-- Container -->
+
+            <LinearLayout
+
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="3">
+
+                <!--Big column 1 -->
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="1dp">
+
+                    <!--ROWS-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="3">
+
+                        <!--ROW 1-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dip"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <!--Columns-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_weight="3">
+
+
+                                <!--Column 1-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <!--Column 2-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <!--Column 4-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dip"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_weight="3">
+
+                                <!--Colums-->
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dip"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_weight="3">
+
+                                <!--Colums-->
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+                <!--Big column 2 -->
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    android:background="@color/colorPrimary">
+                </LinearLayout>
+
+                <!--Big column 3 -->
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="1dp">
+
+                    <!--ROWS-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="3">
+
+                        <!--ROW 1-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dip"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <!--Columns-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_weight="3">
+
+
+                                <!--Column 1-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <!--Column 2-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <!--Column 4-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dip"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_weight="3">
+
+                                <!--Colums-->
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dip"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_weight="3">
+
+                                <!--Colums-->
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+    </TableLayout>
+
+    <!--
     <TextView
         android:id="@+id/label"
         android:layout_alignParentTop="true"
@@ -32,5 +426,21 @@
         android:id="@+id/circle"
         android:layout_width="300dp"
         android:layout_height="300dp" />
+
+                        <TextView
+                    android:id="@+id/circle1"
+                    android:layout_width="@dimen/width_circle_time"
+                    android:layout_height="@dimen/height_circle_time"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:text="15 min"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/text_circle_time"
+                    android:textStyle="bold"
+                    android:layout_margin="@dimen/margin_circle_time"/>
+
+
+     -->
 
 </RelativeLayout>

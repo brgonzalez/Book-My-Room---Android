@@ -33,11 +33,11 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        Circle circle = (Circle) rootView.findViewById(R.id.circle);
+        //Circle circle = (Circle) rootView.findViewById(R.id.circle);
 
-        CircleAngleAnimation animation = new CircleAngleAnimation(circle, 360);
-        animation.setDuration(50000);
-        circle.startAnimation(animation);
+        //CircleAngleAnimation animation = new CircleAngleAnimation(circle, 360);
+        //animation.setDuration(50000);
+        //circle.startAnimation(animation);
 
         // Inflate the layout for this fragment
         return rootView;
