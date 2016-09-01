@@ -19,39 +19,15 @@
         android:clickable="true">
 
 
-        <TableRow>
-
-            <RelativeLayout
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary">
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="@drawable/circle"
-                    android:gravity="center"
-                    android:text="15 min"
-                    android:textColor="#FFFFFF"
-                    android:textSize="@dimen/text_circle_time"
-                    android:textStyle="bold"
-                    android:layout_margin="@dimen/margin_circle_time"/>
-
-            </RelativeLayout>
-
-
-
-
-        </TableRow>
 
             <!-- Container -->
 
             <LinearLayout
 
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="3">
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="4">
+
 
                 <!--Big column 1 -->
                 <LinearLayout
@@ -68,7 +44,6 @@
                         android:layout_weight="3">
 
                         <!--ROW 1-->
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dip"
@@ -89,7 +64,6 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
@@ -99,17 +73,15 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
-                                <!--Column 4-->
+                                <!--Column 3-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
 
                                 </LinearLayout>
@@ -118,93 +90,163 @@
 
                         </LinearLayout>
 
+                        <!--ROW 2-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dip"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
+                            <!--Columns-->
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal"
                                 android:layout_weight="3">
 
-                                <!--Colums-->
-
+                                <!--Column 1-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
+                                <!--Column 2-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
+                                <!--Column 3-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/circle"
+                                        android:gravity="center"
+                                        android:text="15 min"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="@dimen/text_circle_time"
+                                        android:textStyle="bold"
+                                        android:layout_margin="@dimen/margin_circle_time"/>
 
                                 </LinearLayout>
 
                             </LinearLayout>
 
-
-
                         </LinearLayout>
 
+                        <!--ROW 3-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dip"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
+                            <!--Columns-->
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal"
                                 android:layout_weight="3">
 
-                                <!--Colums-->
 
+                                <!--Column 1-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
+                                <!--Column 2-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
+                                <!--Column 3-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!--ROW 4-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dip"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <!--Columns-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_weight="3">
+
+                                <!--Column 1-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <!--Column 2-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:layout_margin="1dp">
+                                </LinearLayout>
+
+                                <!--Column 3-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:layout_margin="1dp">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/circle"
+                                        android:gravity="center"
+                                        android:text="15 min"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="@dimen/text_circle_time"
+                                        android:textStyle="bold"
+                                        android:layout_margin="@dimen/margin_circle_time"/>
 
                                 </LinearLayout>
 
@@ -214,9 +256,6 @@
 
                     </LinearLayout>
 
-
-
-
                 </LinearLayout>
 
                 <!--Big column 2 -->
@@ -224,8 +263,122 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:layout_margin="1dp"
-                    android:background="@color/colorPrimary">
+                    android:layout_margin="1dp">
+
+                    <!--ROWS-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="3">
+
+                        <!--ROW 1-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dip"
+                            android:layout_weight="0.5"
+                            android:orientation="vertical">
+
+                            <!--Columns-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_weight="3">
+
+                                <!--Column 1-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:layout_margin="1dp">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/circle"
+                                        android:gravity="center"
+                                        android:text="15 min"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="@dimen/text_circle_time"
+                                        android:textStyle="bold"
+                                        android:layout_margin="@dimen/margin_circle_time"/>
+
+                                </LinearLayout>
+
+                                <!--Column 2-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:layout_margin="1dp">
+
+
+
+                                </LinearLayout>
+
+                                <!--Column 3-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:layout_margin="1dp">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/circle"
+                                        android:gravity="center"
+                                        android:text="15 min"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="@dimen/text_circle_time"
+                                        android:textStyle="bold"
+                                        android:layout_margin="@dimen/margin_circle_time"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!--ROW 2 Main circle -->
+                        <LinearLayout
+                            android:id="@+id/linear_layout_main_circle"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dip"
+                            android:layout_weight="3.5"
+                            android:orientation="vertical"
+                            android:layout_margin="1dp">
+
+                            <!--
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="0dp"
+                                android:background="@drawable/circle_main"
+                                android:gravity="center"
+                                android:text="15 min"
+                                android:textColor="#000"
+                                android:textSize="@dimen/text_circle_time"
+                                android:textStyle="bold"
+                                android:layout_margin="@dimen/margin_circle_time"/>
+
+                                -->
+
+                            <com.snaptechnology.bgonzalez.bookmyroomandroid.animation.Circle
+                                android:id="@+id/circle"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <!--Big column 3 -->
@@ -243,7 +396,6 @@
                         android:layout_weight="3">
 
                         <!--ROW 1-->
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dip"
@@ -264,7 +416,6 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
@@ -274,7 +425,6 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
@@ -284,7 +434,6 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
 
                                 </LinearLayout>
@@ -293,92 +442,164 @@
 
                         </LinearLayout>
 
+                        <!--ROW 2-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dip"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
+                            <!--Columns-->
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal"
                                 android:layout_weight="3">
 
-                                <!--Colums-->
-
+                                <!--Column 1-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/circle"
+                                        android:gravity="center"
+                                        android:text="15 min"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="@dimen/text_circle_time"
+                                        android:textStyle="bold"
+                                        android:layout_margin="@dimen/margin_circle_time"/>
+                                </LinearLayout>
+
+                                <!--Column 2-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
+                                <!--Column 3-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
-                                    android:layout_margin="1dp">
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="0dip"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
 
                                 </LinearLayout>
 
                             </LinearLayout>
 
-
-
                         </LinearLayout>
 
+                        <!--ROW 3-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dip"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
+                            <!--Columns-->
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal"
                                 android:layout_weight="3">
 
-                                <!--Colums-->
 
+                                <!--Column 1-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+
+
+
+                                </LinearLayout>
+
+                                <!--Column 2-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
+                                <!--Column 3-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
+                                    android:layout_margin="1dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!--ROW 4-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dip"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <!--Columns-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_weight="3">
+
+                                <!--Column 1-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:layout_margin="1dp">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/circle"
+                                        android:gravity="center"
+                                        android:text="15 min"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="@dimen/text_circle_time"
+                                        android:textStyle="bold"
+                                        android:layout_margin="@dimen/margin_circle_time"/>
+                                </LinearLayout>
+
+                                <!--Column 2-->
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
                                     android:layout_margin="1dp">
                                 </LinearLayout>
 
+                                <!--Column 3-->
                                 <LinearLayout
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
-                                    android:background="@color/colorPrimary"
                                     android:layout_margin="1dp">
 
                                 </LinearLayout>
@@ -388,9 +609,6 @@
                         </LinearLayout>
 
                     </LinearLayout>
-
-
-
 
                 </LinearLayout>
 

@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
@@ -19,14 +21,19 @@ public class Circle extends View {
     private static final int START_ANGLE_POINT = 0;
 
     private final Paint paint;
-    private final RectF rect;
+    private static RectF rect;
+    final int strokeWidth = 40;
+
 
     private float angle;
+
+
+
+    int size= 243;
 
     public Circle(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        final int strokeWidth = 40;
 
         paint = new Paint();
         paint.setAntiAlias(true);
@@ -35,12 +42,16 @@ public class Circle extends View {
         //Circle color
         paint.setColor(getResources().getColor(R.color.colorAccent));
 
-        //size 200x200 example
-        rect = new RectF(strokeWidth, strokeWidth, 200 + strokeWidth, 200 + strokeWidth);
+
+        this.getMeasuredWidth();
+
+        rect = new RectF(strokeWidth, strokeWidth,  strokeWidth,  strokeWidth);
 
         //Initial Angle (optional, it can be zero)
         angle = 0;
     }
+
+
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -54,5 +65,13 @@ public class Circle extends View {
 
     public void setAngle(float angle) {
         this.angle = angle;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 }

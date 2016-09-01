@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.snaptechnology.bgonzalez.bookmyroomandroid.activity.HomeFragment">
 
@@ -9,6 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
+
+        <com.snaptechnology.bgonzalez.bookmyroomandroid.SimpleCircularProgressbar
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            custom:progressbar_thickness="10"
+            custom:progress="50"
+            custom:rotation="anticlockwise"
+            custom:progressColor="#FF00FF"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
+
+        <com.github.lzyzsd.circleprogress.DonutProgress
+            android:layout_marginLeft="50dp"
+            android:id="@+id/donut_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            custom:donut_progress="30"/>
 
         <TextView
             android:id="@+id/socket"
