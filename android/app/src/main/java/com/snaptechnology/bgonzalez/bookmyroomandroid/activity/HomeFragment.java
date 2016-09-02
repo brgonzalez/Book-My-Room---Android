@@ -4,6 +4,7 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
  * Created by bgonzalez on 24/08/2016.
  */
 
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.app.Activity;
 
@@ -20,16 +21,42 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
+import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.animation.Circle;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.animation.CircleAngleAnimation;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.AnimationState;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.AnimationStateChangedListener;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.CircleProgressView;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.TextMode;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.UnitPosition;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
 
     public static int size;
+
+    private final static String TAG = "MainActivity";
+
+    CircleProgressView mCircleView;
+    Switch mSwitchSpin;
+    Switch mSwitchShowUnit;
+    SeekBar mSeekBar;
+    SeekBar mSeekBarSpinnerLength;
+    Boolean mShowUnit = true;
+    Spinner mSpinner;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -46,16 +73,31 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        Circle circle = (Circle) rootView.findViewById(R.id.circle);
+        //.
+        // 00000Circle circle = (Circle) rootView.findViewById(R.id.progressBar);
 
+
+        ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+
+        progressBar.bringToFront();
+        ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "progress", 50, 500); // see this max value coming back here, we animale towards that value
+        animation.setDuration (5000); //in milliseconds
+        animation.setInterpolator (new DecelerateInterpolator());
+        animation.start ();
+
+
+//        new LongOperation().execute();
+        /*
         final LinearLayout linearLayout = (LinearLayout) rootView.findViewById(R.id.linear_layout_main_circle);
+        final int sizeLinearLayout ;
         linearLayout.post(new Runnable()
         {
 
             @Override
             public void run()
             {
-                Log.i("TEST", "Layout width : "+ linearLayout.getWidth());
+                //sizeLinearLayout = linearLayout.getWidth();
+                //Log.i("TEST", "Layout width : "+  sizeLinearLayout);
 
             }
         });
@@ -78,11 +120,11 @@ public class HomeFragment extends Fragment {
 
 
         circle.setSize(size);
-        Circle circle2 = circle;*/
+        Circle circle2 = circle;
 
         CircleAngleAnimation animation = new CircleAngleAnimation(circle, 360);
-        animation.setDuration(20000);
-        circle.startAnimation(animation);
+        animation.setDuration(2000);
+        circle.startAnimation(animation);*/
 
         // Inflate the layout for this fragment
         return rootView;

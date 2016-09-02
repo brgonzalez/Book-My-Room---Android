@@ -45,10 +45,10 @@ public class Circle extends View {
 
         this.getMeasuredWidth();
 
-        rect = new RectF(strokeWidth, strokeWidth,  strokeWidth,  strokeWidth);
+        rect = new RectF(strokeWidth, size+strokeWidth,  strokeWidth,  size+strokeWidth);
 
         //Initial Angle (optional, it can be zero)
-        angle = 0;
+        angle = 90;
     }
 
 
