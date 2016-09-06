@@ -1,5 +1,7 @@
 package com.snaptechnology.bgonzalez.services;
 
+import com.snaptechnology.bgonzalez.httpclient.Account;
+
 /**
  * Created by bgonzalez on 04/08/2016.
  */
@@ -7,11 +9,8 @@ package com.snaptechnology.bgonzalez.services;
 public class URLService {
 
     private String path ="https://outlook.office365.com/api/v1.0/";
-    private String user = "me";
-    /*
-    EVENTS("calendarview?startDateTime=2016-08-09T11:29:00.0003579Z&endDateTime=2016-08-09T21:30:00.0003579Z
-
-    */
+    private Account account;
+    String user;
 
     public String getURLAllEvents(){
         return path + user + "/events";
