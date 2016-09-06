@@ -25,7 +25,7 @@ public class SocketServerTest
 
     public static void main(String args[]) throws IOException {
 
-        String str = "Test sending data from server";
+        String str = "Test sending crud from server";
 
         InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
 

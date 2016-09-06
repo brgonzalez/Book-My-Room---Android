@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.snaptechnology.bgonzalez.model.Event;
 import com.snaptechnology.bgonzalez.model.Person;
+import com.snaptechnology.bgonzalez.services.URLService;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

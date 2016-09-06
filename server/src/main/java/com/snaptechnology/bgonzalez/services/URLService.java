@@ -1,4 +1,4 @@
-package com.snaptechnology.bgonzalez.httpclient;
+package com.snaptechnology.bgonzalez.services;
 
 /**
  * Created by bgonzalez on 04/08/2016.
