@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.*;
 
-public class Device
+public class Device2
 {
 
     private static Socket socket;
@@ -26,7 +26,7 @@ public class Device
             ServerSocket serverSocket = new ServerSocket(25000,0,addr);
             //ServerSocket serverSocket = new ServerSocket(25000);
 
-            System.out.println("Device Started and listening to the port 25000");
+            System.out.println("Device2 Started and listening to the port 25000");
 
             //Server is running always. This is done using this while(true) loop
             while(true)

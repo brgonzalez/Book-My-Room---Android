@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.snaptechnology.bgonzalez.model.Event;
 import com.snaptechnology.bgonzalez.model.Person;
 import com.snaptechnology.bgonzalez.services.URLService;
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,6 +20,9 @@ public class RequestController {
     private ApacheHttpClient client;
     private URLService urlService;
     private String delta="";
+
+    final static Logger logger = Logger.getLogger(RequestController.class);
+
 
 
     public RequestController() {
@@ -42,6 +46,9 @@ public class RequestController {
     }
 
     public List<Event> getEvents(String startDate, String endDate){
+
+        logger.info("Getting all events from API Office 365");
+
         List<Event> events = new ArrayList<Event>();
 
         client.getHttpRequest(urlService.getURLEvents(startDate,endDate));

@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.*;
 
-public class Device
+public class Device3
 {
 
     private static Socket deviceSocket;

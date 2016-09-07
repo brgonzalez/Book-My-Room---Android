@@ -1,5 +1,7 @@
 package com.snaptechnology.bgonzalez.socket;
 
+import com.snaptechnology.bgonzalez.model.Device;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
