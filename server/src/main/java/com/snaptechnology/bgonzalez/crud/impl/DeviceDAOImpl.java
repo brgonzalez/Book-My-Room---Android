@@ -3,7 +3,6 @@ package com.snaptechnology.bgonzalez.crud.impl;
 import com.snaptechnology.bgonzalez.crud.DeviceDAO;
 import com.snaptechnology.bgonzalez.database.DataBasePostgreSQL;
 import com.snaptechnology.bgonzalez.model.Device;
-import com.snaptechnology.bgonzalez.model.Location;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,44 +43,36 @@ public class DeviceDAOImpl implements DeviceDAO{
 
     public void update(Device device) {
         connection.connect();
-        String query ="";
-    }
-
-    public void delete(Device device) {
-
-    }
-
-
-
-
-    public void update(Location location) {
-    }
-
-    public void delete(Location location) {
-        connection.connect();
-        String query = "DELETE FROM locations WHERE display_name='"+location.getDisplayName()+"'";
+        String query = String.format("UPDATE devices SET ip = '%s' where address = '%s';", device.getIp(), device.getAddress());
         connection.executeUpdate(query);
         connection.disconnect();
     }
 
-    public List<Location> findAll() {
-        List<Location> locations = new ArrayList<Location>();
+    public void delete(Device device) {
         connection.connect();
-        String query = "SELECT display_name FROM locations ;" ;
-        ResultSet result = connection.executeQuery(query);
-        String displayName= null;
-        try {
-            while (result.next()) {
-                displayName = result.getString("display_name");
-                locations.add(new Location(displayName));
-            }
-            connection.disconnect(); }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
+        String query = String.format("DELETE FROM devices WHERE address = '%s'", device.getAddress());
+        connection.executeUpdate(query);
         connection.disconnect();
-        return locations;
     }
 
+    public List<Device> findDevicesByLocation(String idLocation){
+        List<Device> devices = new ArrayList<Device>();
+        connection.connect();
+        String query = String.format("SELECT d.ip, d.address FROM devices d, locations l, locations_devices ld \n" +
+                "WHERE d.address = ld.address AND l.display_name = '%s';", idLocation);
+        ResultSet result = connection.executeQuery(query);
+        String address;
+        String ip;
+        try {
+            while(result.next()){
+                address = result.getString("address");
+                ip = result.getString("ip");
+                devices.add(new Device (address, ip));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return devices;
+    }
 
 }

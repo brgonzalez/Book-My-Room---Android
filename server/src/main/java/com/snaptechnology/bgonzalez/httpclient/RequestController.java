@@ -3,7 +3,6 @@ package com.snaptechnology.bgonzalez.httpclient;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.snaptechnology.bgonzalez.model.Event;
-import com.snaptechnology.bgonzalez.model.Person;
 import com.snaptechnology.bgonzalez.services.URLService;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
@@ -19,6 +18,9 @@ public class RequestController {
 
     private ApacheHttpClient client;
     private URLService urlService;
+
+
+
     private String delta="";
 
     final static Logger logger = Logger.getLogger(RequestController.class);
@@ -33,7 +35,7 @@ public class RequestController {
     public List<Event> getAllEvents(){
         List<Event> events = new ArrayList<Event>();
 
-        client.getHttpRequest(urlService.getURLAllEvents());
+        client.getHttpRequest(urlService.getURLCreateEvent());
 
         String dataDelta = new JSONObject(client.getOutput()).getString("@odata.deltaLink");
         setDelta(dataDelta);
@@ -47,7 +49,7 @@ public class RequestController {
 
     public List<Event> getEvents(String startDate, String endDate){
 
-        logger.info("Getting all events from API Office 365");
+        logger.info("Getting events from API Office 365");
 
         List<Event> events = new ArrayList<Event>();
 
@@ -67,28 +69,11 @@ public class RequestController {
         return events;
     }
 
-    public void createEvent(String subject,String timeZone,String startDate, String endDate, List<Person> attendees/*, Room room*/){
-        String jsonAttendees = "\"Attendees\": [";
-        for(int i = 0; i < attendees.size(); i++){
-            jsonAttendees += "{ \"EmailAddress\": { \"Address\": \""+ attendees.get(i).getEmail()+ "\", \"Name\": \"" + attendees.get(i).getName() + "\"},\"Type\": \"Required\" }";
-            if(i < attendees.size() - 1){
-                jsonAttendees += ",";
-            }
-        }
-        jsonAttendees += "]";
-
-        String json = "{\"Subject\": \"" + subject +"\",\"StartTimeZone\": \"" + timeZone + "\",\"EndTimeZone\": \"" + timeZone + "\", \"Start\": \"" + startDate +"\" , \"End\": \"" + endDate + "\", "+ jsonAttendees + " }";
-        client.postHttpRequest(urlService.getURLAllEvents(), json);
+    public void createEvent(String json){
+        client.postHttpRequest(urlService.getURLCreateEvent(), json);
     }
 
 
-
-
-    /*
-        Update a event
-        Parameters:
-            id: id of the event, is get it from Office 365 calendar
-     */
     public void updateEvent (Event event){
         //client.patchHttpRequest(urlService.getURLUpdateEvent(event.getId()),);
     }
@@ -115,13 +100,17 @@ public class RequestController {
     }
 
     public void setDelta(String dataDelta){
-        /* This is because when is done a getEvents(), the paramenter is deltatoken
+        /* This is because when is done a getEvents(), the parameter is deltatoken
         and when is done a synchronizedEvents() the parameter is deltaToken
         with T in capitalized
          */
         String[] arrayDataDelta = dataDelta.split("oken=");
         String delta = arrayDataDelta[1];
         this.delta = delta;
+    }
+
+    public URLService getUrlService() {
+        return urlService;
     }
 
     private void setClient(ApacheHttpClient client) {
@@ -136,12 +125,16 @@ public class RequestController {
         ObjectMapper mapper = new ObjectMapper();
 
         //rc.createEvent("Brayan","UTC","2016-08-18T11:30:00.0003579Z","2016-08-18T12:30:00.0003579Z",attendees);
+        
+        Account a = new Account("bgonzalez@snaptechnology.net","Brayan", "BrgcBrgc5snap");
+        rc.getUrlService().setAccount(a);
 
+        System.out.println(mapper.writeValueAsString(rc.synchronizedEvents("2016-08-17T10:30:00.0003579Z","2016-08-19T14:30:00.0003579Z")));
 
-        System.out.println(mapper.writeValueAsString(rc.getEvents("2016-08-17T10:30:00.0003579Z","2016-08-19T14:30:00.0003579Z")));
+        //Event e = new Event("1","subject",null,null,null,false,"","");
+        //System.out.println(mapper.writeValueAsString(e));
 
-        /*
-        String jsonInString = null;
+        /*String jsonInString = null;
         while (true) {
             try {
                 Thread.sleep(3000);

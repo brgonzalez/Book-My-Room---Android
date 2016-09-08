@@ -20,8 +20,10 @@ public class Event {
     private Location location;
     @JsonProperty("Organizer")
     private Organizer organizer;
+
     @JsonProperty("Attendees")
     private List<Attendee> attendees;
+
     @JsonProperty("AllDay")
     private boolean allDay;
     @JsonProperty("Start")
@@ -43,6 +45,17 @@ public class Event {
         this.allDay = json.getBoolean("IsAllDay");
         this.start = json.getString("Start");
         this.end = json.getString("End");
+    }
+
+    public Event(String id, String subject, Location location, Organizer organizer, List<Attendee> attendees, boolean allDay, String start, String end) {
+        this.id = id;
+        this.subject = subject;
+        this.location = location;
+        this.organizer = organizer;
+        this.attendees = attendees;
+        this.allDay = allDay;
+        this.start = start;
+        this.end = end;
     }
 
     public String getId() {

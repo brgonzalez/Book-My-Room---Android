@@ -26,7 +26,8 @@
 
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="4">
+                android:layout_weight="4"
+                android:id="@+id/transitions_container">
 
 
                 <!--Big column 1 -->
@@ -131,6 +132,7 @@
                                     android:layout_margin="1dp">
 
                                     <TextView
+                                        android:id="@+id/minutes1"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="0dp"
@@ -140,7 +142,8 @@
                                         android:textColor="#FFFFFF"
                                         android:textSize="@dimen/text_circle_time"
                                         android:textStyle="bold"
-                                        android:layout_margin="@dimen/margin_circle_time"/>
+                                        android:layout_margin="@dimen/margin_circle_time"
+                                        android:visibility="invisible"/>
 
                                 </LinearLayout>
 
@@ -208,47 +211,18 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal"
-                                android:layout_weight="3">
+                                android:layout_weight="3"
+                                android:background="@color/colorAccent"
+                                android:layout_margin="15dp">
 
-                                <!--Column 1-->
-                                <LinearLayout
-                                    android:layout_width="0dip"
+                                <TextView
+                                    android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:orientation="horizontal"
-                                    android:layout_margin="1dp">
-                                </LinearLayout>
-
-                                <!--Column 2-->
-                                <LinearLayout
-                                    android:layout_width="0dip"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:orientation="horizontal"
-                                    android:layout_margin="1dp">
-                                </LinearLayout>
-
-                                <!--Column 3-->
-                                <LinearLayout
-                                    android:layout_width="0dip"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:orientation="horizontal"
-                                    android:layout_margin="1dp">
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginTop="0dp"
-                                        android:background="@drawable/circle"
-                                        android:gravity="center"
-                                        android:text="15 min"
-                                        android:textColor="#FFFFFF"
-                                        android:textSize="@dimen/text_circle_time"
-                                        android:textStyle="bold"
-                                        android:layout_margin="@dimen/margin_circle_time"/>
-
-                                </LinearLayout>
+                                    android:text="Available in 45 min"
+                                    android:textColor="@color/textColorPrimary"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:textSize="25dp"/>
 
                             </LinearLayout>
 
@@ -294,6 +268,7 @@
                                     android:orientation="horizontal"
                                     android:layout_margin="1dp">
                                     <TextView
+                                        android:id="@+id/minutes2"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="0dp"
@@ -303,7 +278,8 @@
                                         android:textColor="#FFFFFF"
                                         android:textSize="@dimen/text_circle_time"
                                         android:textStyle="bold"
-                                        android:layout_margin="@dimen/margin_circle_time"/>
+                                        android:layout_margin="@dimen/margin_circle_time"
+                                        android:visibility="invisible"/>
 
                                 </LinearLayout>
 
@@ -321,6 +297,7 @@
 
                                 <!--Column 3-->
                                 <LinearLayout
+
                                     android:layout_width="0dip"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
@@ -328,6 +305,7 @@
                                     android:layout_margin="1dp">
 
                                     <TextView
+                                        android:id="@+id/minutes3"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="0dp"
@@ -337,7 +315,8 @@
                                         android:textColor="#FFFFFF"
                                         android:textSize="@dimen/text_circle_time"
                                         android:textStyle="bold"
-                                        android:layout_margin="@dimen/margin_circle_time"/>
+                                        android:layout_margin="@dimen/margin_circle_time"
+                                        android:visibility="invisible"/>
 
                                 </LinearLayout>
 
@@ -355,19 +334,33 @@
                             android:layout_margin="1dp">
 
 
-
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="hola"
+                                android:gravity="center_horizontal"/>
 
                             <ProgressBar
                                 android:id="@+id/progressBar"
                                 style="?android:attr/progressBarStyleHorizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_alignParentBottom="true"
-                                android:layout_centerHorizontal="true"
-                                android:max="500"
-                                android:progress="0"
-                                android:progressDrawable="@drawable/circle3"/>
 
+                                android:layout_centerInParent="true"
+
+
+                                android:max="500"
+                                android:progress="300"
+                                android:progressDrawable="@drawable/circle3"
+                                />
+
+                            <ImageView
+                                android:id="@+id/textView1"
+                                android:layout_width="40sp"
+                                android:layout_height="40dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ic_snap_finance"
+                                android:clickable="false"/>
 
 
 
@@ -461,6 +454,7 @@
                                     android:layout_margin="1dp">
 
                                     <TextView
+                                        android:id="@+id/minutes4"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="0dp"
@@ -470,7 +464,8 @@
                                         android:textColor="#FFFFFF"
                                         android:textSize="@dimen/text_circle_time"
                                         android:textStyle="bold"
-                                        android:layout_margin="@dimen/margin_circle_time"/>
+                                        android:layout_margin="@dimen/margin_circle_time"
+                                        android:visibility="invisible"/>
                                 </LinearLayout>
 
                                 <!--Column 2-->
@@ -568,17 +563,7 @@
                                     android:orientation="horizontal"
                                     android:layout_margin="1dp">
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginTop="0dp"
-                                        android:background="@drawable/circle"
-                                        android:gravity="center"
-                                        android:text="15 min"
-                                        android:textColor="#FFFFFF"
-                                        android:textSize="@dimen/text_circle_time"
-                                        android:textStyle="bold"
-                                        android:layout_margin="@dimen/margin_circle_time"/>
+
                                 </LinearLayout>
 
                                 <!--Column 2-->

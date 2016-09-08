@@ -23,7 +23,7 @@ public class Device2
             InetAddress addr = InetAddress.getByName("localhost");
 
             SocketAddress sockaddr = new InetSocketAddress(addr, port);
-            ServerSocket serverSocket = new ServerSocket(25000,0,addr);
+            ServerSocket serverSocket = new ServerSocket(25000);
             //ServerSocket serverSocket = new ServerSocket(25000);
 
             System.out.println("Device2 Started and listening to the port 25000");

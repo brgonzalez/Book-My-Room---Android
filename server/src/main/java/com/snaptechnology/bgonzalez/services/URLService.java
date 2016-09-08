@@ -22,9 +22,9 @@ public class URLService {
     final static Logger logger = Logger.getLogger(URLService.class);
 
 
-    public String getURLAllEvents(){
+    public String getURLCreateEvent(){
 
-        logger.info("Getting URL et all events");
+        logger.info("Getting URL create event ");
 
         return getPath() +  "users('" +getAccount().getAddress() + "')/events";
     }
@@ -40,7 +40,7 @@ public class URLService {
 
     public String getURLSynchronizeEvents(String startDate, String endDate,String delta){
 
-        logger.info("Getting URL synchronize events");
+ //       logger.info("Getting URL synchronize events");
 
         return String.format( getPath() + "users('%s')/calendarview?startDateTime=%s&endDateTime=%s&$deltatoken=%s", getAccount().getAddress(), startDate, endDate,delta);
     }

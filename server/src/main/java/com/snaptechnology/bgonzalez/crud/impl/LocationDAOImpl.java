@@ -71,4 +71,18 @@ public class LocationDAOImpl implements LocationDAO {
         connection.disconnect();
         return locations;
     }
+
+    public void bindLocationToDevice(String idDevice, String idLocation){
+        connection.connect();
+        String query = String.format("INSERT INTO locations_devices (address, display_name) VALUES ('%s','%s');", idDevice, idLocation);
+        connection.executeUpdate(query);
+        connection.disconnect();
+    }
+    public void unBindLocationToDevice(String idDevice, String idLocation){
+        connection.connect();
+        String query = String.format("DELETE FROM locations_devices WHERE display_name='%s' AND address = '%s';", idLocation,idDevice);
+        connection.executeUpdate(query);
+        connection.disconnect();
+    }
+
 }
