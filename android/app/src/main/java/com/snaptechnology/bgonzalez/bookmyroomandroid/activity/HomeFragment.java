@@ -29,6 +29,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
@@ -77,45 +78,62 @@ public class HomeFragment extends Fragment {
 
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        /*final ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
-
-        progressBar.bringToFront();
-        ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "progress", 50, 500); // see this max value coming back here, we animale towards that value
-        animation.setDuration (5000); //in milliseconds
-        animation.setInterpolator (new DecelerateInterpolator());
-        animation.start ();
 
 
-        final ViewGroup transitionsContainer = (ViewGroup) rootView.findViewById(R.id.transitions_container);
 
-        final TextView minutes1 = (TextView) transitionsContainer.findViewById(R.id.minutes1);
-        final TextView minutes2 = (TextView) transitionsContainer.findViewById(R.id.minutes2);
-        final TextView minutes3 = (TextView) transitionsContainer.findViewById(R.id.minutes3);
-        final TextView minutes4 = (TextView) transitionsContainer.findViewById(R.id.minutes4);
+        final ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+        ImageView image_unavalaible = (ImageView) rootView.findViewById(R.id.image_unavailable);
+        ImageView image_available = (ImageView) rootView.findViewById(R.id.image_available);
 
 
-        transitionsContainer.findViewById(R.id.progressBar).setOnClickListener(new VisibleToggleClickListener() {
-
-            @Override
-            protected void changeVisibility(boolean visible) {
-                TransitionManager.beginDelayedTransition(transitionsContainer, new Scale());
-                minutes1.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
-                minutes2.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
-                minutes3.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
-                minutes4.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
 
 
-            }
-            boolean mToRightAnimation;
+        if(Math.random()< 0.5){
+            //unavailable
+            progressBar.bringToFront();
+            progressBar.setVisibility(View.VISIBLE);
+            ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "progress", 50, 500); // see this max value coming back here, we animale towards that value
+            animation.setDuration (60000); //in milliseconds
+            animation.setInterpolator (new DecelerateInterpolator());
+            image_unavalaible.setVisibility(View.VISIBLE);
+            image_unavalaible.bringToFront();
+            animation.start ();
+        }else{
+            //available
+            image_available.setVisibility(View.VISIBLE);
+            image_available.bringToFront();
 
 
-        });*/
+
+            final ViewGroup transitionsContainer = (ViewGroup) rootView.findViewById(R.id.transitions_container);
+
+            final TextView minutes1 = (TextView) transitionsContainer.findViewById(R.id.minutes1);
+            final TextView minutes2 = (TextView) transitionsContainer.findViewById(R.id.minutes2);
+            final TextView minutes3 = (TextView) transitionsContainer.findViewById(R.id.minutes3);
+            final TextView minutes4 = (TextView) transitionsContainer.findViewById(R.id.minutes4);
+
+
+            transitionsContainer.findViewById(R.id.image_available).setOnClickListener(new VisibleToggleClickListener() {
+
+                @Override
+                protected void changeVisibility(boolean visible) {
+                    TransitionManager.beginDelayedTransition(transitionsContainer, new Scale());
+                    minutes1.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+                    minutes2.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+                    minutes3.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+                    minutes4.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+                }
+
+
+            });
+        }
+
+
 
 
 
