@@ -4,11 +4,23 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     tools:context="com.snaptechnology.bgonzalez.bookmyroomandroid.activity.HomeFragment">
+    <TextView
+        android:id="@+id/week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/medium_size_text"
+        android:text="09/04  -  09/11"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"/>
 
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/week">
+
 
 
 
@@ -16,9 +28,10 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:stretchColumns="1"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:id="@+id/table_calendar"
-            android:clickable="true">
+            android:clickable="true"
+            >
 
             <TableRow>
                 <TextView
