@@ -7,14 +7,14 @@
     <RelativeLayout
         android:id="@+id/nav_header_container"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="@dimen/height_layout_icon"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimaryDark">
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_snap_finance"
+            android:layout_width="@dimen/size_icon_menu"
+            android:layout_height="@dimen/size_icon_menu"
+            android:src="@drawable/ic"
             android:scaleType="fitCenter"
             android:layout_centerInParent="true" />
 
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/nav_header_container"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/margin_rows_menu"
         />
 
 
