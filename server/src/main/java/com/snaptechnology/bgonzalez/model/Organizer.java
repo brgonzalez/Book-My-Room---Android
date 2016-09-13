@@ -14,6 +14,10 @@ public class Organizer {
         this.emailAddress = new EmailAddress(json.getJSONObject("EmailAddress"));
     }
 
+    public Organizer(EmailAddress emailAddress){
+        this.emailAddress = emailAddress;
+    }
+
     public EmailAddress getEmailAddress() {
         return emailAddress;
     }

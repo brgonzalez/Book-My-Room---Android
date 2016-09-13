@@ -9,9 +9,8 @@ public class Encoder {
 
     private String code ;
 
-    public String encode(Account account){
-        String authString = account.getAddress() + ":" + account.getPassword();
-        System.out.println("auth string: " + authString);
+    public String encode(String displayNameLocation, String password){
+        String authString = displayNameLocation + ":" + password;
         byte[] authEncBytes = Base64.encodeBase64(authString.getBytes());
         String authStringEnc = new String(authEncBytes);
 
@@ -29,6 +28,6 @@ public class Encoder {
     public static void main(String[] args){
         Account a = new Account("bgonzalez@snaptechnology.net", "Brayan", "BrgcBrgc5snap");
         Encoder e = new Encoder();
-        System.out.println(e.encode(a));
+        System.out.println(e.encode("bgonzalez@snaptechnology.net", "BrgcBrgc5snap"));
     }
 }

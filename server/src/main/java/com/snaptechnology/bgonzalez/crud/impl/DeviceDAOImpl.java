@@ -1,6 +1,6 @@
 package com.snaptechnology.bgonzalez.crud.impl;
 
-import com.snaptechnology.bgonzalez.crud.DeviceDAO;
+import com.snaptechnology.bgonzalez.crud.daos.DeviceDAO;
 import com.snaptechnology.bgonzalez.database.DataBasePostgreSQL;
 import com.snaptechnology.bgonzalez.model.Device;
 
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by bgonzalez on 07/09/2016.
  */
-public class DeviceDAOImpl implements DeviceDAO{
+public class DeviceDAOImpl implements DeviceDAO {
     private DataBasePostgreSQL connection;
 
 

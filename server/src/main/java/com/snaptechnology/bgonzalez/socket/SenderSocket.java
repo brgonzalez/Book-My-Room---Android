@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class SenderSocket {
     private List<Device> devices ;
 
 
-    public void sendData(String data){
+    public void sendData(List<Device> devices,String data){
         InetAddress deviceAddress = null;
         PrintWriter printer ;
 
@@ -43,7 +44,18 @@ public class SenderSocket {
         }
     }
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String args[]) throws IOException, InterruptedException {
+        int c = 0;
+        while(true){
+
+            Thread.sleep(1000);
+            SenderSocket senderSocket = new SenderSocket();
+            List<Device> devices = new ArrayList<Device>();
+            devices.add(new Device("AA","10.110.10.88"));
+            senderSocket.sendData(devices,Integer.toString(c));
+            c++;
+        }
+
 
     }
 }

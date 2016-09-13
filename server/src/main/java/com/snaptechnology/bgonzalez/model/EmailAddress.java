@@ -18,6 +18,11 @@ public class EmailAddress {
         this.address = json.get("Address").toString();
     }
 
+    public EmailAddress(String name, String address){
+        this.name = name;
+        this.address = address;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

@@ -17,6 +17,11 @@ public class Attendee {
         this.type = json.getString("Type").toString();
     }
 
+    public Attendee(EmailAddress emailAddress, String type){
+        this.emailAddress = emailAddress;
+        this.type = type;
+    }
+
     public EmailAddress getEmailAddress() {
         return emailAddress;
     }

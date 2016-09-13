@@ -30,10 +30,17 @@ final class ApacheHttpClient {
     private String path;
     private BufferedReader br;
     private StringBuffer output;
+
+
+
+    private String displayNameLocation;
+    private String password ="BrgcBrgc5snap";
+    private Account account;
+    private Encoder encoder;
     private String codeBasicAuth = "YmdvbnphbGV6QHNuYXB0ZWNobm9sb2d5Lm5ldDpCcmdjQnJnYzVzbmFw";
 
     protected ApacheHttpClient() {
-
+        this.encoder = new Encoder();
     }
     private void setClient() {
         client = HttpClientBuilder.create().build();
@@ -90,8 +97,10 @@ final class ApacheHttpClient {
             input = new StringEntity(json);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+            System.out.println("Cannot read json");
         }
         input.setContentType("application/json");
+        postRequest.setEntity(input);
         setRequestHeaders(postRequest);
     }
 
@@ -113,8 +122,10 @@ final class ApacheHttpClient {
     }
 
     private void setRequestHeaders(HttpRequestBase request){
+        codeBasicAuth = encoder.encode(displayNameLocation,password);
         request.addHeader("Authorization", "Basic " + codeBasicAuth);
         request.addHeader("Accept", "application/json");
+        request.addHeader("Content-Type" , "Application/Json" );
         request.addHeader("Accept-Language", "es-419,es;q=0.8");
         request.addHeader("Prefer", "odata.track-changes");
     }
@@ -153,6 +164,22 @@ final class ApacheHttpClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getDisplayNameLocation() {
+        return displayNameLocation;
+    }
+
+    public void setDisplayNameLocation(String displayNameLocation) {
+        this.displayNameLocation = displayNameLocation;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public static void main(String[] args) {

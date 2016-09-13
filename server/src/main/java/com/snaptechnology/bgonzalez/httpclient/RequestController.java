@@ -2,7 +2,7 @@ package com.snaptechnology.bgonzalez.httpclient;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.snaptechnology.bgonzalez.model.Event;
+import com.snaptechnology.bgonzalez.model.*;
 import com.snaptechnology.bgonzalez.services.URLService;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
@@ -18,7 +18,6 @@ public class RequestController {
 
     private ApacheHttpClient client;
     private URLService urlService;
-
 
 
     private String delta="";
@@ -42,16 +41,19 @@ public class RequestController {
 
         JSONArray json = new JSONObject(client.getOutput()).getJSONArray("value");
         for(int i = 0; i < json.length(); i++){
-            events.add(new Event(json.getJSONObject(i)));
+            //events.add(new Event(json.getJSONObject(i)));
         }
         return events;
     }
 
-    public List<Event> getEvents(String startDate, String endDate){
+    public List<Event> getEvents(Location location,String startDate, String endDate){
 
         logger.info("Getting events from API Office 365");
 
         List<Event> events = new ArrayList<Event>();
+
+        client.setDisplayNameLocation(location.getDisplayName());
+        urlService.setDisplayNameLocation(location.getDisplayName());
 
         client.getHttpRequest(urlService.getURLEvents(startDate,endDate));
         System.out.println(urlService.getURLEvents(startDate,endDate));
@@ -70,7 +72,22 @@ public class RequestController {
     }
 
     public void createEvent(String json){
-        client.postHttpRequest(urlService.getURLCreateEvent(), json);
+
+        JSONObject jsonObj = new JSONObject(json);
+
+
+
+        client.setDisplayNameLocation(jsonObj.getString("displayNameLocation"));
+        urlService.setDisplayNameLocation(jsonObj.getString("displayNameLocation"));
+
+
+        System.out.println(urlService.getURLCreateEvent());
+        System.out.println(json);
+
+        String data = jsonObj.getJSONObject("data").toString();
+        System.out.println(data);
+        client.postHttpRequest(urlService.getURLCreateEvent(), data);
+        System.out.println(client.getOutput());
     }
 
 
@@ -78,8 +95,11 @@ public class RequestController {
         //client.patchHttpRequest(urlService.getURLUpdateEvent(event.getId()),);
     }
 
-    public List<Event> synchronizedEvents(String startDate, String endDate){
+    public List<Event> synchronizedEvents(Location location, String startDate, String endDate,String delta){
         List<Event> events = new ArrayList<Event>();
+
+        client.setDisplayNameLocation(location.getDisplayName());
+        urlService.setDisplayNameLocation(location.getDisplayName());
 
         client.getHttpRequest(urlService.getURLSynchronizeEvents(startDate, endDate, delta));
         String dataDelta = new JSONObject(client.getOutput()).getString("@odata.deltaLink");
@@ -120,16 +140,84 @@ public class RequestController {
         this.urlService  = urlService;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    private Account account;
+
+
     public static void main(String[] args) throws JsonProcessingException {
         RequestController rc = new RequestController();
         ObjectMapper mapper = new ObjectMapper();
 
         //rc.createEvent("Brayan","UTC","2016-08-18T11:30:00.0003579Z","2016-08-18T12:30:00.0003579Z",attendees);
-        
-        Account a = new Account("bgonzalez@snaptechnology.net","Brayan", "BrgcBrgc5snap");
-        rc.getUrlService().setAccount(a);
 
-        System.out.println(mapper.writeValueAsString(rc.synchronizedEvents("2016-08-17T10:30:00.0003579Z","2016-08-19T14:30:00.0003579Z")));
+        Account account = new Account("bgonzalez@snaptechnology.net","Brayan", "BrgcBrgc5snap");
+        rc.setAccount(account);
+
+
+
+        //Get
+
+
+
+        // Create
+
+        EmailAddress emailAddress = new EmailAddress("Brayan González","bgonzalez@snaptechnology.net");
+        Organizer organizer = new Organizer(emailAddress);
+        Attendee attendee = new Attendee(emailAddress,"Required");
+        Location location = new Location("Bella");
+        List<Attendee> attendees = new ArrayList<Attendee>();
+        attendees.add(attendee);
+
+        Event event = new Event("id","Test from Server",location,false,"2016-09-13T16:30:00.0003579Z","2016-09-13T20:30:00.0003579Z");
+        String JSON = mapper.writeValueAsString(event);
+
+        String test = "{\"displayNameLocation\":\"bgonzalez@snaptechnology.net\",\"data\":"+JSON+"}";
+        System.out.println(test);
+        rc.createEvent(test);
+
+
+
+        //System.out.println(mapper.writeValueAsString(rc.synchronizedEvents("2016-09-13T10:30:00.0003579Z","2016-09-13T11:30:00.0003579Z")));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //Event e = new Event("1","subject",null,null,null,false,"","");
         //System.out.println(mapper.writeValueAsString(e));

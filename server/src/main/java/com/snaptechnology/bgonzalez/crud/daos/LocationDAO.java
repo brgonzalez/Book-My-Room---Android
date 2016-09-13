@@ -1,5 +1,6 @@
-package com.snaptechnology.bgonzalez.crud;
+package com.snaptechnology.bgonzalez.crud.daos;
 
+import com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO;
 import com.snaptechnology.bgonzalez.model.Location;
 
 import java.util.List;

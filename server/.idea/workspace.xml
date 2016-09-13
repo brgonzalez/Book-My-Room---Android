@@ -2,29 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6f550d1-cf52-492b-bec4-43e957e17e2a" name="Default" comment="Adding Connection DataBase">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_2_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/LocationsDevicesDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/UpdateDataService.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/com/snaptechnology/bgonzalez/testSocket/Device.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/httpclient/testSocket/Device.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/Device.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/crud/impl/LocationDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/crud/impl/LocationDAOImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../android/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../android/app/src/main/res/drawable/circle_finished.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../android/app/src/main/res/drawable/rectangule_background.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/c.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/circle3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/circle_main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/LocationsDevicesDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/httpclient/Resource.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/httpclient/URLService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/ChatClient$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/ChatClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/ChatServer$Handler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/ChatServer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/SocketClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/SocketServer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/echo3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/smtpClient.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/DeviceDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/DeviceDAO.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/GenericDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/generic/GenericDAO.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/LocationDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/LocationDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/httpclient/Encoder.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/httpclient/Encoder.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/httpclient/RequestController.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/httpclient/RequestController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/model/Attendee.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/model/Attendee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/model/EmailAddress.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/model/EmailAddress.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/model/Event.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/model/Event.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/model/Organizer.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/model/Organizer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/services/URLService.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/services/URLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/ReceiverSocket.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/ReceiverSocket.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/services/UpdateDataService.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/services/UpdateDataService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/SenderSocket.class" afterPath="$PROJECT_DIR$/target/classes/com/snaptechnology/bgonzalez/socket/SenderSocket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/SocketTestFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/SocketTestFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/build.gradle" afterPath="$PROJECT_DIR$/../android/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/CalendarFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/CalendarFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/HomeFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/HomeFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/circle.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/drawable/circle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/timer.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/drawable/timer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_home.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_home.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_socket_test.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_socket_test.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/values-w820dp/dimens.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/values-w820dp/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/values/dimens.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Book My Room.iml" afterPath="$PROJECT_DIR$/Book My Room.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/DeviceDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/DeviceDAOImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/LocationDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/LocationDAOImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Encoder.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Encoder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/RequestController.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/RequestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/testSocket/Device2.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/testSocket/Device2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Attendee.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Attendee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/EmailAddress.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/EmailAddress.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Event.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Event.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Organizer.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Organizer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/URLService.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/URLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ReceiverSocket.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ReceiverSocket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/UpdateDataService.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/UpdateDataService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SenderSocket.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SenderSocket.java" />
     </list>
     <ignored path="Book My Room.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,115 +76,166 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RequestController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RequestController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/RequestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="127" column="8" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="8" />
+            <state relative-caret-position="51">
+              <caret line="155" column="8" selection-start-line="155" selection-start-column="8" selection-end-line="155" selection-end-column="49" />
               <folding>
-                <element signature="e#1476#1483#0" expanded="true" />
-                <element signature="e#2069#2070#0" expanded="true" />
-                <element signature="e#2145#2146#0" expanded="true" />
-                <element signature="e#3429#3430#0" expanded="true" />
-                <element signature="e#3462#3463#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#5417#5427#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UpdateDataService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/UpdateDataService.java">
+      <file leaf-file-name="ApacheHttpClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="125" column="67" selection-start-line="125" selection-start-column="67" selection-end-line="125" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SenderSocket.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SenderSocket.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding>
+                <element signature="e#1512#1520#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeviceDAOImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/DeviceDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Device.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Device.java">
+      <file leaf-file-name="DeviceDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/DeviceDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+            <state relative-caret-position="119">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Attendee.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Attendee.java">
+      <file leaf-file-name="GenericDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/generic/GenericDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Event.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-650">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="URLService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/URLService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Category.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/Category.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Device3.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/com/snaptechnology/bgonzalez/testSocket/Device3.java">
+      <file leaf-file-name="JAVA/com.snaptechnology.bgonzalez" pinned="false" current-in-tab="false">
+        <entry file="uml://JAVA/com.snaptechnology.bgonzalez">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>com.snaptechnology.bgonzalez</OriginalElement>
+              <nodes>
+                <node x="148.0" y="296.0">com.snaptechnology.bgonzalez.httpclient.Account</node>
+                <node x="0.0" y="74.0">com.snaptechnology.bgonzalez.database</node>
+                <node x="158.0" y="222.0">com.snaptechnology.bgonzalez.com</node>
+                <node x="0.0" y="296.0">com.snaptechnology.bgonzalez.crud</node>
+                <node x="165.0" y="148.0">com.snaptechnology.bgonzalez.socket</node>
+                <node x="0.0" y="370.0">com.snaptechnology.bgonzalez.httpclient.testSocket.Device2</node>
+                <node x="270.0" y="296.0">com.snaptechnology.bgonzalez.httpclient.Encoder</node>
+                <node x="171.0" y="74.0">com.snaptechnology.bgonzalez.httpclient.testSocket.SocketServerTest</node>
+                <node x="0.0" y="222.0">com.snaptechnology.bgonzalez.model</node>
+                <node x="0.0" y="148.0">com.snaptechnology.bgonzalez.services</node>
+                <node x="0.0" y="0.0">com.snaptechnology.bgonzalez.httpclient.ApacheHttpClient</node>
+                <node x="172.0" y="0.0">com.snaptechnology.bgonzalez.httpclient.RequestController</node>
+              </nodes>
+              <notes />
+              <edges />
+              <settings layout="Hierarchic Group" zoom="1.0" x="-296.5" y="96.5" />
+              <SelectedNodes />
+              <Categories />
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocationDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/LocationDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="21" column="67" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
+            <state relative-caret-position="0">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReceiverSocket.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ReceiverSocket.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="27" column="22" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+      <file leaf-file-name="JAVA/com.snaptechnology.bgonzalez.crud" pinned="false" current-in-tab="false">
+        <entry file="uml://JAVA/com.snaptechnology.bgonzalez.crud">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>com.snaptechnology.bgonzalez.crud</OriginalElement>
+              <nodes>
+                <node x="-163.5" y="162.0">com.snaptechnology.bgonzalez.crud.daos.DeviceDAO</node>
+                <node x="-18.5" y="-16.0">com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO</node>
+                <node x="65.0" y="252.0">com.snaptechnology.bgonzalez.crud.impl.LocationDAOImpl</node>
+                <node x="-280.0" y="285.5">com.snaptechnology.bgonzalez.crud.impl.DeviceDAOImpl</node>
+                <node x="168.0" y="151.0">com.snaptechnology.bgonzalez.crud.daos.LocationDAO</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="com.snaptechnology.bgonzalez.crud.impl.LocationDAOImpl" target="com.snaptechnology.bgonzalez.crud.daos.LocationDAO">
+                  <point x="0.0" y="-114.5" />
+                  <point x="0.0" y="25.5" />
+                </edge>
+                <edge source="com.snaptechnology.bgonzalez.crud.daos.LocationDAO" target="com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO">
+                  <point x="0.0" y="-25.5" />
+                  <point x="257.5" y="126.0" />
+                  <point x="114.25" y="126.0" />
+                  <point x="44.25" y="58.5" />
+                </edge>
+                <edge source="com.snaptechnology.bgonzalez.crud.daos.DeviceDAO" target="com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO">
+                  <point x="0.0" y="-14.5" />
+                  <point x="-117.5" y="126.0" />
+                  <point x="25.75" y="126.0" />
+                  <point x="-44.25" y="58.5" />
+                </edge>
+                <edge source="com.snaptechnology.bgonzalez.crud.impl.DeviceDAOImpl" target="com.snaptechnology.bgonzalez.crud.daos.DeviceDAO">
+                  <point x="0.0" y="-81.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.0" x="-314.0" y="185.0" />
+              <SelectedNodes />
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+              </Categories>
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Device2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/testSocket/Device2.java">
+      <file leaf-file-name="UpdateDataService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/UpdateDataService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+            <state relative-caret-position="446">
+              <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -181,23 +261,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ChatServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/echo3.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/smtpClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SocketServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SocketClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/Socket2Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/Socket2Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ChatClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Resource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/URLService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/EmailAddress.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Organizer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/testSocket/Device.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/com/snaptechnology/bgonzalez/testSocket/Device.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/com/snaptechnology/bgonzalez/testSocket/SocketServerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SenderSocket.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/data/IDaoBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/data/GenericDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/data/EntityManager.java" />
@@ -211,27 +283,35 @@
         <option value="$PROJECT_DIR$/src/META-INF/Location-orm.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/GenericDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/database/DataBasePostgreSQL.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Location.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/LocationDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/database/SettingsDB.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Account.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Encoder.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/DeviceDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/Device.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/DeviceDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Device.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/DeviceDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/LocationsDevicesDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/LocationDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/testSocket/Device2.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ReceiverSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/EmailAddress.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Attendee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Location.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Organizer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Event.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/UpdateDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/URLService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Encoder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/RequestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/DeviceDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/LocationDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/DeviceDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/DeviceDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/generic/GenericDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SenderSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/UpdateDataService.java" />
       </list>
     </option>
   </component>
@@ -284,8 +364,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -483,71 +561,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="httpclient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testSocket" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bgonzalez" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bgonzalez" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crud" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -611,12 +625,48 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="crud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="daos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bgonzalez" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="testSocket" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -631,60 +681,20 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bgonzalez\Documents\Proyecto BookMyRoom\book-my-room\server\src\META-INF" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.snaptechnology.bgonzalez.data" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bgonzalez\IdeaProjects\Book My Room\src\main\java\com\snaptechnology\bgonzalez\httpclient" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.snaptechnology.bgonzalez.data" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bgonzalez\Documents\Proyecto BookMyRoom\book-my-room\server\src\META-INF" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.RequestController">
-    <configuration default="false" name="SocketServerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.snaptechnology.bgonzalez.com.snaptechnology.bgonzalez.testSocket.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.snaptechnology.bgonzalez.com.snaptechnology.bgonzalez.testSocket.SocketServerTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Book My Room" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="DataBasePostgreSQL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.snaptechnology.bgonzalez.database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.snaptechnology.bgonzalez.database.DataBasePostgreSQL" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Book My Room" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="Encoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -733,6 +743,46 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.snaptechnology.bgonzalez.httpclient.RequestController" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Book My Room" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SenderSocket" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.snaptechnology.bgonzalez.socket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.snaptechnology.bgonzalez.socket.SenderSocket" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Book My Room" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="UpdateDataService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.snaptechnology.bgonzalez.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.snaptechnology.bgonzalez.services.UpdateDataService" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1176,19 +1226,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.SocketServerTest" />
-      <item index="1" class="java.lang.String" itemvalue="Application.DataBasePostgreSQL" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Encoder" />
-      <item index="3" class="java.lang.String" itemvalue="Application.URLService" />
-      <item index="4" class="java.lang.String" itemvalue="Application.RequestController" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Encoder" />
+      <item index="1" class="java.lang.String" itemvalue="Application.URLService" />
+      <item index="2" class="java.lang.String" itemvalue="Application.RequestController" />
+      <item index="3" class="java.lang.String" itemvalue="Application.SenderSocket" />
+      <item index="4" class="java.lang.String" itemvalue="Application.UpdateDataService" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.RequestController" />
-        <item index="1" class="java.lang.String" itemvalue="Application.URLService" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Encoder" />
-        <item index="3" class="java.lang.String" itemvalue="Application.DataBasePostgreSQL" />
-        <item index="4" class="java.lang.String" itemvalue="Application.SocketServerTest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Encoder" />
+        <item index="2" class="java.lang.String" itemvalue="Application.UpdateDataService" />
+        <item index="3" class="java.lang.String" itemvalue="Application.SenderSocket" />
+        <item index="4" class="java.lang.String" itemvalue="Application.URLService" />
       </list>
     </recent_temporary>
   </component>
@@ -1214,7 +1264,10 @@
       <workItem from="1471355124641" duration="42553000" />
       <workItem from="1471884448428" duration="11607000" />
       <workItem from="1472487843116" duration="10839000" />
-      <workItem from="1473115656004" duration="45181000" />
+      <workItem from="1473115656004" duration="50733000" />
+      <workItem from="1473457187827" duration="1602000" />
+      <workItem from="1473713972759" duration="3379000" />
+      <workItem from="1473779890681" duration="21014000" />
     </task>
     <task id="LOCAL-00001" summary=" Location DAO&#10;">
       <created>1473200641773</created>
@@ -1248,29 +1301,28 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162339000" />
+    <option name="totallyTimeSpent" value="193886000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32873806" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32767764" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26193002" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29268292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23541667" sideWeight="0.20028612" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23541667" sideWeight="0.20028612" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29635417" sideWeight="0.79971385" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1281,6 +1333,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1303,15 +1356,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/URLService.java</url>
-          <line>44</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="16" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1320,82 +1365,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/RequestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3517#3518#0" expanded="false" />
-            <element signature="e#3553#3554#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/json/json/20160212/json-20160212.jar!/org/json/JSONObject.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17323">
-          <caret line="1019" column="0" selection-start-line="1019" selection-start-column="0" selection-end-line="1019" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Location." />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/echo3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="43" column="1" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SocketClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="90" selection-start-line="27" selection-start-column="90" selection-end-line="27" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SocketServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/smtpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ChatServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ChatClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SocketClient.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SocketServer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/smtpClient.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ChatServer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ChatClient.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/json/json/20160212/json-20160212.jar!/org/json/JSONObject.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5678">
@@ -1403,44 +1377,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/net/DualStackPlainSocketImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/net/Socket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="588" column="0" selection-start-line="588" selection-start-column="0" selection-end-line="588" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Location." />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Organizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="15" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#312#313#0" expanded="false" />
-            <element signature="e#400#401#0" expanded="false" />
-            <element signature="e#445#446#0" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#542#543#0" expanded="false" />
-            <element signature="e#590#591#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/data/EntityManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/data/EntityManager.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/LocationDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1449,29 +1387,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Resource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/com/snaptechnology/bgonzalez/testSocket/SocketServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Resource.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar!/javax/persistence/Table.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1479,61 +1399,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="19" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/META-INF/Location-orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml" />
+    <entry file="file://$PROJECT_DIR$/src/META-INF/Location-orm.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/GenericDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#305#306#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/EmailAddress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1541,104 +1415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/LocationDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/DeviceDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/DeviceDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1983#1991#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/LocationsDevicesDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/LocationDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#1749#1759#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SenderSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Encoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/database/SettingsDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/database/DataBasePostgreSQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="876">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1659,20 +1435,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/com/snaptechnology/bgonzalez/testSocket/Device3.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/net/Socket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="67" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
-          <folding />
+        <state relative-caret-position="3604">
+          <caret line="243" column="0" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ReceiverSocket.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/net/DualStackPlainSocketImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="22" />
+        <state relative-caret-position="850">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/com/snaptechnology/bgonzalez/testSocket/Device3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1681,67 +1463,429 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Attendee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#299#300#0" expanded="false" />
+            <element signature="e#324#325#0" expanded="false" />
+            <element signature="e#360#361#0" expanded="false" />
+            <element signature="e#388#389#0" expanded="false" />
+            <element signature="e#422#423#0" expanded="false" />
+            <element signature="e#452#453#0" expanded="false" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#536#537#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Event.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/com/snaptechnology/bgonzalez/testSocket/SocketServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-650">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/UpdateDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/Category.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
+        <state relative-caret-position="3638">
           <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/URLService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/database/SettingsDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/database/DataBasePostgreSQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/EmailAddress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Attendee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#305#306#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Organizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#450#451#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="130" column="5" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2326#2327#0" expanded="true" />
+            <element signature="e#2357#2358#0" expanded="true" />
+            <element signature="e#2964#2965#0" expanded="true" />
+            <element signature="e#3005#3006#0" expanded="true" />
+            <element signature="e#3119#3120#0" expanded="true" />
+            <element signature="e#3149#3150#0" expanded="true" />
+            <marker date="1473797026050" expanded="false" signature="1194:1204" ph="&lt;~&gt;" />
+            <marker date="1473797026050" expanded="false" signature="2184:2194" ph=" { " />
+            <marker date="1473797026050" expanded="false" signature="2211:2217" ph=" }" />
+            <marker date="1473797026050" expanded="false" signature="2770:2781" ph=" { " />
+            <marker date="1473797026050" expanded="false" signature="2808:2814" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/URLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1885#1886#0" expanded="true" />
+            <element signature="e#1927#1928#0" expanded="true" />
+            <element signature="e#1997#1998#0" expanded="true" />
+            <element signature="e#2059#2060#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/Encoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/ReceiverSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.snaptechnology.bgonzalez.model.Attendee">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.snaptechnology.bgonzalez.model.Attendee</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">com.snaptechnology.bgonzalez.model.Attendee</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-395.5" y="-51.5" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/LocationsDevicesDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.snaptechnology.bgonzalez.crud.impl">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.snaptechnology.bgonzalez.crud.impl</OriginalElement>
+          <nodes>
+            <node x="-175.5" y="-23.0">com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO</node>
+            <node x="-87.0" y="144.0">com.snaptechnology.bgonzalez.crud.impl.LocationDAOImpl</node>
+            <node x="-432.0" y="166.0">com.snaptechnology.bgonzalez.crud.impl.DeviceDAOImpl</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.snaptechnology.bgonzalez.crud.impl.DeviceDAOImpl" target="com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO">
+              <point x="0.0" y="-81.0" />
+              <point x="-269.5" y="119.0" />
+              <point x="-131.25" y="119.0" />
+              <point x="-44.25" y="58.5" />
+            </edge>
+            <edge source="com.snaptechnology.bgonzalez.crud.impl.LocationDAOImpl" target="com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO">
+              <point x="0.0" y="-103.0" />
+              <point x="95.5" y="119.0" />
+              <point x="-42.75" y="119.0" />
+              <point x="44.25" y="58.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-372.0" y="126.0" />
+          <SelectedNodes>
+            <node>com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.snaptechnology.bgonzalez.model">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.snaptechnology.bgonzalez.model</OriginalElement>
+          <nodes>
+            <node x="-324.0" y="211.0">com.snaptechnology.bgonzalez.model.Person</node>
+            <node x="-82.0" y="5.0">com.snaptechnology.bgonzalez.model.Attendee</node>
+            <node x="-324.0" y="447.0">com.snaptechnology.bgonzalez.model.Location</node>
+            <node x="-162.0" y="329.0">com.snaptechnology.bgonzalez.model.Organizer</node>
+            <node x="-324.0" y="5.0">com.snaptechnology.bgonzalez.model.Event</node>
+            <node x="-324.0" y="329.0">com.snaptechnology.bgonzalez.model.Device</node>
+            <node x="-142.0" y="211.0">com.snaptechnology.bgonzalez.model.EmailAddress</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.snaptechnology.bgonzalez.model.Event" target="com.snaptechnology.bgonzalez.model.Location">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="com.snaptechnology.bgonzalez.model.Attendee" target="com.snaptechnology.bgonzalez.model.EmailAddress">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="com.snaptechnology.bgonzalez.model.Organizer" target="com.snaptechnology.bgonzalez.model.EmailAddress">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-320.0" y="160.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.snaptechnology.bgonzalez.httpclient">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.snaptechnology.bgonzalez.httpclient</OriginalElement>
+          <nodes>
+            <node x="305.0" y="382.0">com.snaptechnology.bgonzalez.httpclient.Account</node>
+            <node x="517.0" y="382.0">com.snaptechnology.bgonzalez.httpclient.testSocket.Device2</node>
+            <node x="170.0" y="566.0">com.snaptechnology.bgonzalez.httpclient.Encoder</node>
+            <node x="0.0" y="566.0">com.snaptechnology.bgonzalez.httpclient.testSocket.SocketServerTest</node>
+            <node x="0.0" y="0.0">com.snaptechnology.bgonzalez.httpclient.ApacheHttpClient</node>
+            <node x="0.0" y="382.0">com.snaptechnology.bgonzalez.httpclient.RequestController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-311.0" y="220.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/LocationDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/impl/DeviceDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/LocationDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/DeviceDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/crud/daos/generic/GenericDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.snaptechnology.bgonzalez">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.snaptechnology.bgonzalez</OriginalElement>
+          <nodes>
+            <node x="148.0" y="296.0">com.snaptechnology.bgonzalez.httpclient.Account</node>
+            <node x="0.0" y="74.0">com.snaptechnology.bgonzalez.database</node>
+            <node x="158.0" y="222.0">com.snaptechnology.bgonzalez.com</node>
+            <node x="0.0" y="296.0">com.snaptechnology.bgonzalez.crud</node>
+            <node x="165.0" y="148.0">com.snaptechnology.bgonzalez.socket</node>
+            <node x="0.0" y="370.0">com.snaptechnology.bgonzalez.httpclient.testSocket.Device2</node>
+            <node x="270.0" y="296.0">com.snaptechnology.bgonzalez.httpclient.Encoder</node>
+            <node x="171.0" y="74.0">com.snaptechnology.bgonzalez.httpclient.testSocket.SocketServerTest</node>
+            <node x="0.0" y="222.0">com.snaptechnology.bgonzalez.model</node>
+            <node x="0.0" y="148.0">com.snaptechnology.bgonzalez.services</node>
+            <node x="0.0" y="0.0">com.snaptechnology.bgonzalez.httpclient.ApacheHttpClient</node>
+            <node x="172.0" y="0.0">com.snaptechnology.bgonzalez.httpclient.RequestController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-296.5" y="96.5" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.snaptechnology.bgonzalez.crud">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.snaptechnology.bgonzalez.crud</OriginalElement>
+          <nodes>
+            <node x="-163.5" y="162.0">com.snaptechnology.bgonzalez.crud.daos.DeviceDAO</node>
+            <node x="-18.5" y="-16.0">com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO</node>
+            <node x="65.0" y="252.0">com.snaptechnology.bgonzalez.crud.impl.LocationDAOImpl</node>
+            <node x="-280.0" y="285.5">com.snaptechnology.bgonzalez.crud.impl.DeviceDAOImpl</node>
+            <node x="168.0" y="151.0">com.snaptechnology.bgonzalez.crud.daos.LocationDAO</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.snaptechnology.bgonzalez.crud.impl.LocationDAOImpl" target="com.snaptechnology.bgonzalez.crud.daos.LocationDAO">
+              <point x="0.0" y="-114.5" />
+              <point x="0.0" y="25.5" />
+            </edge>
+            <edge source="com.snaptechnology.bgonzalez.crud.daos.LocationDAO" target="com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO">
+              <point x="0.0" y="-25.5" />
+              <point x="257.5" y="126.0" />
+              <point x="114.25" y="126.0" />
+              <point x="44.25" y="58.5" />
+            </edge>
+            <edge source="com.snaptechnology.bgonzalez.crud.daos.DeviceDAO" target="com.snaptechnology.bgonzalez.crud.daos.generic.GenericDAO">
+              <point x="0.0" y="-14.5" />
+              <point x="-117.5" y="126.0" />
+              <point x="25.75" y="126.0" />
+              <point x="-44.25" y="58.5" />
+            </edge>
+            <edge source="com.snaptechnology.bgonzalez.crud.impl.DeviceDAOImpl" target="com.snaptechnology.bgonzalez.crud.daos.DeviceDAO">
+              <point x="0.0" y="-81.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-314.0" y="185.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/socket/SenderSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#1512#1520#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="125" column="67" selection-start-line="125" selection-start-column="67" selection-end-line="125" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/RequestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="127" column="8" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="8" />
+        <state relative-caret-position="51">
+          <caret line="155" column="8" selection-start-line="155" selection-start-column="8" selection-end-line="155" selection-end-column="49" />
           <folding>
-            <element signature="e#1476#1483#0" expanded="true" />
-            <element signature="e#2069#2070#0" expanded="true" />
-            <element signature="e#2145#2146#0" expanded="true" />
-            <element signature="e#3429#3430#0" expanded="true" />
-            <element signature="e#3462#3463#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#5417#5427#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/UpdateDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>

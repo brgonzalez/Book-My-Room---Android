@@ -1,6 +1,6 @@
 package com.snaptechnology.bgonzalez.crud.impl;
 
-import com.snaptechnology.bgonzalez.crud.LocationDAO;
+import com.snaptechnology.bgonzalez.crud.daos.LocationDAO;
 import com.snaptechnology.bgonzalez.database.DataBasePostgreSQL;
 import com.snaptechnology.bgonzalez.model.Location;
 
