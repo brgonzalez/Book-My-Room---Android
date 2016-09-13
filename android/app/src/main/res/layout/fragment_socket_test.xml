@@ -25,153 +25,25 @@
             tools:context=".MainActivity">
 
 
-            <com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.CircleProgressView
-                android:id="@+id/circleView"
-                android:layout_width="277dp"
-                android:layout_height="277dp"
-                CircleProgressView:cpv_value="10"
-                CircleProgressView:cpv_maxValue="100"
-                CircleProgressView:cpv_barColor="@color/colorPrimary"
-                CircleProgressView:cpv_rimColor="@color/colorAccent"
-                CircleProgressView:cpv_textColor="@color/colorPrimaryDark"
-                CircleProgressView:cpv_unitColor="@color/colorPrimary"
-                CircleProgressView:cpv_spinColor="@color/colorPrimary"
-                CircleProgressView:cpv_barWidth="35dp"
-                CircleProgressView:cpv_rimWidth="35dp"
-                CircleProgressView:cpv_contourSize="0dp"
-                CircleProgressView:cpv_autoTextSize="true"
-                CircleProgressView:cpv_seekMode="true"
-                CircleProgressView:cpv_unit="%"
-                CircleProgressView:cpv_unitPosition="right_top"
-                CircleProgressView:cpv_unitScale="1"
-                CircleProgressView:cpv_textScale="1"
-                CircleProgressView:cpv_showUnit="true"
-                />
 
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/scrollView"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/socket"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="32dp"
+                android:text="Socket"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <TextView
-                        android:layout_marginTop="30dp"
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Value"
-                        android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-                    <SeekBar
-                        android:id="@+id/seekBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"/>
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:text="Spinning Bar Length"
-                        android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-                    <SeekBar
-                        android:id="@+id/seekBar2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <Switch
-                            android:id="@+id/switch1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginRight="10dp"
-                            android:text="Spin"/>
-
-                        <Switch
-                            android:id="@+id/switch2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="Show Unit"/>
-
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Unit Position"
-                        android:layout_marginTop="30dp"
-                        android:id="@+id/textView3"
-                        android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/spinner"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp" />
-                </LinearLayout>
-            </ScrollView>
 
         </LinearLayout>
 
 
-        <!--
 
-        <com.snaptechnology.bgonzalez.bookmyroomandroid.SimpleCircularProgressbar
-            xmlns:custom="http://schemas.android.com/apk/res-auto"
-            custom:progressbar_thickness="10"
-            custom:progress="50"
-            custom:rotation="anticlockwise"
-            custom:progressColor="#FF00FF"
-            android:layout_width="200dp"
-            android:layout_height="200dp"/>
-
-        <com.github.lzyzsd.circleprogress.DonutProgress
-            android:layout_marginLeft="50dp"
-            android:id="@+id/donut_progress"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            custom:donut_progress="30"/>
-
-        <TextView
-            android:id="@+id/socket"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="32dp"
-            android:text="Socket"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
-            -->
 
     </RelativeLayout>
-
-
-
-
 </RelativeLayout>
