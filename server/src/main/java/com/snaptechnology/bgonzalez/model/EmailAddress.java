@@ -4,7 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.JSONObject;
 
 /**
- * Created by bgonzalez on 18/08/2016.
+ * The object EmailAddress is the abstraction of a common address, it
+ * is use for identify some real email address
+ *
+ * @author Brayan González
+ * @since 18/08/2016
+ *
  */
 public class EmailAddress {
     @JsonProperty("Name")

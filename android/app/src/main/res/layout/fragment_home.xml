@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/fragment_home"
     tools:context="com.snaptechnology.bgonzalez.bookmyroomandroid.activity.HomeFragment">
 
     <!---->
@@ -267,6 +268,20 @@
                                     android:layout_weight="1"
                                     android:orientation="horizontal"
                                     android:layout_margin="1dp">
+
+                                    <TextView
+                                        android:id="@+id/circle_finished"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/circle_finished"
+                                        android:gravity="center"
+                                        android:text="Finished?"
+                                        android:textColor="@color/textColorPrimary"
+                                        android:textSize="@dimen/extra_small_size_text"
+                                        android:textStyle="bold"
+                                        android:layout_margin="@dimen/margin_circle_choose_time"
+                                        android:visibility="invisible"/>
 
 
 

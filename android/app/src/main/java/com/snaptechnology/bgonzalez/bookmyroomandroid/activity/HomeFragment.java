@@ -9,7 +9,9 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
@@ -92,6 +94,8 @@ public class HomeFragment extends Fragment {
 
 
 
+        final ViewGroup transitionsContainer = (ViewGroup) rootView.findViewById(R.id.transitions_container);
+
 
         if(Math.random()< 0.5){
             //unavailable
@@ -103,6 +107,21 @@ public class HomeFragment extends Fragment {
             image_unavalaible.setVisibility(View.VISIBLE);
             image_unavalaible.bringToFront();
             animation.start ();
+
+            final TextView finished = (TextView) transitionsContainer.findViewById(R.id.circle_finished);
+
+            transitionsContainer.findViewById(R.id.image_unavailable).setOnClickListener(new VisibleToggleClickListener() {
+
+                @Override
+                protected void changeVisibility(boolean visible) {
+                    TransitionManager.beginDelayedTransition(transitionsContainer, new Scale());
+                    finished.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+
+                }
+
+
+            });
+
         }else{
             //available
             image_available.setVisibility(View.VISIBLE);
@@ -110,7 +129,6 @@ public class HomeFragment extends Fragment {
 
 
 
-            final ViewGroup transitionsContainer = (ViewGroup) rootView.findViewById(R.id.transitions_container);
 
             final TextView minutes1 = (TextView) transitionsContainer.findViewById(R.id.minutes1);
             final TextView minutes2 = (TextView) transitionsContainer.findViewById(R.id.minutes2);
@@ -132,7 +150,6 @@ public class HomeFragment extends Fragment {
 
             });
         }
-
 
 
 

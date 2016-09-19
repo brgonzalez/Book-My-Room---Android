@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Cell;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 
@@ -42,6 +43,8 @@ public class CalendarFragment extends Fragment {
 
 
 
+
+
         final TableLayout table = (TableLayout) rootView.findViewById(R.id.table_calendar);
 
         for(int i = 0 ; i < table.getChildCount(); i++){
@@ -54,6 +57,8 @@ public class CalendarFragment extends Fragment {
                 final TextView column = (TextView) row.getChildAt(j);
 
                 column.setTag( ((TextView)((TableRow) table.getChildAt(0)).getChildAt(j)).getText()+ " " + ((TextView)row.getChildAt(0)).getText() );
+
+
 
                 column.setOnClickListener(new View.OnClickListener(){
 
@@ -71,8 +76,10 @@ public class CalendarFragment extends Fragment {
                         String[] data =((String) v.getTag()).split(" ");
                         builder.setView(dialogView);
 
+                        //v.setBackgroundColor(1464342);
 
-                        String[] time = {"15 min","30 min","45 min", "1 hour", "1 hour 15 min"};
+
+                        String[] time = {"15 min","30 min","45 min", "60 min", "90 min"};
 
 
                         MaterialBetterSpinner spinnerBook = (MaterialBetterSpinner)dialogView.findViewById(R.id.spinner_time_book);
@@ -128,6 +135,9 @@ public class CalendarFragment extends Fragment {
         }
 
         */
+
+        //TextView test = (TextView) rootView.findViewById(R.id.rrr);
+        //test.setText("Manual");
         return rootView;
     }
 

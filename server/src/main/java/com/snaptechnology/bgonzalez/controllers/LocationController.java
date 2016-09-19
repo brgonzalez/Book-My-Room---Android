@@ -9,7 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by bgonzalez on 19/09/2016.
+ * LocationController is a controller to manipulate request of location,
+ * In this project the request are going to be from a devices android
+ *
+ * @author Brayan González Chaves
+ * @since 19/09/2016
+ *
  */
 @RestController
 public class LocationController {

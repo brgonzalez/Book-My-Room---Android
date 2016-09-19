@@ -5,13 +5,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.JSONObject;
 
 /**
- * Created by bgonzalez on 04/08/2016.
+ * The object event is the abstraction of a event,
+ * a event in the context of this application is related with a meeting
+ *
+ * @author Brayan González
+ * @since 04/08/2016.
  */
 @JsonIgnoreProperties( { "allDay" })
 
 public class Event {
-
-
 
     @JsonProperty("Id")
     private String id ;

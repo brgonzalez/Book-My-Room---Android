@@ -5,7 +5,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by bgonzalez on 16/09/2016.
+ * Location repository is a interface that implements CrudRepository
+ * to use all methods to access to database
+ * @author bgonzalez
+ * @since 16/09/2016.
  */
 
 @Repository

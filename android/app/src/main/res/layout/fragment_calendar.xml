@@ -22,8 +22,6 @@
         android:layout_below="@+id/week">
 
 
-
-
         <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -100,12 +98,14 @@
 
             <TableRow>
                 <TextView
+                    android:id="@+id/rrr"
                     android:layout_width="0dip"
                     android:layout_height="@dimen/row_table_calendar"
                     android:layout_margin="1dip"
                     android:layout_weight="0.5"
                     android:text="06:00"
                     android:gravity="center"
+                    android:tag="rrr"
                     android:background="@color/windowBackground"/>
                 <TextView
                     android:layout_width="0dip"

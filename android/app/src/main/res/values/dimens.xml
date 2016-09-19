@@ -10,6 +10,10 @@
     <dimen name="text_circle_time">15dp</dimen>
     <dimen name="margin_circle_time">4dp</dimen>
 
+    <!--TODO: HomeActivity -->
+    <dimen name="thickness_timer">10dp</dimen>
+    <dimen name="padding_image_timer">40dp</dimen>
+
 
 
 </resources>

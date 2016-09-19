@@ -3,12 +3,28 @@ package com.snaptechnology.bgonzalez.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.JSONObject;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
+
 /**
- * Created by bgonzalez on 18/08/2016.
+ *
+ * The object location is the abstraction of a room, Its name is by the API Calendar Office 365.
+ * It modeling a table from the database
+ * @author Brayan González
+ * @since 18/08/2016.
+ *
  */
 
-public class Location  {
+@Entity
+@Table(name= "locations")
+public class Location  implements Serializable{
 
+    @Id
+    @Column(name = "display_name")
     @JsonProperty("DisplayName")
     private String displayName;
 
@@ -20,6 +36,9 @@ public class Location  {
         this.displayName = displayName;
     }
 
+    public Location(){
+    }
+
     public String getDisplayName() {
         return displayName;
     }
@@ -28,4 +47,9 @@ public class Location  {
         this.displayName = displayName;
     }
 
+
+    @Override
+    public String toString() {
+        return "displayName:'" + displayName + '\'' ;
+    }
 }

@@ -1,0 +1,21 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_drawer_width">260dp</dimen>
+    <dimen name="row_table_calendar">30dp</dimen>
+
+    <dimen name="width_circle_time">80dp</dimen>
+    <dimen name="height_circle_time">80dp</dimen>
+    <dimen name="text_circle_time">15dp</dimen>
+    <dimen name="margin_circle_time">4dp</dimen>
+
+    <!--TODO: HomeActivity -->
+    <dimen name="thickness_timer">20dp</dimen>
+    <dimen name="padding_image_timer">20dp</dimen>
+
+
+
+
+</resources>
+

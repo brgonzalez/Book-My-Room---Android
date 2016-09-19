@@ -1,0 +1,45 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'server'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('com.h2database:h2')
+	runtime('org.postgresql:postgresql')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	//library to manipulate JPA
+	compile 'org.springframework.data:spring-data-jpa:1.10.2.RELEASE'
+
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.4.1'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.4.1'
+
+	compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
+
+	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+
+}

@@ -2,7 +2,10 @@ package com.snaptechnology.bgonzalez.httpclient;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.snaptechnology.bgonzalez.model.*;
+import com.snaptechnology.bgonzalez.model.Attendee;
+import com.snaptechnology.bgonzalez.model.EmailAddress;
+import com.snaptechnology.bgonzalez.model.Event;
+import com.snaptechnology.bgonzalez.model.Location;
 import com.snaptechnology.bgonzalez.services.URLService;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
@@ -18,13 +21,9 @@ public class RequestController {
 
     private ApacheHttpClient client;
     private URLService urlService;
-
-
     private String delta="";
 
     final static Logger logger = Logger.getLogger(RequestController.class);
-
-
 
     public RequestController() {
         setUrlService(new URLService());
@@ -41,12 +40,12 @@ public class RequestController {
 
         JSONArray json = new JSONObject(client.getOutput()).getJSONArray("value");
         for(int i = 0; i < json.length(); i++){
-            //events.add(new Event(json.getJSONObject(i)));
+            events.add(new Event(json.getJSONObject(i)));
         }
         return events;
     }
 
-    public List<Event> getEvents(Location location,String startDate, String endDate){
+    public List<Event> getEvents(Location location, String startDate, String endDate){
 
         logger.info("Getting events from API Office 365");
 
@@ -95,7 +94,7 @@ public class RequestController {
         //client.patchHttpRequest(urlService.getURLUpdateEvent(event.getId()),);
     }
 
-    public List<Event> synchronizedEvents(Location location, String startDate, String endDate,String delta){
+    public List<Event> synchronizedEvents(Location location, String startDate, String endDate, String delta){
         List<Event> events = new ArrayList<Event>();
 
         client.setDisplayNameLocation(location.getDisplayName());
@@ -108,6 +107,8 @@ public class RequestController {
         System.out.println(urlService.getURLSynchronizeEvents(startDate, endDate, delta));
 
         JSONArray json = new JSONObject(client.getOutput()).getJSONArray("value");
+        System.out.println(client.getOutput());
+
         for(int i = 0; i < json.length(); i++){
             events.add(new Event(json.getJSONObject(i)));
         }
@@ -169,7 +170,6 @@ public class RequestController {
         // Create
 
         EmailAddress emailAddress = new EmailAddress("Brayan González","bgonzalez@snaptechnology.net");
-        Organizer organizer = new Organizer(emailAddress);
         Attendee attendee = new Attendee(emailAddress,"Required");
         Location location = new Location("Bella");
         List<Attendee> attendees = new ArrayList<Attendee>();
