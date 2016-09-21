@@ -22,6 +22,10 @@ public class Attendee {
         this.type = type;
     }
 
+    public Attendee(){
+
+    }
+
     public EmailAddress getEmailAddress() {
         return emailAddress;
     }

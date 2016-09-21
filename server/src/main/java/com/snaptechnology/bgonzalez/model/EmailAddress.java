@@ -28,6 +28,10 @@ public class EmailAddress {
         this.address = address;
     }
 
+    public EmailAddress(){
+
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -43,4 +47,6 @@ public class EmailAddress {
     public String getName() {
         return name;
     }
+
+
 }
