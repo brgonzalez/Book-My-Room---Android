@@ -35,11 +35,23 @@ dependencies {
 	//library to manipulate JPA
 	compile 'org.springframework.data:spring-data-jpa:1.10.2.RELEASE'
 
-	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.4.1'
-	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.4.1'
-
+	/**
+	 * Driver to connect to postgresql
+	 */
 	compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
 
-	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+	/**
+	 * Library to apache client, this is used to make requests to API Office 365
+	 */
+	compile 'org.apache.httpcomponents:httpclient:4.3.5'
+
+	/**
+	 * Library to convert Objects to JSON
+	 */
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.2'
+
+
+
+
 
 }
