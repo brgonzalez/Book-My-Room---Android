@@ -1,11 +1,13 @@
 package com.snaptechnology.bgonzalez.services;
 
-import com.snaptechnology.bgonzalez.httpclient.Account;
 import com.snaptechnology.bgonzalez.model.Event;
+import com.snaptechnology.bgonzalez.model.Location;
 import org.apache.log4j.Logger;
 
 /**
- * Created by bgonzalez on 04/08/2016.
+ * URLService is a service to make urls to send to API Office 365
+ * @author Brayan Gonzlález Chaves
+ * @since 04/08/2016.
  */
 
 public class URLService {
@@ -13,7 +15,7 @@ public class URLService {
     private String path ="https://outlook.office365.com/api/v1.0/";
 
 
-    private String displayNameLocation;
+    private Location location;
     private String Delta;
 
 
@@ -21,19 +23,24 @@ public class URLService {
     final static Logger logger = Logger.getLogger(URLService.class);
 
 
+    /**
+     * Method to make the url to API Office 365 to create a event
+     * @return url creation to API Office 365
+     */
     public String getURLCreateEvent(){
-
-        logger.info("Getting URL create event ");
-
-        return getPath() +  "users('" + displayNameLocation + "')/events";
+        String url = getPath() +  "users('" + location.getDisplayName() + "')/events";
+        logger.info("Getting URL create event : "+ url );
+        return url;
     }
 
-
+    /**
+     * Method to make the url to API Office 365 to get events
+     * @return url getting events to API Office 365
+     */
     public String getURLEvents(String startDate, String endDate){
-
-        logger.info("Getting URL get events");
-
-        return String.format( getPath() + "users('%s')/calendarview?startDateTime=%s&endDateTime=%s", displayNameLocation, startDate, endDate);
+        String url = String.format( getPath() + "users('%s')/calendarview?startDateTime=%s&endDateTime=%s", location.getDisplayName(), startDate, endDate);
+        logger.info("Getting URL get events : "+ url);
+        return url;
     }
 
 
@@ -41,7 +48,7 @@ public class URLService {
 
  //       logger.info("Getting URL synchronize events");
 
-        return String.format( getPath() + "users('%s')/calendarview?startDateTime=%s&endDateTime=%s&$deltatoken=%s", displayNameLocation, startDate, endDate,delta);
+        return String.format( getPath() + "users('%s')/calendarview?startDateTime=%s&endDateTime=%s&$deltatoken=%s", location.getDisplayName(), startDate, endDate,delta);
     }
 
 
@@ -49,7 +56,7 @@ public class URLService {
 
         logger.info("Getting URL delete event with id "+ event.getId() );
 
-        return String.format(getPath() + "users('%s')/events/%s", displayNameLocation,  event.getId());
+        return String.format(getPath() + "users('%s')/events/%s", location.getDisplayName(),  event.getId());
     }
 
 
@@ -57,7 +64,7 @@ public class URLService {
 
         logger.info("Getting URL update event with id "+ event.getId() );
 
-        return String.format(getPath() + "users('%s')/events/%s", displayNameLocation,  event.getId());
+        return String.format(getPath() + "users('%s')/events/%s", location.getDisplayName(),  event.getId());
     }
 
 
@@ -70,13 +77,12 @@ public class URLService {
     }
 
 
-
-    public String getDisplayNameLocation() {
-        return displayNameLocation;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setDisplayNameLocation(String displayNameLocation) {
-        this.displayNameLocation = displayNameLocation;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public String getDelta() {
@@ -88,8 +94,6 @@ public class URLService {
     }
 
     public static void main(String[] agrs){
-        Account a = new Account("bgonzalez@snaptechnology.net","Brayan", "BrgcBrgc5snap");
         URLService service = new URLService();
-
     }
 }
