@@ -5,6 +5,8 @@ package com.snaptechnology.bgonzalez.httpclient;
  */
 
 // libraries:
+
+import com.snaptechnology.bgonzalez.model.Location;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
@@ -18,7 +20,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
-final class ApacheHttpClient {
+public final class ApacheHttpClient {
 
     // properties:
     private HttpClient client;
@@ -27,19 +29,17 @@ final class ApacheHttpClient {
     private HttpDelete deleteRequest;
     private HttpResponse response;
     private HttpPatch patchRequest;
-    private String path;
     private BufferedReader br;
     private StringBuffer output;
 
 
 
-    private String displayNameLocation;
+    private Location location;
     private String password ="BrgcBrgc5snap";
-    private Account account;
     private Encoder encoder;
-    private String codeBasicAuth = "YmdvbnphbGV6QHNuYXB0ZWNobm9sb2d5Lm5ldDpCcmdjQnJnYzVzbmFw";
+    private String codeBasicAuth;
 
-    protected ApacheHttpClient() {
+    public ApacheHttpClient() {
         this.encoder = new Encoder();
     }
     private void setClient() {
@@ -47,7 +47,7 @@ final class ApacheHttpClient {
     }
 
 
-    protected StatusLine getHttpRequest(String resource) {
+    public StatusLine getHttpRequest(String resource) {
         setClient();
         setGetRequest(resource);
         setResponse(getRequest);
@@ -65,7 +65,7 @@ final class ApacheHttpClient {
         return response.getStatusLine();
     }
 
-    protected StatusLine postHttpRequest(String resource, String json) {
+    public StatusLine postHttpRequest(String resource, String json) {
         setClient();
         setPostRequest(resource, json);
         setResponse(postRequest);
@@ -101,6 +101,7 @@ final class ApacheHttpClient {
         }
         input.setContentType("application/json");
         postRequest.setEntity(input);
+
         setRequestHeaders(postRequest);
     }
 
@@ -122,7 +123,7 @@ final class ApacheHttpClient {
     }
 
     private void setRequestHeaders(HttpRequestBase request){
-        codeBasicAuth = encoder.encode(displayNameLocation,password);
+        codeBasicAuth = encoder.encode(location.getDisplayName(),password);
         request.addHeader("Authorization", "Basic " + codeBasicAuth);
         request.addHeader("Accept", "application/json");
         request.addHeader("Content-Type" , "Application/Json" );
@@ -150,7 +151,7 @@ final class ApacheHttpClient {
         }
     }
 
-    protected String getOutput() {
+    public String getOutput() {
         return output.toString();
     }
 
@@ -166,20 +167,12 @@ final class ApacheHttpClient {
         }
     }
 
-    public String getDisplayNameLocation() {
-        return displayNameLocation;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setDisplayNameLocation(String displayNameLocation) {
-        this.displayNameLocation = displayNameLocation;
-    }
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public static void main(String[] args) {

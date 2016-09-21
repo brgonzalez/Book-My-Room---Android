@@ -25,9 +25,4 @@ public class Encoder {
         this.code = code;
     }
 
-    public static void main(String[] args){
-        Account a = new Account("bgonzalez@snaptechnology.net", "Brayan", "BrgcBrgc5snap");
-        Encoder e = new Encoder();
-        System.out.println(e.encode("bgonzalez@snaptechnology.net", "BrgcBrgc5snap"));
-    }
 }
