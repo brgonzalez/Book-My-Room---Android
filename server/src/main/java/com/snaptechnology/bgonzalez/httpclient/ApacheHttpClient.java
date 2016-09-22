@@ -60,6 +60,7 @@ public final class ApacheHttpClient {
         setResponse(getRequest);
         setBr();
         setOutput();
+        log.info("Status code : " + response.getStatusLine().getStatusCode());
         return response.getStatusLine();
     }
     /**
@@ -75,6 +76,7 @@ public final class ApacheHttpClient {
          * setBr();  // this set cause a error
          * setOutput(); // this set cause a error
          */
+        log.info("Status code : " + response.getStatusLine().getStatusCode());
         return response.getStatusLine();
     }
 
@@ -89,6 +91,8 @@ public final class ApacheHttpClient {
         setResponse(postRequest);
         setBr();
         setOutput();
+
+        log.info("Status code : " + response.getStatusLine().getStatusCode());
         return response.getStatusLine();
     }
 
@@ -103,6 +107,8 @@ public final class ApacheHttpClient {
         setResponse(patchRequest);
         setBr();
         setOutput();
+
+        log.info("Status code : " + response.getStatusLine().getStatusCode());
         return response.getStatusLine();
     }
 
