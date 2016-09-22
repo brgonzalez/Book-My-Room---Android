@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.snaptechnology.bgonzalez.model.Location;
 
 /**
- * Created by bgonzalez on 20/09/2016.
+ * Class to get fields to make request get all events
+ * Those fields are enough
+ * @author Brayan González
+ * @since 20/09/2016.
  */
 public class EventVO {
     @JsonProperty("Location")
