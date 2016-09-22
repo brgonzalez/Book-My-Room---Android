@@ -56,12 +56,12 @@ public final class ApacheHttpClient {
         return response.getStatusLine();
     }
 
-    protected StatusLine deleteHttpRequest(String resource) {
+    public StatusLine deleteHttpRequest(String resource) {
         setClient();
         setDeleteRequest(resource);
         setResponse(deleteRequest);
-        setBr();
-        setOutput();
+        //setBr();
+        //setOutput();
         return response.getStatusLine();
     }
 
@@ -119,6 +119,7 @@ public final class ApacheHttpClient {
             e.printStackTrace();
         }
         input.setContentType("application/json");
+        patchRequest.setEntity(input);
         setRequestHeaders(patchRequest);
     }
 

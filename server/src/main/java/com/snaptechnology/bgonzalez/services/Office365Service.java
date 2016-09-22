@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Office·65Service is a service that is used by Event Controller,
+ * Office365Service is a service that is used by Event Controller,
  * this service communicate with ApacheHttpClient to make request to the API Office 365
  *
  * @author Brayan González
@@ -78,8 +78,10 @@ public class Office365Service {
             statusCode = client.postHttpRequest(urlService.getURLCreateEvent(), mapper.writeValueAsString(event)).getStatusCode();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-            logger.error("Error trying to get status code to create event in Office365 Service");
+            logger.error("Error trying to get status code to create a event in Office365 Service, request body did not mapped");
         }
+        logger.info("Output from API Office 365 : " + client.getOutput());
+
         return statusCode;
     }
 
@@ -93,6 +95,7 @@ public class Office365Service {
         logger.info("Getting status code to update event from Office365 Service");
 
         ObjectMapper mapper = new ObjectMapper();
+
         client.setLocation(event.getLocation());
         urlService.setLocation(event.getLocation());
 
@@ -101,8 +104,24 @@ public class Office365Service {
             statusCode = client.patchHttpRequest(urlService.getURLUpdateEvent(event), mapper.writeValueAsString(event)).getStatusCode();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-            logger.error("Error trying to get status code to update a event in Office365 Service");
+            logger.error("Error trying to get status code to update a event in Office365 Service, request body did not mapped");
         }
+
+        logger.info("Output from API Office 365 : " + client.getOutput());
+
+        return statusCode;
+    }
+
+    public int deleteEvent (Event event){
+        logger.info("Getting status code to eliminate event from Office365 Service");
+
+        client.setLocation(event.getLocation());
+        urlService.setLocation(event.getLocation());
+
+        int statusCode = client.deleteHttpRequest(urlService.getURLDeleteEvent(event)).getStatusCode();
+
+        //logger.info("Output from API Office 365 : " + client.getOutput());
+
         return statusCode;
     }
 

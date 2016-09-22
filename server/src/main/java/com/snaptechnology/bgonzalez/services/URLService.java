@@ -6,22 +6,20 @@ import org.apache.log4j.Logger;
 
 /**
  * URLService is a service to make urls to send to API Office 365
- * @author Brayan Gonzlález Chaves
+ * @author Brayan González Chaves
  * @since 04/08/2016.
  */
 
 public class URLService {
 
+    /** Main Path to API Office 365**/
     private String path ="https://outlook.office365.com/api/v1.0/";
 
-
+    /** Room Account, must go inside the urls*/
     private Location location;
     private String Delta;
 
-
-
     final static Logger logger = Logger.getLogger(URLService.class);
-
 
     /**
      * Method to make the url to API Office 365 to create a event
@@ -49,9 +47,20 @@ public class URLService {
      */
     public String getURLUpdateEvent(Event event){
         String url = String.format(getPath() + "users('%s')/events/%s", location.getDisplayName(),  event.getId());
-        logger.info("Getting URL update event with id "+ event.getId() );
+        logger.info("Getting URL update event : "+ url );
         return url;
     }
+
+    /**
+     * Method to make the url to API Office 365 to delete a event
+     * @return url of delete a event to API Office 365
+     */
+    public String getURLDeleteEvent(Event event){
+        String url = String.format(getPath() + "users('%s')/events/%s", location.getDisplayName(),  event.getId());
+        logger.info("Getting URL delete event : "+ url );
+        return url;
+    }
+
 
 
     public String getURLSynchronizeEvents(String startDate, String endDate,String delta){
@@ -62,17 +71,6 @@ public class URLService {
     }
 
 
-    public String getURLDeleteEvent(Event event){
-
-        logger.info("Getting URL delete event with id "+ event.getId() );
-
-        return String.format(getPath() + "users('%s')/events/%s", location.getDisplayName(),  event.getId());
-    }
-
-
-
-
-
     public String getPath() {
         return path;
     }
@@ -80,7 +78,6 @@ public class URLService {
     public void setPath(String path) {
         this.path = path;
     }
-
 
     public Location getLocation() {
         return location;
@@ -98,7 +95,4 @@ public class URLService {
         Delta = delta;
     }
 
-    public static void main(String[] agrs){
-        URLService service = new URLService();
-    }
 }
