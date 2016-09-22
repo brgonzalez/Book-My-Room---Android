@@ -37,7 +37,6 @@ public class Office365Service {
         setClient(new ApacheHttpClient());
     }
 
-
     /**
      * Method to get events to send to EventController
      * @param eventVO with fields location, startDate and endDate
@@ -84,15 +83,31 @@ public class Office365Service {
         return statusCode;
     }
 
+    /**
+     * Method to get status code of update a event to send to EventController
+     * @param event
+     * @return Operation status code
+     */
+    public int updateEvent (Event event){
 
-    public void updateEvent (Event event){
-        //client.patchHttpRequest(urlService.getURLUpdateEvent(event.getId()),);
+        logger.info("Getting status code to update event from Office365 Service");
+
+        ObjectMapper mapper = new ObjectMapper();
+        client.setLocation(event.getLocation());
+        urlService.setLocation(event.getLocation());
+
+        int statusCode = 0;
+        try {
+            statusCode = client.patchHttpRequest(urlService.getURLUpdateEvent(event), mapper.writeValueAsString(event)).getStatusCode();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            logger.error("Error trying to get status code to update a event in Office365 Service");
+        }
+        return statusCode;
     }
 
     public List<Event> synchronizedEvents(Location location, String startDate, String endDate, String delta){
         List<Event> events = new ArrayList<Event>();
-
-
 
         client.getHttpRequest(urlService.getURLSynchronizeEvents(startDate, endDate, delta));
         String dataDelta = new JSONObject(client.getOutput()).getString("@odata.deltaLink");

@@ -43,6 +43,16 @@ public class URLService {
         return url;
     }
 
+    /**
+     * Method to make the url to API Office 365 to update a event
+     * @return url of update a event to API Office 365
+     */
+    public String getURLUpdateEvent(Event event){
+        String url = String.format(getPath() + "users('%s')/events/%s", location.getDisplayName(),  event.getId());
+        logger.info("Getting URL update event with id "+ event.getId() );
+        return url;
+    }
+
 
     public String getURLSynchronizeEvents(String startDate, String endDate,String delta){
 
@@ -60,12 +70,7 @@ public class URLService {
     }
 
 
-    public String getURLUpdateEvent(Event event){
 
-        logger.info("Getting URL update event with id "+ event.getId() );
-
-        return String.format(getPath() + "users('%s')/events/%s", location.getDisplayName(),  event.getId());
-    }
 
 
     public String getPath() {

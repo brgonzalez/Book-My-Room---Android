@@ -74,7 +74,7 @@ public final class ApacheHttpClient {
         return response.getStatusLine();
     }
 
-    protected StatusLine patchHttpRequest(String resource, String json){
+    public StatusLine patchHttpRequest(String resource, String json){
         setClient();
         setPatchRequest(resource,json);
         setResponse(patchRequest);

@@ -29,21 +29,46 @@ public class EventController {
     @Autowired
     private Office365Service office365Service;
 
+    /**
+     * Request Method POST to create a event using the restful controller
+     * @param event
+     * @return Operation status code
+     */
 
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public Map<String,Integer> createEvent (@RequestBody Event event){
 
-   @RequestMapping(value = "/create", method = RequestMethod.POST)
+        Map<String,Integer> status = new HashMap<String,Integer>();
+        status.put("statusCode",office365Service.createEvent(event));
 
-   public Map<String,Integer> createEvent (@RequestBody Event event){
+        return status;
+    }
 
-       Map<String,Integer> status = new HashMap<String,Integer>();
-       status.put("statusCode",office365Service.createEvent(event));
-
-       return status;
-   }
+    /**
+     * Request Method POST to get all events using the restful controller
+     * @param eventVO Value object of event with fields location, startDate and endDate
+     * @return list of events according to request
+     */
     @RequestMapping(value = "/events", method = RequestMethod.POST)
     public List<Event> getEvents (@RequestBody EventVO eventVO){
 
         return office365Service.getEvents(eventVO);
+
+    }
+
+    /**
+     * Request Method POST to update a event using the restful controller
+     * @param event
+     * @return Operation status code
+     */
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public Map<String, Integer> updateEvent(@RequestBody Event event){
+
+        Map<String,Integer> status = new HashMap<String,Integer>();
+        status.put("statusCode",office365Service.updateEvent(event));
+
+        return status;
+
 
     }
 
