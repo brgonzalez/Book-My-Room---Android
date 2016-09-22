@@ -3,8 +3,6 @@ package com.snaptechnology.bgonzalez.services;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.snaptechnology.bgonzalez.httpclient.ApacheHttpClient;
-import com.snaptechnology.bgonzalez.model.Attendee;
-import com.snaptechnology.bgonzalez.model.EmailAddress;
 import com.snaptechnology.bgonzalez.model.Event;
 import com.snaptechnology.bgonzalez.model.Location;
 import com.snaptechnology.bgonzalez.model.VO.EventVO;
@@ -112,6 +110,11 @@ public class Office365Service {
         return statusCode;
     }
 
+    /**
+     * Method to get status code of delete a event to send to EventController
+     * @param event
+     * @return Operation status code
+     */
     public int deleteEvent (Event event){
         logger.info("Getting status code to eliminate event from Office365 Service");
 
@@ -120,7 +123,7 @@ public class Office365Service {
 
         int statusCode = client.deleteHttpRequest(urlService.getURLDeleteEvent(event)).getStatusCode();
 
-        //logger.info("Output from API Office 365 : " + client.getOutput());
+        /**logger.info("Output from API Office 365 : " + client.getOutput()); //It has not output*/
 
         return statusCode;
     }
@@ -167,88 +170,6 @@ public class Office365Service {
     }
     private void setUrlService(URLService urlService){
         this.urlService  = urlService;
-    }
-
-
-
-
-    public static void main(String[] args) throws JsonProcessingException {
-        Office365Service rc = new Office365Service();
-        ObjectMapper mapper = new ObjectMapper();
-
-        // Create
-
-        EmailAddress emailAddress = new EmailAddress("Brayan González","bgonzalez@snaptechnology.net");
-        Attendee attendee = new Attendee(emailAddress,"Required");
-        Location location = new Location("Bella");
-        List<Attendee> attendees = new ArrayList<Attendee>();
-        attendees.add(attendee);
-
-        Event event = new Event("id","Test from Server",location,false,"2016-09-13T16:30:00.0003579Z","2016-09-13T20:30:00.0003579Z");
-        String JSON = mapper.writeValueAsString(event);
-
-        String test = "{\"displayNameLocation\":\"bgonzalez@snaptechnology.net\",\"data\":"+JSON+"}";
-        System.out.println(test);
-        //rc.createEvent(test);
-
-
-
-        //System.out.println(mapper.writeValueAsString(rc.synchronizedEvents("2016-09-13T10:30:00.0003579Z","2016-09-13T11:30:00.0003579Z")));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //Event e = new Event("1","subject",null,null,null,false,"","");
-        //System.out.println(mapper.writeValueAsString(e));
-
-        /*String jsonInString = null;
-        while (true) {
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                jsonInString = mapper.writeValueAsString(rc.synchronizedEvents("2016-08-16T11:29:00.0003579Z", "2016-08-20T21:30:00.0003579Z"));
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
-            System.out.println(jsonInString);
-        }
-
-
-        */
     }
 
 }
