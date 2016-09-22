@@ -3,9 +3,13 @@ package com.snaptechnology.bgonzalez.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.JSONObject;
 
+
 /**
- * Created by bgonzalez on 18/08/2016.
+ * Attendee is the abstraction of meeting's assistants
+ * @author Brayan González
+ * @since 18/08/2016.
  */
+
 public class Attendee {
     @JsonProperty("EmailAddress")
     private EmailAddress emailAddress;
