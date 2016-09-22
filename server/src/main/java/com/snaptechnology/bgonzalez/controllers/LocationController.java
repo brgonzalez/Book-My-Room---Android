@@ -1,6 +1,5 @@
 package com.snaptechnology.bgonzalez.controllers;
 
-import com.snaptechnology.bgonzalez.JPA.repository.LocationRepository;
 import com.snaptechnology.bgonzalez.model.Location;
 import com.snaptechnology.bgonzalez.services.LocationService;
 import org.json.JSONArray;
@@ -22,11 +21,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/location")
 public class LocationController {
-    @Autowired
-    LocationRepository repository;
 
     @Autowired
     LocationService locationService ;
+
+    /**
+     * Request Method POST to get all locations using the restful controller
+     * @return list of Locations
+     */
 
     @RequestMapping("/findall")
     public
