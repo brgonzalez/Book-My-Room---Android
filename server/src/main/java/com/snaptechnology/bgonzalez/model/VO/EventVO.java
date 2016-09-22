@@ -1,16 +1,19 @@
 package com.snaptechnology.bgonzalez.model.VO;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.snaptechnology.bgonzalez.model.Location;
 
 /**
  * Created by bgonzalez on 20/09/2016.
  */
 public class EventVO {
-
+    @JsonProperty("Location")
     private Location location;
 
+    @JsonProperty("Start")
     private String start;
 
+    @JsonProperty("End")
     private String end;
 
     public EventVO(){
