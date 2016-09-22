@@ -1,8 +1,6 @@
 package com.snaptechnology.bgonzalez.JPA.impl;
 
-import com.snaptechnology.bgonzalez.JPA.repository.LocationRepository;
-import com.snaptechnology.bgonzalez.model.Location;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.snaptechnology.bgonzalez.JPA.custom.LocationRepositoryCustom;
 
 /**
  *
@@ -12,33 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  *
  */
-public class LocationRepositoryImpl  {
-
-    private LocationRepository locationRepository;
+public class LocationRepositoryImpl implements LocationRepositoryCustom {
 
     /**
-     * Set the object locationRepository
-     * @param locationRepository
+     * Add implementation methods customized
      */
-    @Autowired
-    public void setLocationRepository(LocationRepository locationRepository){
-        this.locationRepository = locationRepository;
-    }
-
-    /**
-     * Get all locations from LocationRepository class
-     * @return Iterable list with all locations
-     */
-    public Iterable<Location> listAllLocations() {
-        return locationRepository.findAll();
-    }
-
-    /**
-     *
-     * @param args
-     */
-    public static void main(String[] args){
-        LocationRepositoryImpl l = new LocationRepositoryImpl();
-        l.listAllLocations();
-    }
 }
