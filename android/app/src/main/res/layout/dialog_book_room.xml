@@ -41,10 +41,12 @@
 
             <EditText
                 android:layout_height="wrap_content"
+                android:id="@+id/edit_meeting_name_book_room"
                 android:singleLine="true"
                 android:hint="Meeting name"
                 android:layout_width="250dp"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                />
 
         </android.support.design.widget.TextInputLayout>
 

@@ -200,7 +200,22 @@ public class TimeService {
         return newTime+"Z";
     }
 
+    public boolean isGreaterDate(String stringDate, String stringEndDate) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
+        Date date = null;
+        Date endDate = null;
+        try {
+            date = dateFormat.parse(stringDate);
+            endDate = dateFormat.parse(stringEndDate);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return (date.compareTo(endDate) < 0) ? false : true;
+
+    }
 
     public synchronized String[][] getDates() {
         return dates;

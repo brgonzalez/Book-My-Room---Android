@@ -2,125 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d4e0cfd-d7b7-499d-adaa-04c517bf6d8f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../android/app/src/main/assets/application.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/httpclient/ApacheHttpClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Status.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/VO/EventVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/LocationService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/utils/UtilProperties.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/test/Test.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Organizer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Person.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/dictionaries/bgonzalez.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_4_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_4_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__org_json_json_20160212.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__org_springframework_spring_core_4_3_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/libraries/Maven__postgresql_postgresql_9_1_901_1_jdbc4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/Book My Room.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/crud/daos/DeviceDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/crud/daos/LocationDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/crud/daos/generic/GenericDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/crud/impl/DeviceDAOImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/crud/impl/LocationDAOImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/database/DataBasePostgreSQL.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/database/SettingsDB.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/httpclient/Account.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/httpclient/Encoder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/httpclient/RequestController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/model/Attendee.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/model/Device.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/model/EmailAddress.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/model/Event.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/model/Location.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/model/Organizer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/model/Person.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/services/URLService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/services/UpdateDataService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/socket/ReceiverSocket.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/java/com/snaptechnology/bgonzalez/socket/SenderSocket.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/src/main/resources/jpa/Location-orm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/com/snaptechnology/bgonzalez/testSocket/Device3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/com/snaptechnology/bgonzalez/testSocket/SocketServerTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/crud/daos/DeviceDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/crud/daos/LocationDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/crud/daos/generic/GenericDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/crud/impl/DeviceDAOImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/crud/impl/LocationDAOImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/database/DataBasePostgreSQL.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/database/SettingsDB.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/httpclient/Account.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/httpclient/Encoder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/httpclient/RequestController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/httpclient/testSocket/Device2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/httpclient/testSocket/SocketServerTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/model/Attendee.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/model/Device.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/model/EmailAddress.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/model/Event.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/model/Location.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/model/Organizer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/model/Person.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/services/URLService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/services/UpdateDataService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/socket/ReceiverSocket.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/com/snaptechnology/bgonzalez/socket/SenderSocket.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../server-socket/target/classes/jpa/Location-orm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/RequestController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../untitled/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../untitled/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../untitled/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../untitled/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../untitled/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../untitled/untitled.iml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/.idea/gradle.xml" afterPath="$PROJECT_DIR$/../android/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/build.gradle" afterPath="$PROJECT_DIR$/../android/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/CalendarFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/CalendarFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/DeviceSettingFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/DeviceSettingFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/HomeFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/HomeFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/MainActivity.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/SocketTestFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/SocketTestFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/UpdateDeviceSettingFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/UpdateDeviceSettingFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Attendee.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Attendee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/EmailAddress.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/EmailAddress.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Event.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Event.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Location.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Location.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/EventService.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/EventService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/TimeService.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/TimeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/URLService.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/URLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/UpdateService.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/UpdateService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/layout/dialog_book_room.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/layout/dialog_book_room.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_calendar.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_calendar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_device_setting.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_device_setting.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_update_device_setting.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_update_device_setting.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/values-sw480dp/dimens.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/values-sw480dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/build.gradle" afterPath="$PROJECT_DIR$/../android/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/../android/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/server_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/server_main.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/Office365Service.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/Office365Service.java" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -161,7 +47,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
               <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -171,7 +59,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="714">
               <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -181,7 +71,21 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="442">
               <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2531#2532#0" expanded="false" />
+                <element signature="e#2558#2559#0" expanded="false" />
+                <element signature="e#2598#2599#0" expanded="false" />
+                <element signature="e#2630#2631#0" expanded="false" />
+                <element signature="e#2667#2668#0" expanded="false" />
+                <element signature="e#2698#2699#0" expanded="false" />
+                <element signature="e#2748#2749#0" expanded="false" />
+                <element signature="e#2788#2789#0" expanded="false" />
+                <element signature="e#2820#2821#0" expanded="false" />
+                <element signature="e#2848#2849#0" expanded="false" />
+                <element signature="e#2890#2891#0" expanded="false" />
+                <element signature="e#2919#2920#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,7 +96,16 @@
             <state relative-caret-position="408">
               <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1328#1329#0" expanded="false" />
+                <element signature="e#1372#1373#0" expanded="false" />
+                <element signature="e#6278#6279#0" expanded="false" />
+                <element signature="e#6318#6319#0" expanded="false" />
+                <element signature="e#6646#6647#0" expanded="false" />
+                <element signature="e#6705#6706#0" expanded="false" />
+                <element signature="e#6742#6743#0" expanded="false" />
+                <element signature="e#6773#6774#0" expanded="false" />
+                <element signature="e#6823#6824#0" expanded="false" />
+                <element signature="e#6863#6864#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -211,8 +124,8 @@
       <file leaf-file-name="Office365Service.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/Office365Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
+            <state relative-caret-position="153">
+              <caret line="89" column="26" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -223,7 +136,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1341,7 +1256,7 @@
       <workItem from="1475072314526" duration="10264000" />
       <workItem from="1475434243412" duration="2072000" />
       <workItem from="1475511699745" duration="3167000" />
-      <workItem from="1475597375895" duration="49000" />
+      <workItem from="1475597375895" duration="2774000" />
     </task>
     <task id="LOCAL-00001" summary="Adding JPA Repository Location">
       <created>1474316006025</created>
@@ -1487,7 +1402,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104522000" />
+    <option name="totallyTimeSpent" value="107247000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1498,15 +1413,15 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36133122" sideWeight="0.1068814" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36133122" sideWeight="0.11200586" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36133122" sideWeight="0.8931186" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36133122" sideWeight="0.88799417" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24597365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24597365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1617,7 +1532,16 @@
         <state relative-caret-position="119">
           <caret line="7" column="35" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1328#1329#0" expanded="false" />
+            <element signature="e#1372#1373#0" expanded="false" />
+            <element signature="e#6278#6279#0" expanded="false" />
+            <element signature="e#6318#6319#0" expanded="false" />
+            <element signature="e#6646#6647#0" expanded="false" />
+            <element signature="e#6705#6706#0" expanded="false" />
+            <element signature="e#6742#6743#0" expanded="false" />
+            <element signature="e#6773#6774#0" expanded="false" />
+            <element signature="e#6823#6824#0" expanded="false" />
+            <element signature="e#6863#6864#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1849,7 +1773,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1865,7 +1791,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1873,7 +1801,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1882,7 +1812,16 @@
         <state relative-caret-position="408">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1328#1329#0" expanded="false" />
+            <element signature="e#1372#1373#0" expanded="false" />
+            <element signature="e#6278#6279#0" expanded="false" />
+            <element signature="e#6318#6319#0" expanded="false" />
+            <element signature="e#6646#6647#0" expanded="false" />
+            <element signature="e#6705#6706#0" expanded="false" />
+            <element signature="e#6742#6743#0" expanded="false" />
+            <element signature="e#6773#6774#0" expanded="false" />
+            <element signature="e#6823#6824#0" expanded="false" />
+            <element signature="e#6863#6864#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1891,14 +1830,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2531#2532#0" expanded="false" />
+            <element signature="e#2558#2559#0" expanded="false" />
+            <element signature="e#2598#2599#0" expanded="false" />
+            <element signature="e#2630#2631#0" expanded="false" />
+            <element signature="e#2667#2668#0" expanded="false" />
+            <element signature="e#2698#2699#0" expanded="false" />
+            <element signature="e#2748#2749#0" expanded="false" />
+            <element signature="e#2788#2789#0" expanded="false" />
+            <element signature="e#2820#2821#0" expanded="false" />
+            <element signature="e#2848#2849#0" expanded="false" />
+            <element signature="e#2890#2891#0" expanded="false" />
+            <element signature="e#2919#2920#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/Office365Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
+        <state relative-caret-position="153">
+          <caret line="89" column="26" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
           <folding />
         </state>
       </provider>

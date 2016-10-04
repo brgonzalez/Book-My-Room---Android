@@ -43,10 +43,17 @@ import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.CircleProgressView;
 
+import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Event;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.services.EventService;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.services.TimeService;
 import com.transitionseverywhere.TransitionManager;
 import com.transitionseverywhere.extra.Scale;
 
-
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class HomeFragment extends Fragment {
@@ -54,6 +61,10 @@ public class HomeFragment extends Fragment {
     public static int size;
 
     private final static String TAG = "MainActivity";
+
+    private EventService eventService = EventService.getInstance(getActivity());
+    private TimeService timeService = new TimeService();
+
 
     CircleProgressView mCircleView;
     Switch mSwitchSpin;
@@ -151,6 +162,31 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 
+    public String getNextMeeting(){
+        return "";
+    }
+
+    public void getAvailabilityLocation(){
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+
+        Calendar current = Calendar.getInstance();
+        Date start;
+        Date end;
+        for(Event e : eventService.getEvent()){
+
+            try {
+                start = df.parse(e.getStart());
+                end = df.parse(e.getEnd());
+            } catch (ParseException e1) {
+                e1.printStackTrace();
+            }
+            while(! timeService.isGreaterDate(df.format(current.getTime()), e.getStart())){
+
+            }
+
+        }
+    }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -161,6 +197,14 @@ public class HomeFragment extends Fragment {
         super.onDetach();
     }
 
+    public static void main(String[] args){
+        TimeService timeService = new TimeService();
+        if (timeService.isGreaterDate("2015-09-09T01:00:00Z", "2015-09-09T00:01:00Z")){
+            System.out.println("1");
+        }else{
+            System.out.println("2");
+        }
 
+    }
 
 }

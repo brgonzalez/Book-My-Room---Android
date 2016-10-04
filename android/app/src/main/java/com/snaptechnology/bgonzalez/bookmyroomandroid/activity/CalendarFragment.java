@@ -3,9 +3,12 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +17,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Attendee;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Event;
@@ -100,6 +106,10 @@ public class CalendarFragment extends Fragment {
 
                         final AlertDialog dialog = builder.create();
 
+                        EditText editText = (EditText) dialogView.findViewById(R.id.edit_meeting_name_book_room);
+
+                        //editText.setInputType(InputType.TYPE_NULL);
+
 
                         /** Setting Spinner */
                         final MaterialBetterSpinner spinnerBook = (MaterialBetterSpinner)dialogView.findViewById(R.id.spinner_time_book_room);
@@ -124,6 +134,7 @@ public class CalendarFragment extends Fragment {
                                 }
                             }
                         });
+                        spinnerBook.setText(adapter.getItem(0));
                         Button buttonBookRoom = (Button) dialogView.findViewById(R.id.btn_book_room);
                         buttonBookRoom.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -156,6 +167,12 @@ public class CalendarFragment extends Fragment {
                                 }
 
                                 new CreaterEvents(event).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                                Toast.makeText(getActivity(), "Meeting added, wait a moment to see it ", Toast.LENGTH_LONG).show();
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 dialog.cancel();
                             }
                         });
@@ -177,14 +194,12 @@ public class CalendarFragment extends Fragment {
             while( isGreaterDate(date, e.getEnd()) == false){
                 test = (TextView) rootView.findViewWithTag(date);
                 if( test != null){
-                    eventService.getEventMapper().put(date,e);
                     test.setBackgroundColor(getResources().getColor(R.color.colorAccent));
                     test.setText(e.getSubject());
                 }
                 date = timeService.addMinutes(date);
             }
         }
-
 
         return rootView;
     }
@@ -265,7 +280,9 @@ public class CalendarFragment extends Fragment {
         try {
             actualDayDate= df.parse(date);
             nextDayDate = df.parse(nextDay);
+            System.out.println(eventService.getEventMapper().toString());
             while( actualDayDate.compareTo(nextDayDate) < 0 ){
+                Log.e("Compare", date +"------>"+ nextDay);
                 if(eventService.getEventMapper().containsKey(date)){
                     return false;
                 }
@@ -306,6 +323,40 @@ public class CalendarFragment extends Fragment {
         protected Void doInBackground(Void... params) {
 
             eventService.createEvent(event);
+            Fragment fragment = new CalendarFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commit();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            super.onPostExecute(result);
+        }
+    }
+
+    private class UpdaterCalendar extends AsyncTask<Void, Void, Void> {
+
+
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            try {
+                Thread.sleep(60000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            Fragment fragment = new CalendarFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commit();
             return null;
         }
 

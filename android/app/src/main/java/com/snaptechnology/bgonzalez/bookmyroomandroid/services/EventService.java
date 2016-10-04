@@ -86,6 +86,7 @@ public final class EventService  {
         String output = client.getOutput();
 
         System.out.println(output);
+        updateEvents();
 
         return false;
 
@@ -114,6 +115,9 @@ public final class EventService  {
             events = mapper.readValue(output, TypeFactory.defaultInstance().constructCollectionType(List.class, Event.class));
             this.getEventMapper().clear();
             this.setEvents(events);
+            for(Event event : getEvent()){
+                getEventMapper().put(event.getStart(),event);
+            }
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         } catch (IOException e) {
