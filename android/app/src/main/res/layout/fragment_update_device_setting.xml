@@ -38,10 +38,10 @@
 
 
             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/material_spinner1"
+                android:id="@+id/location_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="testroom@snapfinance.com"
+                android:hint=""
                 app:met_floatingLabel="normal"
                 android:textColorHint="#CFD8DC"
                 android:gravity="center"
@@ -59,7 +59,7 @@
                 android:background="@color/colorPrimary"
                 android:layout_marginTop="80dp"
                 android:textColor="@android:color/white"
-                android:layout_below="@id/material_spinner1"
+                android:layout_below="@id/location_spinner"
                 android:layout_centerHorizontal="true" />
 
     </RelativeLayout>

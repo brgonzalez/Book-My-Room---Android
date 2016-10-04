@@ -25,6 +25,8 @@
     <dimen name="extra_extra_small_size_text">10dp</dimen>
 
     <!--TODO: General Margin-->
+    <dimen name="margin_button_dialog">35dp</dimen>
+    <dimen name="size_top_elements_dialog">15dp</dimen>
     <dimen name="medium_margin">4dp</dimen>
 
     <!--TODO: General Menu-->

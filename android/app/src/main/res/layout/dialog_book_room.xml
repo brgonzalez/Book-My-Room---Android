@@ -8,13 +8,14 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:id="@+id/ssss">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:id="@+id/lable_title_book_meeting">
+            android:id="@+id/label_title_book_meeting">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -28,47 +29,59 @@
 
         </RelativeLayout>
 
+
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="20dp"
-            android:id="@+id/input_layout_name"
+            android:layout_marginTop="@dimen/size_top_elements_dialog"
+            android:id="@+id/subject_book_room"
             android:layout_height="wrap_content"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:gravity="center"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/lable_title_book_meeting">
+            android:layout_below="@+id/label_title_book_meeting">
 
             <EditText
-                android:id="@+id/input_name"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:hint="Meeting name"
-                android:layout_width="200dp"
+                android:layout_width="250dp"
                 android:layout_centerHorizontal="true"/>
+
         </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/all_day_book_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="All Day"
+            android:layout_below="@+id/subject_book_room"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/size_top_elements_dialog"
+            />
 
 
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-            android:id="@+id/spinner_time_book"
-            android:layout_width="200dp"
+            android:id="@+id/spinner_time_book_room"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="Meeting time"
             app:met_floatingLabel="normal"
             android:textColorHint="#CFD8DC"
             android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/input_layout_name"
+            android:layout_marginTop="@dimen/size_top_elements_dialog"
+            android:layout_below="@id/all_day_book_room"
             android:layout_centerHorizontal="true" />
 
-        <Button android:id="@+id/btn_save_device_setting"
+        <Button android:id="@+id/btn_book_room"
             android:layout_height="wrap_content"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:text="@string/btn_save_device_setting"
             android:background="@color/colorPrimary"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/margin_button_dialog"
             android:textColor="@android:color/white"
-            android:layout_below="@id/spinner_time_book"
+            android:layout_below="@id/spinner_time_book_room"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="30dp"/>
+            android:layout_marginBottom="@dimen/margin_button_dialog"/>
 
     </RelativeLayout>
 

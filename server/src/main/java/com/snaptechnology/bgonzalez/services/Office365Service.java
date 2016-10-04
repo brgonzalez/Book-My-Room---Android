@@ -51,7 +51,11 @@ public class Office365Service {
 
         client.getHttpRequest(urlService.getURLEvents(eventVO.getStart(),eventVO.getEnd()));
 
-        JSONArray json = new JSONObject(client.getOutput()).getJSONArray("value");
+
+
+            JSONArray json = new JSONObject(client.getOutput()).getJSONArray("value");
+
+
         for(int i = 0; i < json.length(); i++){
             events.add(new Event(json.getJSONObject(i)));
         }
@@ -73,7 +77,10 @@ public class Office365Service {
 
         int statusCode = 0;
         try {
-            statusCode = client.postHttpRequest(urlService.getURLCreateEvent(), mapper.writeValueAsString(event)).getStatusCode();
+            String requestRody =  mapper.writeValueAsString(event);
+
+            logger.info("RequestBody is :" +requestRody);
+            statusCode = client.postHttpRequest(urlService.getURLCreateEvent(),requestRody).getStatusCode();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             logger.error("Error trying to get status code to create a event in Office365 Service, request body did not mapped");

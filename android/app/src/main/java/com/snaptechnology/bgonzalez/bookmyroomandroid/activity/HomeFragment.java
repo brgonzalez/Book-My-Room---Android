@@ -40,20 +40,13 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.animation.Circle;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.animation.CircleAngleAnimation;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.AnimationState;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.AnimationStateChangedListener;
+
 import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.CircleProgressView;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.TextMode;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.circleprogress.UnitPosition;
-import com.transitionseverywhere.ChangeBounds;
-import com.transitionseverywhere.Transition;
+
 import com.transitionseverywhere.TransitionManager;
 import com.transitionseverywhere.extra.Scale;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 public class HomeFragment extends Fragment {

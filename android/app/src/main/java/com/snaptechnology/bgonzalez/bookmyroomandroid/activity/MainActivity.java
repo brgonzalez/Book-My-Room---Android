@@ -9,6 +9,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.support.v4.widget.DrawerLayout;
@@ -17,9 +19,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.services.EventService;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.services.URLService;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.services.UpdateService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
@@ -28,6 +38,16 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     private Toolbar mToolbar;
     private FragmentDrawer drawerFragment;
+
+    private EventService eventService;
+    private UpdateService updateService;
+
+    public MainActivity(){
+        this.eventService = EventService.getInstance(MainActivity.this);
+
+
+        new SynchronizerEvents().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 break;
             case 3:
                 fragment = new SocketTestFragment();
-                title = getString(R.string.title_device_settings);
+                title = getString(R.string.title_socket);
                 break;
             default:
                 break;
@@ -107,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         }
 
         if (fragment != null) {
+
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_body, fragment);
@@ -114,6 +135,32 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
             // set the toolbar title
             getSupportActionBar().setTitle(title);
+        }
+
+    }
+
+
+
+    private class SynchronizerEvents extends AsyncTask<Void, Void, Void> {
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            while(true) {
+                eventService.updateEvents();
+                try {
+                    Thread.sleep(15000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            super.onPostExecute(result);
         }
     }
 }

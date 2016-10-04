@@ -5,18 +5,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 /**
- * Created by bgonzalez on 18/08/2016.
+ * Attendee is the abstraction of meeting's assistants
+ * @author Brayan González
+ * @since 18/08/2016.
  */
+
 public class Attendee {
     @JsonProperty("EmailAddress")
     private EmailAddress emailAddress;
     @JsonProperty("Type")
     private String type;
 
+    public Attendee(JSONObject json){
+        try {
+            this.emailAddress = new EmailAddress(json.getJSONObject("EmailAddress"));
+            this.type = json.getString("Type").toString();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
     public Attendee(EmailAddress emailAddress, String type){
         this.emailAddress = emailAddress;
         this.type = type;
+    }
+
+    public Attendee(){
+
     }
 
     public EmailAddress getEmailAddress() {

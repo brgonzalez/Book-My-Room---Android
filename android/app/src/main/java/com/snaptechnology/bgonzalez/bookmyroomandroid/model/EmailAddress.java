@@ -6,7 +6,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by bgonzalez on 18/08/2016.
+ * The object EmailAddress is the abstraction of a common address, it
+ * is use for identify some real email address
+ *
+ * @author Brayan González
+ * @since 18/08/2016
+ *
  */
 public class EmailAddress {
     @JsonProperty("Name")
@@ -15,9 +20,23 @@ public class EmailAddress {
     private String address;
 
 
-    public EmailAddress(String name , String address) {
+    public EmailAddress(JSONObject json) {
+        try {
+            this.name = json.get("Name").toString();
+            this.address = json.get("Address").toString();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public EmailAddress(String name, String address){
         this.name = name;
         this.address = address;
+    }
+
+    public EmailAddress(){
+
     }
 
     public void setName(String name) {
@@ -35,4 +54,6 @@ public class EmailAddress {
     public String getName() {
         return name;
     }
+
+
 }
