@@ -16,6 +16,7 @@ import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -54,6 +55,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class HomeFragment extends Fragment {
@@ -64,6 +67,8 @@ public class HomeFragment extends Fragment {
 
     private EventService eventService = EventService.getInstance(getActivity());
     private TimeService timeService = new TimeService();
+
+    private Event currentEvent;
 
 
     CircleProgressView mCircleView;
@@ -91,25 +96,30 @@ public class HomeFragment extends Fragment {
 
 
 
-
         final ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
-        ImageView image_unavalaible = (ImageView) rootView.findViewById(R.id.image_unavailable);
+        ImageView image_unavalailable = (ImageView) rootView.findViewById(R.id.image_unavailable);
         ImageView image_available = (ImageView) rootView.findViewById(R.id.image_available);
-
 
 
         final ViewGroup transitionsContainer = (ViewGroup) rootView.findViewById(R.id.transitions_container);
 
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        if(Math.random()< 0.5){
+        Map<String, String > mainData = getDataHome();
+
+        if( mainData.get("state").equalsIgnoreCase("B")){
             //unavailable
             progressBar.bringToFront();
             progressBar.setVisibility(View.VISIBLE);
             ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "progress", 50, 500); // see this max value coming back here, we animale towards that value
-            animation.setDuration (60000); //in milliseconds
+            animation.setDuration (10000); //in milliseconds
             animation.setInterpolator (new DecelerateInterpolator());
-            image_unavalaible.setVisibility(View.VISIBLE);
-            image_unavalaible.bringToFront();
+            image_unavalailable.setVisibility(View.VISIBLE);
+            image_unavalailable.bringToFront();
             animation.start ();
 
             final TextView finished = (TextView) transitionsContainer.findViewById(R.id.circle_finished);
@@ -125,8 +135,8 @@ public class HomeFragment extends Fragment {
 
 
             });
-
         }else{
+
             //available
             image_available.setVisibility(View.VISIBLE);
             image_available.bringToFront();
@@ -153,7 +163,19 @@ public class HomeFragment extends Fragment {
 
 
             });
+
+
+
         }
+
+        Log.i("State", mainData.get("state"));
+
+        TextView availableIn =(TextView) rootView.findViewById(R.id.available_in);
+        availableIn.setText(mainData.get("availableIn"));
+
+        TextView nextMeeting =(TextView) rootView.findViewById(R.id.next_meeting);
+        nextMeeting.setText(mainData.get("nextMeeting"));
+
 
 
 
@@ -166,25 +188,85 @@ public class HomeFragment extends Fragment {
         return "";
     }
 
-    public void getAvailabilityLocation(){
+    private Map<String,String> getDataHome(){
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        Map<String,String> dataHome = new HashMap<>();
 
-        Calendar current = Calendar.getInstance();
-        Date start;
-        Date end;
-        for(Event e : eventService.getEvent()){
+        Calendar cal = Calendar.getInstance(); // creates calendar
+        cal.add(Calendar.HOUR_OF_DAY, 4); // adds one hour
 
-            try {
-                start = df.parse(e.getStart());
-                end = df.parse(e.getEnd());
-            } catch (ParseException e1) {
-                e1.printStackTrace();
+        Date currentDate = new Date();
+        String currentDateInString = df.format(cal.getTime());
+        boolean startIsHigherToCurrent;
+        boolean endIsHigherToCurrent;
+
+        int sizeEvents =eventService.getEvent().size();
+        Event tmpEvent ;
+        for(int i = 0 ; i < sizeEvents; i++){
+            tmpEvent = eventService.getEvent().get(i);
+            startIsHigherToCurrent = timeService.isGreaterDate(tmpEvent.getStart(), currentDateInString);
+            endIsHigherToCurrent = timeService.isGreaterDate(tmpEvent.getEnd(), currentDateInString);
+
+
+            /**Start and end are higher than current*/
+            if( startIsHigherToCurrent && endIsHigherToCurrent ){
+                dataHome.put("state","F");
+                dataHome.put("availableIn","Now");
+                dataHome.put("nextMeeting",timeService.calculateDifferenceInString(currentDateInString, eventService.getEvent().get(i).getStart()));
+                currentEvent = null;
+                return dataHome;
             }
-            while(! timeService.isGreaterDate(df.format(current.getTime()), e.getStart())){
+            else if( !startIsHigherToCurrent && endIsHigherToCurrent  ){
+                currentEvent = tmpEvent;
+                /**if exist other event in the week*/
+                if ( i +1  < sizeEvents){
+                    dataHome.put("nextMeeting", timeService.calculateDifferenceInString(currentDateInString, eventService.getEvent().get(i+1).getStart()));
+                }else{
+                    dataHome.put("nextMeeting", "Next Week");
+                }
+                dataHome.put("state","B");
+                int tempI = i + 1;
+                String tempDateInString;
+                Event nextEvent;
+                while(tempI < sizeEvents){
+                    tempDateInString = tmpEvent.getEnd();
+                    nextEvent = eventService.getEvent().get(tempI);
+                    if (tempI + 1 == sizeEvents){
+                        dataHome.put("availableIn", timeService.calculateDifferenceInString(currentDateInString, tempDateInString));
+                    }
 
+                    if( tempDateInString.equalsIgnoreCase(nextEvent.getStart()) ){
+
+                    }else{
+                        dataHome.put("availableIn", timeService.calculateDifferenceInString(currentDateInString, tempDateInString));
+                        return dataHome;
+                    }
+                    tempI++;
+                }
+                dataHome.put("availableIn",timeService.calculateDifferenceInString( currentDateInString, eventService.getEvent().get(sizeEvents-1).getEnd()));
+
+                return dataHome;
+
+            }
+
+
+
+            /**Start and end are less than current*/
+            else if( !startIsHigherToCurrent && !endIsHigherToCurrent  ){
+                /**Pass to next event*/
             }
 
         }
+        currentEvent = null;
+        dataHome.put("state","F");
+        dataHome.put("availableIn","Now");
+        dataHome.put("nextMeeting","Next Week");
+
+        return dataHome;
+    }
+
+    private String calculateNextMeeting(Event event){
+        return "";
     }
 
     @Override

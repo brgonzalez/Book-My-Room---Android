@@ -4,6 +4,7 @@ import android.provider.Settings;
 import android.util.Log;
 import android.util.Pair;
 
+import com.ocpsoft.pretty.time.PrettyTime;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.activity.CalendarFragment;
 
 import java.text.DateFormat;
@@ -221,6 +222,57 @@ public class TimeService {
         return dates;
     }
 
+    public String calculateDifferenceInString(String dateLessInString,String dateHigherInString){
+
+        if(dateHigherInString == null){
+            return "Next Week";
+        }
+
+        String result = "";
+
+        Date dateless = convertStringToDate(dateLessInString);
+        Date dateHigher = convertStringToDate(dateHigherInString);
+
+        long diff = dateHigher.getTime() - dateless.getTime();
+        long diffSeconds = diff / 1000;
+        long diffMinutes = diff / (60 * 1000) ;
+        long diffHours = diff / (60 * 60 * 1000) ;
+        long diffDays = diff / (24 * 60 * 60 * 1000);
+
+        if (diffSeconds < 60){
+            return "less than a minute";
+        }
+        else if (diffMinutes < 60){
+            return String.valueOf(diffMinutes)+ " min";
+        }
+        else if (diffHours < 6){
+            return String.valueOf(diffHours) +" hours, "+ String.valueOf(diffMinutes % 60 );
+        }
+        else{
+            DateFormat df = new SimpleDateFormat("EEE, HH:mm:ss");
+            Calendar cal = Calendar.getInstance(); // creates calendar
+            cal.setTime(dateHigher); // sets calendar time/date
+            cal.add(Calendar.HOUR_OF_DAY, -timeZone); // adds one hour
+            return df.format(cal.getTime());
+        }
+    }
+
+    public Date convertStringToDate(String dateInString){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        Date date = null;
+
+        try {
+            date = dateFormat.parse(dateInString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+    public String convertDateToString(Date date){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        return dateFormat.format(date);
+    }
+
     public synchronized void setDates(String[][] dates) {
         this.dates = dates;
     }
@@ -228,6 +280,13 @@ public class TimeService {
     public static void main(String[] args){
         TimeService timeService = new TimeService();
         //System.out.println(timeService.getStartEndCurrentWeek().get("end"));
+
+        PrettyTime p = new PrettyTime();
+        System.out.println(p.format(new Date()));
+//prints: “right now”
+
+        System.out.println(p.format(new Date(System.currentTimeMillis() + 1000*60*60*25)));
+//prints: “10 minutes from now”
 
 
 
