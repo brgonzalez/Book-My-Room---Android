@@ -235,6 +235,7 @@ public class HomeFragment extends Fragment {
                         dataHome.put("availableIn", timeService.calculateDifferenceInString(currentDateInString, tempDateInString));
                     }
 
+
                     if( tempDateInString.equalsIgnoreCase(nextEvent.getStart()) ){
 
                     }else{
@@ -245,7 +246,9 @@ public class HomeFragment extends Fragment {
                 }
                 dataHome.put("availableIn",timeService.calculateDifferenceInString( currentDateInString, eventService.getEvent().get(sizeEvents-1).getEnd()));
 
+
                 return dataHome;
+
 
             }
 

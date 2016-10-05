@@ -199,6 +199,7 @@ public class TimeService {
 
         String newTime = df.format(cal.getTime());
         return newTime+"Z";
+
     }
 
     public boolean isGreaterDate(String stringDate, String stringEndDate) {
