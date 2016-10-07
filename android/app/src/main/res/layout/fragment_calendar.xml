@@ -19,16 +19,18 @@
         android:layout_height="fill_parent"
         android:layout_below="@+id/week"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp">
 
 
         <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:stretchColumns="1"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             android:id="@+id/table_calendar"
             android:clickable="true"
+            android:layout_marginBottom="60dp"
             >
 
             <TableRow>
@@ -105,7 +107,6 @@
                     android:layout_weight="0.5"
                     android:text="06:00"
                     android:gravity="center"
-                    android:tag="xxx"
                     android:background="@color/windowBackground"/>
                 <TextView
                     android:layout_width="0dip"
@@ -1252,7 +1253,8 @@
                     android:gravity="center"
                     android:background="@color/windowBackground"/>
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_marginBottom="30dp">
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/row_table_calendar"
@@ -1309,8 +1311,7 @@
 
 
             </TableRow>
-
-
+            
 
 
 
