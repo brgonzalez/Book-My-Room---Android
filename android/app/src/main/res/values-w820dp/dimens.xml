@@ -5,7 +5,6 @@
     <dimen name="activity_horizontal_margin">64dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_drawer_width">260dp</dimen>
-    <dimen name="row_table_calendar">30dp</dimen>
 
     <dimen name="width_circle_time">80dp</dimen>
     <dimen name="height_circle_time">80dp</dimen>

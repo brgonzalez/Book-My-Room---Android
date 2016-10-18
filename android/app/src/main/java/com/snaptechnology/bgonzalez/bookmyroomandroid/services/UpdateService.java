@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.MapLikeType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.httpclient.ApacheHttpClient;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Event;
@@ -14,7 +13,6 @@ import com.snaptechnology.bgonzalez.bookmyroomandroid.model.VO.EventVO;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.UtilProperties;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,7 +51,7 @@ public class UpdateService {
             Log.i("Update Events", "Updating Events");
             try {
 
-                Map<String, String> startEndDate = timeService.getStartEndCurrentWeek();
+                Map<String, String> startEndDate = timeService.getRangeToRequest();
                 String displayName = new UtilProperties().getLocationProperty(context);
 
                 EventVO eventVO = new EventVO(new Location(displayName), startEndDate.get("start"), startEndDate.get("end"));

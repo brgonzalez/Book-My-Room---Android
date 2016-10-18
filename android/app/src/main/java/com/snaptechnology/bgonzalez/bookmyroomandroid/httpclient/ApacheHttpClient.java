@@ -5,6 +5,8 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.httpclient;
  */
 
 
+import android.util.Log;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;

@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     public MainActivity(){
         this.eventService = EventService.getInstance(MainActivity.this);
-
-
         new SynchronizerEvents().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
@@ -117,13 +115,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 fragment = new DeviceSettingFragment();
                 title = getString(R.string.title_device_settings);
                 break;
-            case 3:
-                fragment = new SocketTestFragment();
-                title = getString(R.string.title_socket);
-                break;
             default:
                 break;
-
         }
 
         if (fragment != null) {

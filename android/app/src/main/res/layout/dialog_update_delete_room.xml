@@ -1,0 +1,133 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:id="@+id/label_title_book_meeting">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:id="@+id/title_book_room"
+                android:text="Book Room"
+                android:textColor="@color/textColorPrimary"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+>
+
+        </RelativeLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="@dimen/size_top_elements_dialog"
+            android:id="@+id/subject_update_delete"
+            android:layout_height="wrap_content"
+            android:layout_width="@dimen/width_update_dialog"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/label_title_book_meeting">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_meeting_name_book_room"
+                android:singleLine="true"
+                android:hint="Meeting name"
+                android:layout_width="@dimen/width_update_dialog"
+                android:layout_centerHorizontal="true"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <!--
+        <CheckBox
+            android:id="@+id/all_day_update_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="All Day"
+            android:layout_below="@+id/subject_update_delete"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/size_top_elements_dialog"
+            />-->
+
+        <RelativeLayout
+            android:layout_width="@dimen/width_update_dialog"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/subject_update_delete"
+            android:id="@+id/spinners"
+            android:gravity="center_horizontal"
+            android:layout_alignLeft="@+id/subject_update_delete" >
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/start_time_meeting"
+                android:layout_width="@dimen/spinner_width_update_dialog"
+                android:layout_height="wrap_content"
+                android:hint="Start time"
+                app:met_floatingLabel="normal"
+                android:textColorHint="#CFD8DC"
+                android:layout_marginLeft="@dimen/margin_left_start_spinner"
+                android:layout_marginTop="@dimen/size_top_elements_dialog" />
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/end_time_meeting"
+                android:layout_width="@dimen/spinner_width_update_dialog"
+                android:layout_height="wrap_content"
+                android:hint="End time"
+                app:met_floatingLabel="normal"
+                android:textColorHint="#CFD8DC"
+                android:layout_marginLeft="@dimen/margin_left_end_spinner"
+                android:layout_marginTop="@dimen/size_top_elements_dialog"/>
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="@dimen/width_update_dialog"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinners"
+            android:gravity="center_horizontal"
+            android:layout_alignLeft="@+id/subject_update_delete">
+
+            <Button android:id="@+id/btn_update_meeting"
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/btn_width_update_dialog"
+                android:text="@string/btn_save"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="@dimen/margin_button_dialog"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="@dimen/margin_button_dialog"
+                android:onClick="update_event"/>
+
+
+            <Button android:id="@+id/btn_delete_meeting"
+                android:layout_height="wrap_content"
+                android:layout_width="@dimen/btn_width_update_dialog"
+                android:text="@string/btn_delete"
+                android:background="@color/colorRedDark"
+                android:layout_marginTop="@dimen/margin_button_dialog"
+                android:textColor="@android:color/white"
+                android:layout_marginLeft="200dp"
+                android:layout_marginBottom="@dimen/margin_button_dialog"
+                android:onClick="deleteEvent"/>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -3,7 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_drawer_width">260dp</dimen>
-    <dimen name="row_table_calendar">30dp</dimen>
+    <dimen name="height_row_table_calendar">23dp</dimen>
 
     <dimen name="width_circle_time">80dp</dimen>
     <dimen name="height_circle_time">80dp</dimen>
@@ -14,6 +14,9 @@
     <dimen name="margin_circle_choose_time">4dp</dimen>
 
 
+    <!--Calendar-->
+
+    <dimen name="row_table_calendar">25dp</dimen>
 
     <!--TODO: General text -->
     <dimen name="extra_extra__big_size_text">40dp</dimen>
@@ -33,6 +36,16 @@
     <dimen name="size_icon_menu">70dp</dimen>
     <dimen name="height_layout_icon">140dp</dimen>
     <dimen name="margin_rows_menu">16dp</dimen>
+
+
+    <!--Update Dialog-->
+    <dimen name="width_update_dialog">400dp</dimen>
+    <dimen name="btn_width_update_dialog">190dp</dimen>
+    <dimen name="spinner_width_update_dialog">120dp</dimen>
+    <dimen name="margin_left_start_spinner">0dp</dimen>
+    <dimen name="margin_left_end_spinner">200dp</dimen>
+
+
 
 
 

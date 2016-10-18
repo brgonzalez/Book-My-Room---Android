@@ -24,7 +24,7 @@ public class UtilProperties {
     private static String locationFile = "location_file";
 
 
-    public String getLocationProperty(Context context) throws IOException {
+    public static String getLocationProperty(Context context) {
         String ret = "";
 
         try {
@@ -55,7 +55,7 @@ public class UtilProperties {
 
 
 
-    public  void setProperty(Context context, String data) throws IOException {
+    public static void setProperty(Context context, String data){
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(locationFile, Context.MODE_PRIVATE));
             outputStreamWriter.write(data);

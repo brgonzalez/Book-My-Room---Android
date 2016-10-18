@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -65,11 +66,9 @@ public class CalendarFragment extends Fragment {
         String[][] ids = eventService.getTimeService().getDates();
 
         final TableLayout table = (TableLayout) rootView.findViewById(R.id.table_calendar);
-
         for(int i = 0 ; i < table.getChildCount(); i++){
 
             final TableRow row = (TableRow) table.getChildAt(i);
-
             for( int j = 1 ; j < row.getChildCount(); j++){
 
                 final TextView column = (TextView) row.getChildAt(j);
@@ -78,7 +77,9 @@ public class CalendarFragment extends Fragment {
                 String tag = ids[i][j-1];
                 column.setTag(tag);
 
-                if(eventService.getEventMapper().containsKey(tag)){
+                final boolean isThereEvent =eventService.getEventMapper().containsKey(tag);
+
+                if(isThereEvent){
                     Event event = eventService.getEventMapper().get(tag);
                     column.setBackgroundColor(getResources().getColor(R.color.colorAccent));
                     column.setText(event.getSubject());
@@ -87,91 +88,193 @@ public class CalendarFragment extends Fragment {
                 column.setOnClickListener(new View.OnClickListener(){
 
                     @Override
-                    public void onClick(View v){
+                    public void onClick(View cell){
 
-
-                        /** Instantiate an AlertDialog.Builder with its constructor */
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-                        /** Get the layout inflater */
-                        LayoutInflater inflater = getActivity().getLayoutInflater();
-
-                        /** Indexing dialog*/
-                        final View dialogView =  inflater.inflate(R.layout.dialog_book_room,null);
-                        builder.setView(dialogView);
-
-                        final AlertDialog dialog = builder.create();
-
-                        TextView titleBookRoom = (TextView) dialogView.findViewById(R.id.title_book_room);
-                        titleBookRoom.setText("Book Room - "+ ((TextView)row.getChildAt(0)).getText());
-
-                        EditText editText = (EditText) dialogView.findViewById(R.id.edit_meeting_name_book_room);
-
-
-                        /** Setting Spinner */
-                        final MaterialBetterSpinner spinnerBook = (MaterialBetterSpinner)dialogView.findViewById(R.id.spinner_time_book_room);
-                        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableMinutes(v.getTag().toString()));
-                        spinnerBook.setAdapter(adapter);
-
-                        /**Check if the location is available to all day*/
-                        if( ! isToAllDay(v.getTag().toString())){
-                            ((CheckBox) dialogView.findViewById(R.id.all_day_book_room)).setEnabled(false);
+                        if(isThereEvent){
+                            showDialogUpdateDelete(cell);
+                        }else{
+                            showDialogToCreateEvent(cell);
                         }
 
-                        /**Define the checkbox and if this is pressed, the visibility of the spinner change*/
-                        final CheckBox checkbox =(CheckBox) dialogView.findViewById(R.id.all_day_book_room);
-                        checkbox.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                CheckBox c = (CheckBox) v;
-                                if (c.isChecked()) {
-                                    spinnerBook.setVisibility(View.INVISIBLE);
-                                } else {
-                                    spinnerBook.setVisibility(View.VISIBLE);
-                                }
-                            }
-                        });
-                        Button buttonBookRoom = (Button) dialogView.findViewById(R.id.btn_book_room);
-                        buttonBookRoom.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v2) {
-                                final String id = "id";
-                                final String subject = (((TextInputLayout) dialogView.findViewById(R.id.subject_book_room)).getEditText().getText()).toString();
-                                final String start;
-                                final String end;
-                                final Boolean isAllDay = checkbox.isChecked();
 
-                                if (isAllDay){
-                                    start = timeService.resetHoursStringDate(column.getTag().toString());
-                                    end = timeService.addADay(start);
-                                }
-                                else{
-                                    start = column.getTag().toString();
-                                    String duration = spinnerBook.getEditableText().toString();
-                                    if(  duration.equalsIgnoreCase("")){
-                                        end = getEndTimeFromSpinner(start , "15 min");
-                                    }else{
-                                        end = getEndTimeFromSpinner(start , spinnerBook.getEditableText().toString());
-                                    }
-                                }
-                                Event event = new Event(id, subject, new Location(UtilProperties.getLocationProperty(getActivity())),new ArrayList<Attendee>(), isAllDay,  start,  end);
-
-                                new CreaterEvents(event).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-                                dialog.cancel();
-
-                                Toast.makeText(getActivity(), "Meeting added, wait a moment to see it ", Toast.LENGTH_LONG).show();
-
-                            }
-                        });
-
-                        dialog.show();
                     }
                 });
             }
         }
 
+
         return rootView;
     }
+
+    private void showDialogToCreateEvent(final View cell){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        final View dialogView =  inflater.inflate(R.layout.dialog_book_room,null);
+        builder.setView(dialogView);
+        final AlertDialog dialog = builder.create();
+
+        TextView titleBookRoom = (TextView) dialogView.findViewById(R.id.title_book_room);
+        titleBookRoom.setText("Book Room - "+ timeService.convertComplexHourToSimpleHour(cell.getTag().toString()));
+
+        /** Setting Spinner */
+        final MaterialBetterSpinner spinnerBook = (MaterialBetterSpinner)dialogView.findViewById(R.id.spinner_time_book_room);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableMinutes(cell.getTag().toString()));
+        spinnerBook.setAdapter(adapter);
+
+        /**Check if the location is available to all day*/
+        if( ! isToAllDay(cell.getTag().toString())){
+            ((CheckBox) dialogView.findViewById(R.id.all_day_book_room)).setEnabled(false);
+        }
+
+        /**Define the checkbox and if this is pressed, the visibility of the spinner change*/
+        final CheckBox checkbox =(CheckBox) dialogView.findViewById(R.id.all_day_book_room);
+
+        checkbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckBox c = (CheckBox) v;
+                if (c.isChecked()) {
+                    spinnerBook.setVisibility(View.INVISIBLE);
+                } else {
+                    spinnerBook.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        Button buttonBookRoom = (Button) dialogView.findViewById(R.id.btn_book_room);
+        buttonBookRoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Event event = new Event();
+                event.setId("id");
+                event.setSubject((((TextInputLayout) dialogView.findViewById(R.id.subject_book_room)).getEditText().getText()).toString());
+                event.setLocation(new Location(UtilProperties.getLocationProperty(getActivity())));
+                event.setAttendees(new ArrayList<Attendee>());
+                event.setIsAllDay(checkbox.isChecked());
+
+                if( checkbox.isChecked()){
+                    event.setStart(timeService.resetHoursStringDate(cell.getTag().toString()));
+                    event.setEnd(timeService.addADay(event.getStart()));
+                }else{
+                    event.setStart(cell.getTag().toString());
+                    String duration = spinnerBook.getEditableText().toString();
+                    if(  duration.equalsIgnoreCase("")){
+                        event.setEnd(getEndTimeFromSpinner(event.getStart() , "15 min"));
+                    }else{
+                        event.setEnd(getEndTimeFromSpinner(event.getStart() , spinnerBook.getEditableText().toString()));
+                    }
+                }
+                new CreaterEvents(event).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                dialog.cancel();
+
+                Toast.makeText(getActivity(), "Meeting added, wait a moment to see it ", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void showDialogUpdateDelete(final View cell){
+
+        final Event event = eventService.getEventMapper().get(cell.getTag().toString());
+        /** Instantiate an AlertDialog.Builder with its constructor */
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        /** Get the layout inflater */
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+
+        /** Indexing dialog*/
+        final View dialogView =  inflater.inflate(R.layout.dialog_update_delete_room,null);
+        builder.setView(dialogView);
+
+        final AlertDialog dialog = builder.create();
+
+        TextView titleBookRoom = (TextView) dialogView.findViewById(R.id.title_book_room);
+        titleBookRoom.setText("Meeting:   "+ event.getSubject());
+        ((TextInputLayout) dialogView.findViewById(R.id.subject_update_delete)).getEditText().setText(event.getSubject());
+
+
+        /** Setting Spinner */
+        final MaterialBetterSpinner spinnerStartTimes = (MaterialBetterSpinner)dialogView.findViewById(R.id.start_time_meeting);
+        final ArrayAdapter<String> startTimes = new ArrayAdapter<String>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableStartTimes(event));
+        spinnerStartTimes.setAdapter(startTimes);
+        spinnerStartTimes.setText(timeService.convertComplexHourToSimpleHour(event.getStart()));
+
+        /** Setting Spinner */
+        final MaterialBetterSpinner spinnerEndTimes = (MaterialBetterSpinner)dialogView.findViewById(R.id.end_time_meeting);
+        final ArrayAdapter<String> endTimes = new ArrayAdapter<String>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableEndTimes(event));
+        spinnerEndTimes.setAdapter(endTimes);
+        spinnerEndTimes.setText(timeService.convertComplexHourToSimpleHour(event.getEnd()));
+
+
+        Button buttonUpdateEvent = (Button) dialogView.findViewById(R.id.btn_update_meeting);
+        buttonUpdateEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                event.setSubject((((TextInputLayout) dialogView.findViewById(R.id.subject_update_delete)).getEditText().getText()).toString());
+                event.setStart(timeService.convertSimpleHourToComplexHour(spinnerStartTimes.getEditableText().toString(), timeService.getIntOfActualDay(event.getStart())));
+                event.setEnd(timeService.convertSimpleHourToComplexHour(spinnerEndTimes.getEditableText().toString(), timeService.getIntOfActualDay(event.getStart())));
+
+                new UpdaterEvents(event).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                dialog.cancel();
+
+                Toast.makeText(getActivity(), "Updating Meeting, wait a moment to see it ", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        Button buttonDeleteEvent = (Button) dialogView.findViewById(R.id.btn_delete_meeting);
+        buttonDeleteEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+
+                new DeleterEvents(eventService.getEventMapper().get(cell.getTag())).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                dialog.cancel();
+
+                Toast.makeText(getActivity(), "Delete Meeting, wait a moment ", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        dialog.show();
+
+    }
+
+    public List<String> getAvailableStartTimes(Event event){
+        List<String> availableStartTimes = new ArrayList<>();
+        //availableStartTimes.add(timeService.convertComplexHourToSimpleHour(event.getStart()));
+
+        String tmp = timeService.lessMinutes(event.getStart());
+        String simpleHour;
+        int cnt = 0;
+        while (! eventService.getEventMapper().containsKey(tmp) && cnt < 8 && !timeService.convertComplexHourToSimpleHour(event.getStart()).equalsIgnoreCase(timeService.getMinSimpleHour())){
+            simpleHour = timeService.convertComplexHourToSimpleHour(tmp);
+            availableStartTimes.add(0,simpleHour);
+            if(simpleHour.equalsIgnoreCase(timeService.getMinSimpleHour())){
+                break;
+            }
+            tmp = timeService.lessMinutes(tmp);
+            cnt++;
+        }
+        availableStartTimes.add(timeService.convertComplexHourToSimpleHour(event.getStart()));
+        return availableStartTimes;
+    }
+
+    public List<String> getAvailableEndTimes(Event event){
+        List<String> availableEndTimes = new ArrayList<>();
+        String simpleHour;
+        int cnt = 0;
+        String tmp = event.getEnd();
+        while (! eventService.getEventMapper().containsKey(tmp) && cnt < 8){
+            simpleHour = timeService.convertComplexHourToSimpleHour(tmp);
+            availableEndTimes.add(timeService.convertComplexHourToSimpleHour(tmp));
+            if(simpleHour.equalsIgnoreCase(timeService.getMaxSimpleHour())){
+                break;
+            }
+            tmp = timeService.addMinutes(tmp);
+            cnt++;
+        }
+        return availableEndTimes;
+    }
+
 
     public List<String> getAvailableMinutes(String date){
 
@@ -270,6 +373,62 @@ public class CalendarFragment extends Fragment {
         @Override
         protected void onPostExecute(Void result) {
 
+            super.onPostExecute(result);
+        }
+    }
+
+    private class UpdaterEvents extends AsyncTask<Void, Void, Void> {
+
+        Event event;
+
+        public UpdaterEvents(Event event){
+            super();
+            this.event = event;
+        }
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            eventService.updateEvent(event);
+
+
+            Fragment fragment = new CalendarFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commit();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            super.onPostExecute(result);
+        }
+    }
+
+    private class DeleterEvents extends AsyncTask<Void, Void, Void> {
+
+        Event event;
+
+        public DeleterEvents(Event event){
+            super();
+            this.event = event;
+        }
+        @Override
+        protected Void doInBackground(Void... params) {
+            eventService.deleteEvent(event);
+            Fragment fragment = new CalendarFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commit();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
             super.onPostExecute(result);
         }
     }

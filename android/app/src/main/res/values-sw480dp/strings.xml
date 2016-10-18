@@ -29,7 +29,9 @@
     <string name="btn_update_device_setting">Update</string>
 
     <!-- TODO: Update Device Setting -->
-    <string name="btn_save_device_setting">Save</string>
+    <string name="btn_delete">Delete</string>
+
+    <string name="btn_save">Save</string>
     <string name="hint_room_name">Room name</string>
     <string name="text_room_name">Room name</string>
     <string name="label_update_room_name">Room name</string>
