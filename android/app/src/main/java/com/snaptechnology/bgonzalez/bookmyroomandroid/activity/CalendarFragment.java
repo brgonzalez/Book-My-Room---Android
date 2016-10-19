@@ -8,9 +8,11 @@ import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -39,6 +41,8 @@ import java.util.Map;
 public class CalendarFragment extends Fragment {
 
 
+    private int countToBack = 0;
+
     private EventService eventService = EventService.getInstance(getActivity());
     private TimeService timeService = new TimeService();
 
@@ -53,8 +57,18 @@ public class CalendarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         final View rootView = inflater.inflate(R.layout.fragment_calendar, container, false);
 
+        rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "test", Toast.LENGTH_SHORT).show();
+
+            }
+        });
         /**Set header of calendar*/
         TextView week = (TextView) rootView.findViewById(R.id.week);
         week.setText(getStringHeaderCalendar());
@@ -66,6 +80,8 @@ public class CalendarFragment extends Fragment {
         String[][] ids = eventService.getTimeService().getDates();
 
         final TableLayout table = (TableLayout) rootView.findViewById(R.id.table_calendar);
+
+
         for(int i = 0 ; i < table.getChildCount(); i++){
 
             final TableRow row = (TableRow) table.getChildAt(i);
@@ -102,9 +118,19 @@ public class CalendarFragment extends Fragment {
             }
         }
 
+        ScrollView s = (ScrollView) rootView.findViewById(R.id.scrollView);
+
+        s.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                countToBack = 0;
+            }
+        });
 
         return rootView;
     }
+
+
 
     private void showDialogToCreateEvent(final View cell){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

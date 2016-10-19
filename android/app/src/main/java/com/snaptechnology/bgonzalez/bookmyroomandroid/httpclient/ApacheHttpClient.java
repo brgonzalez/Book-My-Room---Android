@@ -94,12 +94,13 @@ public final class ApacheHttpClient {
      */
     private void setPostRequest(String resource, String json) {
         postRequest = new HttpPost(resource);
-        StringEntity input = null;
+        StringEntity  input = null;
         try {
-            input = new StringEntity(json);
+            input = new StringEntity(json, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+
         input.setContentType("application/json");
         postRequest.setEntity(input);
 
@@ -114,7 +115,7 @@ public final class ApacheHttpClient {
      */
     private void setRequestHeaders(HttpRequestBase request){
         request.addHeader("Accept", "application/json");
-        request.addHeader("Content-Type" , "Application/Json" );
+        request.addHeader("Content-Type" , "Application/Json;charset=UTF-8" );
         request.addHeader("Accept-Language", "es-419,es;q=0.8");
     }
 

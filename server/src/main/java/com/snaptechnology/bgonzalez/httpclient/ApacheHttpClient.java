@@ -18,14 +18,13 @@ import org.apache.log4j.Logger;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 
 public final class ApacheHttpClient {
 
     static Logger log = Logger.getLogger(ApacheHttpClient.class.getName());
 
 
-    /**Properties library org.apache.http.client.methods to make requests*/
+    /** Properties library org.apache.http.client.methods to make requests */
     private HttpClient client;
     private HttpGet getRequest;
     private HttpPost postRequest;
@@ -36,7 +35,7 @@ public final class ApacheHttpClient {
     /** Reader*/
     private BufferedReader br;
 
-    /**Variable to catch output requests*/
+    /** Variable to catch output requests */
     private StringBuffer output;
 
     private Location location;
@@ -128,12 +127,7 @@ public final class ApacheHttpClient {
     private void setPostRequest(String resource, String json) {
         postRequest = new HttpPost(resource);
         StringEntity input = null;
-        try {
-            input = new StringEntity(json);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            log.error("Can not convert request body to String Entity");
-        }
+        input = new StringEntity(json,"UTF-8");
         input.setContentType("application/json");
         postRequest.setEntity(input);
 
@@ -156,12 +150,7 @@ public final class ApacheHttpClient {
     private void setPatchRequest(String resource, String json){
         patchRequest = new HttpPatch(resource);
         StringEntity input = null;
-        try {
-            input = new StringEntity(json);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            log.error("Can not convert request body to String Entity");
-        }
+        input = new StringEntity(json,"UTF-8");
         input.setContentType("application/json");
         patchRequest.setEntity(input);
         setRequestHeaders(patchRequest);
@@ -175,7 +164,7 @@ public final class ApacheHttpClient {
         codeBasicAuth = encoder.encode(location.getDisplayName(),password);
         request.addHeader("Authorization", "Basic " + codeBasicAuth);
         request.addHeader("Accept", "application/json");
-        request.addHeader("Content-Type" , "Application/Json" );
+        request.addHeader("Content-Type" , "Application/Json;charset=UTF-8" );
         request.addHeader("Accept-Language", "es-419,es;q=0.8");
         request.addHeader("Prefer", "odata.track-changes");
     }

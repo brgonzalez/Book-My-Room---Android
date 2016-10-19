@@ -1,13 +1,16 @@
 package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
 
 /**
- * Created by bgonzalez on 24/08/2016.
+ * Home Fragment, you can book and delete events from this fragment
  */
 
 import android.animation.ObjectAnimator;
-import android.app.*;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.StrictMode;
@@ -18,7 +21,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Attendee;
@@ -26,34 +35,36 @@ import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Event;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.EventService;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.TimeService;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.EventHandlerUtilities;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.UtilProperties;
 import com.transitionseverywhere.TransitionManager;
 import com.transitionseverywhere.extra.Scale;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class HomeFragment extends Fragment {
+    /**Variable used to check the last click by the user*/
 
-    private final static String TAG = "MainActivity";
-    private long mLastClickTime = 0;
-
-
-    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
-
-
+    /**Services to get the functions to do the task by the user*/
     private EventService eventService = EventService.getInstance(getActivity());
     private TimeService timeService = new TimeService();
 
+    /** Current event to show to user, if is null is because there is not event at the moment*/
     private Event currentEvent;
 
+    /** Skip Policies to make request to the server easier */
+    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
+    /** Constructor */
     public HomeFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -63,12 +74,13 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
-                             Bundle savedInstanceState) {
-        StrictMode.setThreadPolicy(policy);
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
 
-        Runnable myRunnable = new Runnable(){
-            public void run(){
+        StrictMode.setThreadPolicy(policy); // set policies to this fragment
+
+        new Thread(new Runnable() {// Thread to refresh the home fragment
+            @Override
+            public void run() {
                 try {
                     Thread.sleep(60000);
                 } catch (InterruptedException e) {
@@ -76,85 +88,71 @@ public class HomeFragment extends Fragment {
                 }
                 refreshFragment();
             }
-        };
-        Thread thread = new Thread(myRunnable);
-        thread.start();
+        }).start();
 
+        // Main view of this fragment
         final View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
+        // Declarations to main circle to book and delete events
         final ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
-        ImageView image_unavailable = (ImageView) rootView.findViewById(R.id.image_unavailable);
-        ImageView image_available = (ImageView) rootView.findViewById(R.id.image_available);
-
         final ViewGroup transitionsContainer = (ViewGroup) rootView.findViewById(R.id.transitions_container);
 
+        // Get the status actual to the home fragment
         Map<String, String > mainData = getDataHome();
 
-        if( mainData.get("state").equalsIgnoreCase("B")){
-            long timeMeeting =timeService.calculateDifferenceDates(currentEvent.getStart(), currentEvent.getEnd());
+        if( mainData.get("state").equalsIgnoreCase("B")){ // in case of being busy
 
-            long diff =  timeService.calculateDifferenceDates(currentEvent.getStart(),timeService.getActualTimeInString());
+            int meetingTime = (int)( timeService.calculateDifferenceDates(currentEvent.getStart(), currentEvent.getEnd()) *.1 ) ;
+            int lapsedMeetingTime =  (int) ( timeService.calculateDifferenceDates(currentEvent.getStart(),timeService.getActualTimeInString())*.1 );
 
-            int total = (int) ((int)timeMeeting *.1);
-            int progress = (int) ((int)(diff) *.1);
-
-            //unavailable
             progressBar.bringToFront();
             progressBar.setVisibility(View.VISIBLE);
-            ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "progress", progress*500/total, 500); // see this max value coming back here, we animale towards that value
-            animation.setDuration (5000000); //in milliseconds
+
+            ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "progress", lapsedMeetingTime * 500 / meetingTime, 500); // see this max value coming back here, we animale towards that value
+            animation.setDuration (5000000);
             animation.setInterpolator (new DecelerateInterpolator());
-            image_unavailable.setVisibility(View.VISIBLE);
-            image_unavailable.bringToFront();
+
+            ImageView unavailableImage = (ImageView) rootView.findViewById(R.id.image_unavailable);
+            unavailableImage.setVisibility(View.VISIBLE);
+            unavailableImage.bringToFront();
             animation.start ();
 
-            final TextView finished = (TextView) transitionsContainer.findViewById(R.id.circle_finished);
+            final TextView cancelButton = (TextView) transitionsContainer.findViewById(R.id.circle_finished);
 
             transitionsContainer.findViewById(R.id.image_unavailable).setOnClickListener(new VisibleToggleClickListener() {
-
                 @Override
                 protected void changeVisibility(boolean visible) {
                     TransitionManager.beginDelayedTransition(transitionsContainer, new Scale());
-                    finished.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+                    cancelButton.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
                 }
-
-
             });
 
-            finished.setOnClickListener(new View.OnClickListener() {
+            cancelButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // mis-clicking prevention, using threshold of 1000 ms
-                    if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
-                        return;
-                    }
-                    mLastClickTime = SystemClock.elapsedRealtime();
+                    EventHandlerUtilities.preventDoubleClick();
                     deleteEvent(currentEvent);
                 }
             });
+        }
+        else{// in the case of being free
 
-        }else{
+            ImageView availableImage = (ImageView) rootView.findViewById(R.id.image_available);
+            availableImage.setVisibility(View.VISIBLE);
+            availableImage.bringToFront();
 
-            /**when is Available*/
-
-            /**Store ids of view to each minute available*/
+            //Store ids of view to each minute available
             final List<Integer> rIds = new ArrayList<>();
             rIds.add(R.id.minutes1);
             rIds.add(R.id.minutes2);
             rIds.add(R.id.minutes3);
             rIds.add(R.id.minutes4);
 
-            /** bring circle to front*/
-            image_available.setVisibility(View.VISIBLE);
-            image_available.bringToFront();
 
-            String timeInString = timeService.getActualTimeInString();
-            final List<String> availableMinutes = getAvailableMinutes(timeInString);
+            final String dateInString = timeService.getActualTimeInString();
+            final List<String> availableMinutes = getAvailableMinutes(dateInString);
 
-            /** To book the quarter hour before*/
-            final String start = timeService.roundDateToLessInString(timeInString);
-            /** Is booked from the next quarter hour according to the users*/
-            final String tmpEnd = timeService.roundDateToHigherInString(timeInString);
+            final String tmpEndDate = timeService.roundDateToHigherInString(dateInString);
 
             for(int i = 0; i < availableMinutes.size(); i++){
                 /** Declare a text view according to available minutes */
@@ -162,40 +160,32 @@ public class HomeFragment extends Fragment {
 
                 minute.setText(availableMinutes.get(i));
 
-                final String end = timeService.addMinutes(tmpEnd,i+1);
+                final String end = timeService.addMinutes(tmpEndDate,i+1);
                 minute.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // mis-clicking prevention, using threshold of 1000 ms
-                        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
-                            return;
-                        }
-                        mLastClickTime = SystemClock.elapsedRealtime();
-                    /** Instantiate an AlertDialog.Builder with its constructor */
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        EventHandlerUtilities.preventDoubleClick();
 
-                    /** Get the layout inflater */
-                    LayoutInflater inflater = getActivity().getLayoutInflater();
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-                    /** Indexing dialog*/
-                    final View dialogView =  inflater.inflate(R.layout.dialog_book_room_from_home,null);
-                    builder.setView(dialogView);
+                        LayoutInflater inflater = getActivity().getLayoutInflater();
 
-                    final AlertDialog dialog = builder.create();
+                        final View dialogView =  inflater.inflate(R.layout.dialog_book_room_from_home,null);
+                        builder.setView(dialogView);
 
-                    Button buttonBookRoom = (Button) dialogView.findViewById(R.id.btn_book_room_from_home);
-                    buttonBookRoom.setOnClickListener(new View.OnClickListener() {
+                        final AlertDialog dialog = builder.create();
+
+                        Button buttonBookRoom = (Button) dialogView.findViewById(R.id.btn_book_room_from_home);
+                        buttonBookRoom.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            // mis-clicking prevention, using threshold of 1000 ms
-                            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
-                                return;
-                            }
-                            mLastClickTime = SystemClock.elapsedRealtime();
+                            EventHandlerUtilities.preventDoubleClick();
 
                             String id = "id";
+                            String startDate = timeService.roundDateToLessInString(dateInString);
+
                             String subject = (((TextInputLayout) dialogView.findViewById(R.id.subject_book_room_from_home)).getEditText().getText()).toString();
-                            Event event = new Event(id, subject, new Location(UtilProperties.getLocationProperty(getActivity())),new ArrayList<Attendee>(), false,  start,  end);
+                            Event event = new Event(id, subject, new Location(UtilProperties.getLocationProperty(getActivity())),new ArrayList<Attendee>(), false,  startDate,  end);
                             createEvent(event);
 
                         dialog.cancel();
@@ -280,7 +270,7 @@ public class HomeFragment extends Fragment {
         Map<String,String> dataHome = new HashMap<>();
 
         Calendar cal = Calendar.getInstance(); // creates calendar
-        cal.add(Calendar.HOUR_OF_DAY, 4); //
+        cal.add(Calendar.HOUR_OF_DAY, timeService.getTimeZone()); //
 
         String currentDateInString = df.format(cal.getTime());
         boolean startIsHigherToCurrent;
@@ -303,13 +293,11 @@ public class HomeFragment extends Fragment {
             }
             /**Start is less than current and end is higher than current */
             else if( !startIsHigherToCurrent && endIsHigherToCurrent  ){
-                Log.e("Midle","en el medio");
                 currentEvent = tmpEvent;
                 dataHome.put("state","B");
 
                 /**if exist other event in the week*/
                 if ( i + 1  < sizeEvents){
-                    Log.e("Midle","if");
 
                     dataHome.put("nextMeeting", timeService.calculateDifferenceInString(currentDateInString, eventService.getEvent().get(i+1).getStart()));
                     while( i + 1 < sizeEvents){ // suma uno ya que si era el ultimo se evaluo en el caso anterior
@@ -345,6 +333,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void createEvent(final Event event){
+        Log.e("Name", event.getSubject());
         final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Creating...");
         pDialog.show();
         pDialog.setCancelable(false);
@@ -371,7 +360,7 @@ public class HomeFragment extends Fragment {
                             .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
 
                 }else{
-                    pDialog.setTitleText("Error!")
+                    pDialog.setTitleText("Error! The meeting was not created")
                             .setConfirmText("OK")
                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                 }
@@ -448,7 +437,6 @@ public class HomeFragment extends Fragment {
         }
     }
 
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -457,96 +445,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-    }
-
-
-    private class CreaterEvents extends AsyncTask<Void, Void, Void> {
-
-        Event event;
-        int i = -1;
-
-        public CreaterEvents(Event event){
-            super();
-            this.event = event;
-        }
-        @Override
-        protected Void doInBackground(Void... params) {
-            //SweetAlertDialog sd = new SweetAlertDialog(getActivity());
-            getActivity().runOnUiThread(new Runnable() {
-                public void run() {
-
-                    final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE)
-                            .setTitleText("Loading");
-                    pDialog.show();
-                    pDialog.setCancelable(false);
-                    new CountDownTimer(800 * 7, 800) {
-                        public void onTick(long millisUntilFinished) {
-                            pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.blue_btn_bg_color));
-                            if(eventService.createEvent(event)){
-                                return;
-                            }
-                        }
-
-                        public void onFinish() {
-                            i = -1;
-                            pDialog.setTitleText("Success!")
-                                    .setConfirmText("OK")
-                                    .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
-                            Fragment fragment = new HomeFragment();
-                            FragmentManager fragmentManager = getFragmentManager();
-                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                            fragmentTransaction.replace(R.id.container_body, fragment);
-                            fragmentTransaction.commit();
-                        }
-                    }.start();
-
-                }
-            });
-
-            ;
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-        }
-    }
-
-    private class DeleterEvents extends AsyncTask<Void, Void, Void> {
-
-        Event event;
-
-        public DeleterEvents(Event event){
-            super();
-            this.event = event;
-        }
-        @Override
-        protected Void doInBackground(Void... params) {
-            eventService.deleteEvent(event);
-            Fragment fragment = new HomeFragment();
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_body, fragment);
-            fragmentTransaction.commit();
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-        }
-    }
-
-    public static void main(String[] args){
-        TimeService timeService = new TimeService();
-        if (timeService.isGreaterDate("2015-09-09T01:00:00Z", "2015-09-09T00:01:00Z")){
-            System.out.println("1");
-        }else{
-            System.out.println("2");
-        }
-
     }
 
 }

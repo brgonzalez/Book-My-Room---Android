@@ -13,9 +13,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import android.os.StrictMode;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +32,9 @@ import com.snaptechnology.bgonzalez.bookmyroomandroid.services.UpdateService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
@@ -42,15 +47,28 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     private EventService eventService;
     private UpdateService updateService;
 
+    private MainActivity mainActivity = MainActivity.this;
+
+    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+
     public MainActivity(){
         this.eventService = EventService.getInstance(MainActivity.this);
-        new SynchronizerEvents().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        Runnable myRunnable = new Runnable() {
+            public void run() {
+                synchronizeEvents();
+            }
+        };
+        Thread thread = new Thread(myRunnable);
+        thread.start();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        StrictMode.setThreadPolicy(policy);
+
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -132,6 +150,38 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     }
 
+    private void  synchronizeEvents(){
+
+        while(true) {
+            try {
+                eventService.updateEvents();
+                Thread.sleep(40000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }catch (NullPointerException e){
+                Log.e("Error","Connection Refused");
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(getApplicationContext(), "Error: Connection Refused, don't use the application", Toast.LENGTH_LONG).show();
+                        /*SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(MainActivity.this, SweetAlertDialog.ERROR_TYPE);
+                                sweetAlertDialog.setTitleText("Oops...");
+                        sweetAlertDialog.setContentText("Something went wrong!");
+                        sweetAlertDialog.show();
+
+                        sweetAlertDialog.cancel();
+                        Log.e("s" ,"sas");*/
+                    }
+                });
+            }
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    }
 
 
     private class SynchronizerEvents extends AsyncTask<Void, Void, Void> {
@@ -141,11 +191,15 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         protected Void doInBackground(Void... params) {
 
             while(true) {
-                eventService.updateEvents();
                 try {
-                    Thread.sleep(15000);
+                    eventService.updateEvents();
+                    Thread.sleep(60000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                }
+                catch ( RuntimeException e){
+                    Log.e("Error", "Connection refused");
+                    Toast.makeText(getApplicationContext(),"Connection refused",Toast.LENGTH_LONG).show();
                 }
             }
         }

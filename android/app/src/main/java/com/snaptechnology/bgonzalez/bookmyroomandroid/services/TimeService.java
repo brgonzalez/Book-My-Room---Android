@@ -15,6 +15,7 @@ import java.util.Map;
  */
 public class TimeService {
 
+
     private int timeZone = 6;
 
     private static String[][] dates = new String[24][6];
@@ -280,7 +281,7 @@ public class TimeService {
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.add(Calendar.HOUR, timeZone - 2 );
+        calendar.add(Calendar.HOUR, timeZone );
         return  calendar.getTime();
     }
 
@@ -341,6 +342,12 @@ public class TimeService {
     public void setMinSimpleHour(String minSimpleHour) {
         this.minSimpleHour = minSimpleHour;
     }
+
+
+    public int getTimeZone() {
+        return timeZone;
+    }
+
 
 
 }

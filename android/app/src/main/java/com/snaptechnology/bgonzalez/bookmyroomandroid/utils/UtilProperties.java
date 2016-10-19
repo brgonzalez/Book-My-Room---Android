@@ -48,6 +48,9 @@ public class UtilProperties {
             Log.e("login activity", "File not found: " + e.toString());
         } catch (IOException e) {
             Log.e("login activity", "Can not read file: " + e.toString());
+        } catch (NullPointerException e){
+            Log.e("Error","Can not read location file");
+            getLocationProperty(context);
         }
 
         return ret;
