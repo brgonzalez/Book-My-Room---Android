@@ -8,14 +8,12 @@
     <string name="nav_item_home">Home</string>
     <string name="nav_item_calendar">Calendar</string>
     <string name="nav_item_device_setting">Device Setting</string>
-    <string name="nav_item_socket">Test Socket</string>
 
     <!-- navigation drawer item labels  -->
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_home</item>
         <item>@string/nav_item_calendar</item>
         <item>@string/nav_item_device_setting</item>
-        <item>@string/nav_item_socket</item>
     </string-array>
 
 

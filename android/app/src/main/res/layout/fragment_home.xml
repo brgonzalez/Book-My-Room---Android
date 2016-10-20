@@ -133,7 +133,7 @@
                                     android:layout_margin="1dp">
 
                                     <TextView
-                                        android:id="@+id/minutes1"
+                                        android:id="@+id/fifteen_minutes"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="0dp"
@@ -248,7 +248,7 @@
                                     android:orientation="horizontal"
                                     android:layout_margin="1dp">
                                     <TextView
-                                        android:id="@+id/minutes2"
+                                        android:id="@+id/thirty_minutes"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="0dp"
@@ -299,13 +299,13 @@
                                     android:layout_margin="1dp">
 
                                     <TextView
-                                        android:id="@+id/minutes3"
+                                        android:id="@+id/fortyFive_minutes"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="0dp"
                                         android:background="@drawable/circle"
                                         android:gravity="center"
-                                        android:text="60 min"
+                                        android:text="45 min"
                                         android:textColor="@color/textColorPrimary"
                                         android:textSize="@dimen/extra_small_size_text"
                                         android:textStyle="bold"
@@ -506,13 +506,13 @@
                                     android:layout_margin="1dp">
 
                                     <TextView
-                                        android:id="@+id/minutes4"
+                                        android:id="@+id/sixty_minutes"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="0dp"
                                         android:background="@drawable/circle"
                                         android:gravity="center"
-                                        android:text="90 min"
+                                        android:text="60 min"
                                         android:textColor="@color/textColorPrimary"
                                         android:textSize="@dimen/extra_small_size_text"
                                         android:textStyle="bold"

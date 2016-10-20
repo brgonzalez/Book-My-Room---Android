@@ -27,7 +27,11 @@
     <dimen name="extra_small_size_text">15dp</dimen>
     <dimen name="extra_extra_small_size_text">10dp</dimen>
 
-    <!--TODO: General Margin-->
+    <!--TODO: General Margin and padding-->
+    <dimen name="item_menu_padding_left">30dp</dimen>
+    <dimen name="item_menu_padding_top">40dp</dimen>
+
+
     <dimen name="margin_button_dialog">35dp</dimen>
     <dimen name="size_top_elements_dialog">15dp</dimen>
     <dimen name="medium_margin">4dp</dimen>

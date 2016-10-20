@@ -120,9 +120,21 @@ public final class EventService  {
         client.postHttpRequest(url,json);
         String output = client.getOutput();
 
-        System.out.println(output);
-        updateEvents();
+        try {
+            JSONObject result  = new JSONObject(output);
+            if( result.getString("statusCode").equalsIgnoreCase("200")){
+                Log.i("Success","Event updated successfully");
+                updateEvents();
+                return true;
+            }else{
+                Log.i("Warning","Event was not updated");
+                return false;
+            }
 
+        } catch (JSONException e) {
+            Log.e("Error","Error trying to parse output from updated a event");
+            e.printStackTrace();
+        }
         return false;
 
     }

@@ -40,6 +40,9 @@ import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.UtilProperties;
 import com.transitionseverywhere.TransitionManager;
 import com.transitionseverywhere.extra.Scale;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -52,6 +55,9 @@ import java.util.Map;
 
 public class HomeFragment extends Fragment {
     /**Variable used to check the last click by the user*/
+
+    private static long mLastClickTime;
+
 
     /**Services to get the functions to do the task by the user*/
     private EventService eventService = EventService.getInstance(getActivity());
@@ -111,13 +117,22 @@ public class HomeFragment extends Fragment {
             ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "progress", lapsedMeetingTime * 500 / meetingTime, 500); // see this max value coming back here, we animale towards that value
             animation.setDuration (5000000);
             animation.setInterpolator (new DecelerateInterpolator());
+            animation.start ();
 
             ImageView unavailableImage = (ImageView) rootView.findViewById(R.id.image_unavailable);
             unavailableImage.setVisibility(View.VISIBLE);
             unavailableImage.bringToFront();
-            animation.start ();
 
             final TextView cancelButton = (TextView) transitionsContainer.findViewById(R.id.circle_finished);
+            cancelButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                        return;
+                    }
+                    mLastClickTime = SystemClock.elapsedRealtime();                    deleteEvent(currentEvent);
+                }
+            });
 
             transitionsContainer.findViewById(R.id.image_unavailable).setOnClickListener(new VisibleToggleClickListener() {
                 @Override
@@ -127,13 +142,7 @@ public class HomeFragment extends Fragment {
                 }
             });
 
-            cancelButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    EventHandlerUtilities.preventDoubleClick();
-                    deleteEvent(currentEvent);
-                }
-            });
+
         }
         else{// in the case of being free
 
@@ -143,31 +152,32 @@ public class HomeFragment extends Fragment {
 
             //Store ids of view to each minute available
             final List<Integer> rIds = new ArrayList<>();
-            rIds.add(R.id.minutes1);
-            rIds.add(R.id.minutes2);
-            rIds.add(R.id.minutes3);
-            rIds.add(R.id.minutes4);
+            rIds.add(R.id.fifteen_minutes);
+            rIds.add(R.id.thirty_minutes);
+            rIds.add(R.id.fortyFive_minutes);
+            rIds.add(R.id.sixty_minutes);
 
 
             final String dateInString = timeService.getActualTimeInString();
-            final List<String> availableMinutes = getAvailableMinutes(dateInString);
+            final List<String> availableMinutes = getAvailableMinutesToBook(dateInString);
 
             final String tmpEndDate = timeService.roundDateToHigherInString(dateInString);
 
             for(int i = 0; i < availableMinutes.size(); i++){
-                /** Declare a text view according to available minutes */
-                TextView minute = (TextView) rootView.findViewById(rIds.get(i));
+                TextView minutesToBook = (TextView) rootView.findViewById(rIds.get(i));
 
-                minute.setText(availableMinutes.get(i));
-
-                final String end = timeService.addMinutes(tmpEndDate,i+1);
-                minute.setOnClickListener(new View.OnClickListener() {
+                final String endDate = timeService.addMinutes(tmpEndDate, i + 1 );
+                minutesToBook.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        EventHandlerUtilities.preventDoubleClick();
+                    public void onClick(View v) { // To press save button in dialog showed
 
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        //EventHandlerUtilities.preventDoubleClick();
+                        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                            return;
+                        }
+                        mLastClickTime = SystemClock.elapsedRealtime();
 
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         LayoutInflater inflater = getActivity().getLayoutInflater();
 
                         final View dialogView =  inflater.inflate(R.layout.dialog_book_room_from_home,null);
@@ -179,39 +189,34 @@ public class HomeFragment extends Fragment {
                         buttonBookRoom.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            EventHandlerUtilities.preventDoubleClick();
+                            //EventHandlerUtilities.preventDoubleClick();
+                            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                                return;
+                            }
+                            mLastClickTime = SystemClock.elapsedRealtime();
 
-                            String id = "id";
                             String startDate = timeService.roundDateToLessInString(dateInString);
-
                             String subject = (((TextInputLayout) dialogView.findViewById(R.id.subject_book_room_from_home)).getEditText().getText()).toString();
-                            Event event = new Event(id, subject, new Location(UtilProperties.getLocationProperty(getActivity())),new ArrayList<Attendee>(), false,  startDate,  end);
+                            Event event = new Event("id", subject, new Location(UtilProperties.getLocationProperty(getActivity())),new ArrayList<Attendee>(), false,  startDate,  endDate);
                             createEvent(event);
 
-                        dialog.cancel();
+                            dialog.cancel();
                         }
                     });
                     dialog.show();
                     }
-
                 });
-
             }
 
             transitionsContainer.findViewById(R.id.image_available).setOnClickListener(new VisibleToggleClickListener() {
-
                 @Override
                 protected void changeVisibility(boolean visible) {
-
                 TransitionManager.beginDelayedTransition(transitionsContainer, new Scale());
-                for(int i = 0 ; i < availableMinutes.size(); i++){
-                    (rootView.findViewById(rIds.get(i))).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+                    for(int i = 0 ; i < availableMinutes.size(); i++){
+                        (rootView.findViewById(rIds.get(i))).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+                    }
                 }
-                }
-
-
             });
-
         }
 
         TextView availableIn =(TextView) rootView.findViewById(R.id.available_in);
@@ -222,10 +227,10 @@ public class HomeFragment extends Fragment {
 
         final TableLayout timeLine = (TableLayout) rootView.findViewById(R.id.time_line);
 
-        final TableRow row  = (TableRow) timeLine.getChildAt(1);
+        final TableRow rowTimeLine  = (TableRow) timeLine.getChildAt(1);
         String start =  timeService.getInitialTimeDay();
-        for(int i = 0 ; i < row.getChildCount(); i++){
-            final TextView v = (TextView) row.getChildAt(i);
+        for(int i = 0 ; i < rowTimeLine.getChildCount(); i++){
+            final TextView v = (TextView) rowTimeLine.getChildAt(i);
 
             if(eventService.getEventMapper().containsKey(start)){
                 v.setBackgroundColor(Color.RED);
@@ -233,25 +238,24 @@ public class HomeFragment extends Fragment {
             start = timeService.addMinutes(start);
         }
 
-
-
-        // Inflate the layout for this fragment
         return rootView;
     }
 
-    public List<String> getAvailableMinutes(String date){
+    /**
+     * Method to get the available minutes to book a meeting
+     * @param date
+     * @return String list that contains available minutes
+     */
+    public List<String> getAvailableMinutesToBook(String date){
 
         List<String> availableMinutes = new ArrayList<>();
         int minutes = timeService.getMinMin();
 
-
-
-        String limitDate = timeService.resetHoursStringDate(date);
-        limitDate = timeService.addADay(limitDate);
+        String limitDateOfDay = timeService.addADay(timeService.resetHoursStringDate(date));
 
         Date actual = timeService.convertStringToDate(date);
-        timeService.roundDateToHigherInString(date);
-        Date nextDay = timeService.convertStringToDate(limitDate);
+        date = timeService.roundDateToHigherInString(date);
+        Date nextDay = timeService.convertStringToDate(limitDateOfDay);
 
         while(!eventService.getEventMapper().containsKey(date) && actual.compareTo(nextDay) < 0 && availableMinutes.size() < 4) {
 
@@ -261,29 +265,29 @@ public class HomeFragment extends Fragment {
             actual = timeService.convertStringToDate(date);
         }
 
-
         return availableMinutes;
     }
 
+    /**
+     * Method to get the data to fill the home fragment
+     *
+     * @return Map with current state and information of next meeting and when is available
+     */
     private Map<String,String> getDataHome(){
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         Map<String,String> dataHome = new HashMap<>();
 
-        Calendar cal = Calendar.getInstance(); // creates calendar
-        cal.add(Calendar.HOUR_OF_DAY, timeService.getTimeZone()); //
-
-        String currentDateInString = df.format(cal.getTime());
+        String currentDateInString = timeService.getActualTimeInString();
         boolean startIsHigherToCurrent;
         boolean endIsHigherToCurrent;
 
-        int sizeEvents =eventService.getEvent().size();
+        int sizeEvents = eventService.getEvent().size();
         Event tmpEvent ;
         for(int i = 0 ; i < sizeEvents; i++){
             tmpEvent = eventService.getEvent().get(i);
             startIsHigherToCurrent = timeService.isGreaterDate(tmpEvent.getStart(), currentDateInString);
             endIsHigherToCurrent = timeService.isGreaterDate(tmpEvent.getEnd(), currentDateInString);
 
-            /**Start and end are higher than current*/
+            //**Start and end are higher than current*/
             if( startIsHigherToCurrent && endIsHigherToCurrent ){
                 dataHome.put("state","F");
                 dataHome.put("availableIn","Now");
@@ -291,17 +295,17 @@ public class HomeFragment extends Fragment {
                 currentEvent = null;
                 return dataHome;
             }
-            /**Start is less than current and end is higher than current */
+            //**Start is less than current and end is higher than current */
             else if( !startIsHigherToCurrent && endIsHigherToCurrent  ){
                 currentEvent = tmpEvent;
                 dataHome.put("state","B");
 
-                /**if exist other event in the week*/
+                //**if exist other event in the week*/
                 if ( i + 1  < sizeEvents){
 
                     dataHome.put("nextMeeting", timeService.calculateDifferenceInString(currentDateInString, eventService.getEvent().get(i+1).getStart()));
-                    while( i + 1 < sizeEvents){ // suma uno ya que si era el ultimo se evaluo en el caso anterior
-                        /** Compare actual with next*/
+                    while( i + 1 < sizeEvents){
+                        //** Compare actual with next event*/
                         if ( ! eventService.getEvent().get(i).getEnd().equalsIgnoreCase(eventService.getEvent().get( i + 1 ).getStart())){
                             dataHome.put("availableIn",timeService.calculateDifferenceInString(currentDateInString,eventService.getEvent().get(i).getEnd()));
                             return dataHome;
@@ -319,7 +323,7 @@ public class HomeFragment extends Fragment {
                     return dataHome;
                 }
             }
-            /**Start and end are less than current*/
+            //**Start and end are less than current*/
             else if( !startIsHigherToCurrent && !endIsHigherToCurrent  ){
                 /**Pass to next event*/
             }
@@ -332,8 +336,11 @@ public class HomeFragment extends Fragment {
         return dataHome;
     }
 
+    /**
+     * Method to create a event from the GUI
+     * @param event
+     */
     private void createEvent(final Event event){
-        Log.e("Name", event.getSubject());
         final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Creating...");
         pDialog.show();
         pDialog.setCancelable(false);
@@ -371,6 +378,10 @@ public class HomeFragment extends Fragment {
 
     }
 
+    /**
+     * Method to delete a event from the GUI
+     * @param event
+     */
     private void deleteEvent(final Event event){
         final SweetAlertDialog sweetAlertDialog =  new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE);
                 sweetAlertDialog.setTitleText("Are you sure?")
@@ -425,6 +436,9 @@ public class HomeFragment extends Fragment {
                 .show();
     }
 
+    /**
+     * Method to refresh the fragment
+     */
     private void refreshFragment(){
         try{
             Fragment fragment = new HomeFragment();
@@ -433,7 +447,7 @@ public class HomeFragment extends Fragment {
             fragmentTransaction.replace(R.id.container_body, fragment);
             fragmentTransaction.commitAllowingStateLoss();
         }catch ( NullPointerException e){
-            Log.i("Warning","Was tried reload the home fragment while user used home screen");
+            Log.i("Warning refresh","Update fragment not completed");
         }
     }
 

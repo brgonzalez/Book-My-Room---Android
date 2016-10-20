@@ -40,7 +40,7 @@ public class Office365Service {
      * @param eventVO with fields location, startDate and endDate
      * @return events
      */
-    public List<Event> getEvents(EventVO eventVO){
+    public List<Event> getEvents(EventVO eventVO) {
 
         logger.info("Getting status code to get events from Office365 Service");
 
@@ -51,10 +51,7 @@ public class Office365Service {
 
         client.getHttpRequest(urlService.getURLEvents(eventVO.getStart(),eventVO.getEnd()));
 
-
-
-            JSONArray json = new JSONObject(client.getOutput()).getJSONArray("value");
-
+        JSONArray json = new JSONObject(client.getOutput()).getJSONArray("value");
 
         for(int i = 0; i < json.length(); i++){
             events.add(new Event(json.getJSONObject(i)));

@@ -5,9 +5,12 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,9 +71,8 @@ public class UpdateDeviceSettingFragment extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 new UtilProperties().setProperty(getActivity(),locationSpinner.getText().toString());
-
+                refreshFragment();
             }
         });
 
@@ -79,8 +81,16 @@ public class UpdateDeviceSettingFragment extends Fragment {
         return rootView;
     }
 
-    public void updateLocation(View v){
-
+    private void refreshFragment(){
+        try{
+            Fragment fragment = new DeviceSettingFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commitAllowingStateLoss();
+        }catch ( NullPointerException e){
+            Log.i("Warning refresh","Update fragment not completed");
+        }
     }
 
     @Override

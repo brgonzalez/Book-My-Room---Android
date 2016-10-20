@@ -27,6 +27,7 @@ public class TimeService {
     private int scheduleRows = 48;
     private int scheduleColumns = 6;
 
+    private final int startTime = 6;
     private String minSimpleHour = "06:00";
     private String maxSimpleHour = "18:00";
 
@@ -69,7 +70,7 @@ public class TimeService {
 
         cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
         cal.add(Calendar.DAY_OF_WEEK,1);
-        cal.add(Calendar.HOUR,  6 + timeZone);
+        cal.add(Calendar.HOUR,  startTime + timeZone);
         String initialID = convertDateToString(cal.getTime());
         return initialID;
     }
@@ -81,7 +82,7 @@ public class TimeService {
         cal.clear(Calendar.SECOND);
         cal.clear(Calendar.MILLISECOND);
 
-        cal.add(Calendar.HOUR,  6 + timeZone);
+        cal.add(Calendar.HOUR,  startTime + timeZone);
         String initialID = convertDateToString(cal.getTime());
         return initialID;
     }
@@ -106,6 +107,7 @@ public class TimeService {
         String output = convertDateToString(cal.getTime());
         return output;
     }
+
 
     public String lessMinutes(String dateInString){
         Date date = convertStringToDate(dateInString);

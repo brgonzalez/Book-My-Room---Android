@@ -4,7 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    tools:context="com.snaptechnology.bgonzalez.bookmyroomandroid.activity.HomeFragment">
+    tools:context="com.snaptechnology.bgonzalez.bookmyroomandroid.activity.HomeFragment"
+    android:splitMotionEvents="false">
     <TextView
         android:id="@+id/week"
         android:layout_width="wrap_content"
@@ -106,7 +107,7 @@
         android:layout_marginBottom="15dp"
         android:id="@+id/scrollView"
         android:layout_below="@+id/header_schedule"
-        >
+        android:splitMotionEvents="false">
 
 
         <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -117,11 +118,14 @@
             android:clickable="true"
             android:layout_marginBottom="60dp"
             android:layout_below="@+id/scrollView"
-            >
+            android:splitMotionEvents="false">
+
+        >
 
 
             <!--Row to meetings-->
-            <TableRow>
+            <TableRow
+                android:splitMotionEvents="false">
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -181,7 +185,8 @@
                     android:background="@color/windowBackground"
                     android:onClick="onClickCellTable"/>
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:splitMotionEvents="false">
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"

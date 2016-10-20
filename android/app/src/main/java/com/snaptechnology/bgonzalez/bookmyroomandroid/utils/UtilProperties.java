@@ -5,6 +5,8 @@ import android.content.res.AssetManager;
 import android.text.Editable;
 import android.util.Log;
 
+import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -50,7 +52,7 @@ public class UtilProperties {
             Log.e("login activity", "Can not read file: " + e.toString());
         } catch (NullPointerException e){
             Log.e("Error","Can not read location file");
-            getLocationProperty(context);
+            return "bgonzalez@snaptechnology.net";
         }
 
         return ret;

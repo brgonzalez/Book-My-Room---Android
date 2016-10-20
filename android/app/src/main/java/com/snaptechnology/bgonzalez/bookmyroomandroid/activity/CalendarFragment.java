@@ -7,6 +7,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,7 +18,6 @@ import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -29,6 +30,7 @@ import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Event;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.EventService;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.TimeService;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.EventHandlerUtilities;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.UtilProperties;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
@@ -37,11 +39,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 public class CalendarFragment extends Fragment {
 
 
     private int countToBack = 0;
+
+    private long mLastClickTime = 0;
+
 
     private EventService eventService = EventService.getInstance(getActivity());
     private TimeService timeService = new TimeService();
@@ -55,13 +62,10 @@ public class CalendarFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
         final View rootView = inflater.inflate(R.layout.fragment_calendar, container, false);
-
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,14 +73,12 @@ public class CalendarFragment extends Fragment {
 
             }
         });
-        /**Set header of calendar*/
-        TextView week = (TextView) rootView.findViewById(R.id.week);
-        week.setText(getStringHeaderCalendar());
+        TextView headerCalendar = (TextView) rootView.findViewById(R.id.week);
+        headerCalendar.setText(getStringHeaderCalendar());
 
-        /**Update dates according dates of week*/
         eventService.getTimeService().updateDatesToCalendar();
 
-        /**Store date to assign to each cell(TextView) of */
+        //**Store dates to assign to each cell(TextView) of the table */
         String[][] ids = eventService.getTimeService().getDates();
 
         final TableLayout table = (TableLayout) rootView.findViewById(R.id.table_calendar);
@@ -89,11 +91,11 @@ public class CalendarFragment extends Fragment {
 
                 final TextView column = (TextView) row.getChildAt(j);
 
-                /**-1 because you need to exclude the days and hours in the calendar*/
+                /** j-1 because you need to exclude hours in the calendar*/
                 String tag = ids[i][j-1];
                 column.setTag(tag);
 
-                final boolean isThereEvent =eventService.getEventMapper().containsKey(tag);
+                final boolean isThereEvent = eventService.getEventMapper().containsKey(tag);
 
                 if(isThereEvent){
                     Event event = eventService.getEventMapper().get(tag);
@@ -105,24 +107,25 @@ public class CalendarFragment extends Fragment {
 
                     @Override
                     public void onClick(View cell){
-
-                        if(isThereEvent){
+// mis-clicking prevention, using threshold of 1000 ms
+                        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                            return;
+                        }
+                        mLastClickTime = SystemClock.elapsedRealtime();                        if(isThereEvent){
                             showDialogUpdateDelete(cell);
                         }else{
                             showDialogToCreateEvent(cell);
                         }
-
-
                     }
                 });
             }
         }
 
         ScrollView s = (ScrollView) rootView.findViewById(R.id.scrollView);
-
         s.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
             public void onScrollChanged() {
+                EventHandlerUtilities.preventDoubleClick();
                 countToBack = 0;
             }
         });
@@ -130,50 +133,52 @@ public class CalendarFragment extends Fragment {
         return rootView;
     }
 
-
-
+    /**
+     * Show dialog to create a event
+     * @param cell or field to book the meeting
+     */
     private void showDialogToCreateEvent(final View cell){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        final View dialogView =  inflater.inflate(R.layout.dialog_book_room,null);
-        builder.setView(dialogView);
+
+        final View dialogToBook =  inflater.inflate(R.layout.dialog_book_room,null);
+        builder.setView(dialogToBook);
         final AlertDialog dialog = builder.create();
 
-        TextView titleBookRoom = (TextView) dialogView.findViewById(R.id.title_book_room);
-        titleBookRoom.setText("Book Room - "+ timeService.convertComplexHourToSimpleHour(cell.getTag().toString()));
+        TextView headerDialogToBook = (TextView) dialogToBook.findViewById(R.id.title_book_room);
+        headerDialogToBook.setText("Book Room - "+ timeService.convertComplexHourToSimpleHour(cell.getTag().toString()));
 
-        /** Setting Spinner */
-        final MaterialBetterSpinner spinnerBook = (MaterialBetterSpinner)dialogView.findViewById(R.id.spinner_time_book_room);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableMinutes(cell.getTag().toString()));
-        spinnerBook.setAdapter(adapter);
+        final MaterialBetterSpinner availableMinutesSpinner = (MaterialBetterSpinner)dialogToBook.findViewById(R.id.spinner_time_book_room);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(dialogToBook.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableMinutes(cell.getTag().toString()));
+        availableMinutesSpinner.setAdapter(adapter);
 
         /**Check if the location is available to all day*/
         if( ! isToAllDay(cell.getTag().toString())){
-            ((CheckBox) dialogView.findViewById(R.id.all_day_book_room)).setEnabled(false);
+            ((CheckBox) dialogToBook.findViewById(R.id.all_day_book_room)).setEnabled(false);
         }
 
         /**Define the checkbox and if this is pressed, the visibility of the spinner change*/
-        final CheckBox checkbox =(CheckBox) dialogView.findViewById(R.id.all_day_book_room);
+        final CheckBox checkbox =(CheckBox) dialogToBook.findViewById(R.id.all_day_book_room);
 
         checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CheckBox c = (CheckBox) v;
                 if (c.isChecked()) {
-                    spinnerBook.setVisibility(View.INVISIBLE);
+                    availableMinutesSpinner.setVisibility(View.INVISIBLE);
                 } else {
-                    spinnerBook.setVisibility(View.VISIBLE);
+                    availableMinutesSpinner.setVisibility(View.VISIBLE);
                 }
             }
         });
 
-        Button buttonBookRoom = (Button) dialogView.findViewById(R.id.btn_book_room);
+        Button buttonBookRoom = (Button) dialogToBook.findViewById(R.id.btn_book_room);
         buttonBookRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
                 Event event = new Event();
                 event.setId("id");
-                event.setSubject((((TextInputLayout) dialogView.findViewById(R.id.subject_book_room)).getEditText().getText()).toString());
+                event.setSubject((((TextInputLayout) dialogToBook.findViewById(R.id.subject_book_room)).getEditText().getText()).toString());
                 event.setLocation(new Location(UtilProperties.getLocationProperty(getActivity())));
                 event.setAttendees(new ArrayList<Attendee>());
                 event.setIsAllDay(checkbox.isChecked());
@@ -183,21 +188,61 @@ public class CalendarFragment extends Fragment {
                     event.setEnd(timeService.addADay(event.getStart()));
                 }else{
                     event.setStart(cell.getTag().toString());
-                    String duration = spinnerBook.getEditableText().toString();
+                    String duration = availableMinutesSpinner.getEditableText().toString();
                     if(  duration.equalsIgnoreCase("")){
                         event.setEnd(getEndTimeFromSpinner(event.getStart() , "15 min"));
                     }else{
-                        event.setEnd(getEndTimeFromSpinner(event.getStart() , spinnerBook.getEditableText().toString()));
+                        event.setEnd(getEndTimeFromSpinner(event.getStart() , availableMinutesSpinner.getEditableText().toString()));
                     }
                 }
-                new CreaterEvents(event).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                createEvent(event);
                 dialog.cancel();
-
-                Toast.makeText(getActivity(), "Meeting added, wait a moment to see it ", Toast.LENGTH_LONG).show();
             }
         });
 
         dialog.show();
+    }
+    /**
+     * Method to create a event from the GUI
+     * @param event
+     */
+    private void createEvent(final Event event){
+        Log.e("Name", event.getSubject());
+        final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Creating...");
+        pDialog.show();
+        pDialog.setCancelable(false);
+
+        new CountDownTimer(800 * 7, 800) {
+            boolean isExecuted = false;
+            boolean isCreated = false;
+            public void onTick(long millisUntilFinished) {
+                try{
+                    pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.blue_btn_bg_color));
+                }catch (IllegalStateException e){
+                    Log.e("Error","Error showing progress bar because user tried to create two event at same time");
+                }
+                while (isExecuted == false){
+                    isExecuted = true;
+                    isCreated = eventService.createEvent(event);
+                }
+            }
+
+            public void onFinish() {
+                if(isCreated) {
+                    pDialog.setTitleText("Success!")
+                            .setConfirmText("OK")
+                            .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+
+                }else{
+                    pDialog.setTitleText("Error! The meeting was not created")
+                            .setConfirmText("OK")
+                            .changeAlertType(SweetAlertDialog.ERROR_TYPE);
+                }
+                refreshFragment();
+
+            }
+        }.start();
+
     }
 
     private void showDialogUpdateDelete(final View cell){
@@ -215,16 +260,16 @@ public class CalendarFragment extends Fragment {
 
         final AlertDialog dialog = builder.create();
 
-        TextView titleBookRoom = (TextView) dialogView.findViewById(R.id.title_book_room);
-        titleBookRoom.setText("Meeting:   "+ event.getSubject());
+        TextView headerDialog = (TextView) dialogView.findViewById(R.id.title_book_room);
+        headerDialog.setText("Meeting:   "+ event.getSubject());
         ((TextInputLayout) dialogView.findViewById(R.id.subject_update_delete)).getEditText().setText(event.getSubject());
 
 
         /** Setting Spinner */
-        final MaterialBetterSpinner spinnerStartTimes = (MaterialBetterSpinner)dialogView.findViewById(R.id.start_time_meeting);
-        final ArrayAdapter<String> startTimes = new ArrayAdapter<String>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableStartTimes(event));
-        spinnerStartTimes.setAdapter(startTimes);
-        spinnerStartTimes.setText(timeService.convertComplexHourToSimpleHour(event.getStart()));
+        final MaterialBetterSpinner startDatesSpinner = (MaterialBetterSpinner)dialogView.findViewById(R.id.start_time_meeting);
+        final ArrayAdapter<String> startDates = new ArrayAdapter<String>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableStartTimes(event));
+        startDatesSpinner.setAdapter(startDates);
+        startDatesSpinner.setText(timeService.convertComplexHourToSimpleHour(event.getStart()));
 
         /** Setting Spinner */
         final MaterialBetterSpinner spinnerEndTimes = (MaterialBetterSpinner)dialogView.findViewById(R.id.end_time_meeting);
@@ -233,18 +278,18 @@ public class CalendarFragment extends Fragment {
         spinnerEndTimes.setText(timeService.convertComplexHourToSimpleHour(event.getEnd()));
 
 
-        Button buttonUpdateEvent = (Button) dialogView.findViewById(R.id.btn_update_meeting);
-        buttonUpdateEvent.setOnClickListener(new View.OnClickListener() {
+        Button updateButton = (Button) dialogView.findViewById(R.id.btn_update_meeting);
+        updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
+                EventHandlerUtilities.preventDoubleClick();
                 event.setSubject((((TextInputLayout) dialogView.findViewById(R.id.subject_update_delete)).getEditText().getText()).toString());
-                event.setStart(timeService.convertSimpleHourToComplexHour(spinnerStartTimes.getEditableText().toString(), timeService.getIntOfActualDay(event.getStart())));
+                event.setStart(timeService.convertSimpleHourToComplexHour(startDatesSpinner.getEditableText().toString(), timeService.getIntOfActualDay(event.getStart())));
                 event.setEnd(timeService.convertSimpleHourToComplexHour(spinnerEndTimes.getEditableText().toString(), timeService.getIntOfActualDay(event.getStart())));
 
-                new UpdaterEvents(event).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-                dialog.cancel();
 
-                Toast.makeText(getActivity(), "Updating Meeting, wait a moment to see it ", Toast.LENGTH_LONG).show();
+                updateEvent(event);
+                dialog.cancel();
             }
         });
 
@@ -252,15 +297,109 @@ public class CalendarFragment extends Fragment {
         buttonDeleteEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-
-                new DeleterEvents(eventService.getEventMapper().get(cell.getTag())).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                EventHandlerUtilities.preventDoubleClick();
+                deleteEvent(event);
                 dialog.cancel();
-
-                Toast.makeText(getActivity(), "Delete Meeting, wait a moment ", Toast.LENGTH_LONG).show();
             }
         });
 
         dialog.show();
+
+    }
+
+    /**
+     * Method to delete a event from the GUI
+     * @param event
+     */
+    private void deleteEvent(final Event event){
+        final SweetAlertDialog sweetAlertDialog =  new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE);
+        sweetAlertDialog.setTitleText("Are you sure?")
+                .setContentText("Won't be able to recover this meeting!")
+                .setCancelText("Cancel")
+                .setConfirmText("Delete")
+                .showCancelButton(true)
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Deleting");
+                        pDialog.show();
+                        pDialog.setCancelable(false);
+
+                        new CountDownTimer(800 * 7, 800) {
+                            boolean isExecuted = false;
+                            boolean isDeleted = false;
+                            public void onTick(long millisUntilFinished) {
+                                try{
+                                    pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.blue_btn_bg_color));
+                                }catch (IllegalStateException e){
+                                    Log.e("Error","Error showing progress bar because user tried to create two event at same time");
+                                }
+                                while (isExecuted == false){
+                                    isExecuted = true;
+                                    isDeleted = eventService.deleteEvent(event);
+                                }
+                            }
+
+                            public void onFinish() {
+                                if(isDeleted) {
+                                    pDialog.setTitleText("Deleted it!")
+                                            .setConfirmText("OK")
+                                            .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                                    sweetAlertDialog.cancel();
+
+
+                                }else{
+                                    pDialog.setTitleText("Error!")
+                                            .setConfirmText("OK")
+                                            .changeAlertType(SweetAlertDialog.ERROR_TYPE);
+                                    sweetAlertDialog.cancel();
+                                }
+
+                                refreshFragment();
+
+                            }
+                        }.start();
+
+                    }
+                })
+                .show();
+    }
+
+    private void updateEvent(final Event event){
+        final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Updating...");
+        pDialog.show();
+        pDialog.setCancelable(false);
+
+        new CountDownTimer(800 * 7, 800) {
+            boolean isExecuted = false;
+            boolean wasUpdated = false;
+            public void onTick(long millisUntilFinished) {
+                try{
+                    pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.blue_btn_bg_color));
+                }catch (IllegalStateException e){
+                    Log.e("Error","Error showing progress bar because user tried to create two event at same time");
+                }
+                while (isExecuted == false){
+                    isExecuted = true;
+                    wasUpdated = eventService.updateEvent(event);
+                }
+            }
+
+            public void onFinish() {
+                if(wasUpdated) {
+                    pDialog.setTitleText("Success!")
+                            .setConfirmText("OK")
+                            .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+
+                }else{
+                    pDialog.setTitleText("Error! The meeting was not updated")
+                            .setConfirmText("OK")
+                            .changeAlertType(SweetAlertDialog.ERROR_TYPE);
+                }
+                refreshFragment();
+
+            }
+        }.start();
 
     }
 
@@ -359,6 +498,21 @@ public class CalendarFragment extends Fragment {
             actualDayDate = timeService.convertStringToDate(date);
         }
         return true;
+    }
+
+    /**
+     * Method to refresh the fragment
+     */
+    private void refreshFragment(){
+        try{
+            Fragment fragment = new CalendarFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commitAllowingStateLoss();
+        }catch ( NullPointerException e){
+            Log.i("Warning refresh","Update fragment not completed");
+        }
     }
 
     @Override
