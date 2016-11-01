@@ -84,7 +84,7 @@ public class Office365Service {
         }
         logger.info("Output from API Office 365 : " + client.getOutput());
 
-        return statusCode;
+        return (statusCode == 201) ? 200 : statusCode ;
     }
 
     /**
@@ -129,7 +129,7 @@ public class Office365Service {
 
         /**logger.info("Output from API Office 365 : " + client.getOutput()); //It has not output*/
 
-        return statusCode;
+        return (statusCode == 204) ? 200 : statusCode ;
     }
 
     public List<Event> synchronizedEvents(Location location, String startDate, String endDate, String delta){

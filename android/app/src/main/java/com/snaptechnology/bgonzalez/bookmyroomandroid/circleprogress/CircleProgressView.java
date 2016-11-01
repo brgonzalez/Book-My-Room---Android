@@ -95,7 +95,7 @@ public class CircleProgressView extends View {
     protected int mLayoutWidth = 0;
     private int mBarWidth = 40;
     private int mRimWidth = 40;
-    private int mStartAngle = 270;
+    private int mStartAngle = 0;
     private float mContourSize = 1;
     //Default text sizes
     private int mUnitTextSize = 10;
@@ -165,7 +165,7 @@ public class CircleProgressView extends View {
     private boolean mShowBlock = false;
     private int mBlockCount = 18;
     private float mBlockScale = 0.9f;
-    private float mBlockDegree = 360 / mBlockCount;
+    private float mBlockDegree = 180 / mBlockCount;
     private float mBlockScaleDegree = mBlockDegree * mBlockScale;
     private boolean mRoundToBlock = false;
 
@@ -1722,7 +1722,7 @@ public class CircleProgressView extends View {
 
     private float getRotationAngleForPointFromStart(PointF point) {
         long angle = Math.round(calcRotationAngleInDegrees(mCenter, point));
-        float fromStart = mDirection == Direction.CW ? angle - mStartAngle : mStartAngle - angle;
+        float fromStart = mDirection == Direction.CW ? angle - mStartAngle-90 : mStartAngle - angle-90;
         return normalizeAngle(fromStart);
     }
 

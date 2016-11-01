@@ -5,9 +5,8 @@ import android.util.Log;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.httpclient.ApacheHttpClient;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.httpclient.OKHttpClient;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.model.VO.EventVO;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,11 +20,12 @@ import java.util.List;
  */
 public class LocationService {
 
-    private ApacheHttpClient client;
+    private static final String TAG = LocationService.class.getSimpleName();
+    private OKHttpClient client;
     private URLService urlService;
 
     public LocationService(){
-        this.client = new ApacheHttpClient();
+        this.client = new OKHttpClient();
         this.urlService = new URLService();
     }
 
@@ -36,17 +36,16 @@ public class LocationService {
         List<Location> locations = new ArrayList<>();
         try {
             String url = urlService.getURLAllLocations();
-            Log.i("GET method","Sending GET method to "+ url);
-            client.getHttpRequest(url);
-            String output = client.getOutput();
-            Log.i("Output GET method","The output is "+output);
+            Log.i(TAG,"Getting locations, Url:  "+ url);
+            String output =client.get(url);
+            Log.i(TAG,"Output:"+output);
             locations = mapper.readValue(output,TypeFactory.defaultInstance().constructCollectionType(List.class, Location.class));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-            Log.e("JsonProcessingException","Error to process JSON Object in LocationService");
+            Log.e(TAG,"JsonProcessingException error to process JSON Object in LocationService");
         } catch (IOException e) {
             e.printStackTrace();
-            Log.e("IOException","Error IOException in Location Service");
+            Log.e(TAG,"IOException error IOException in Location Service");
 
         }
         return locations;

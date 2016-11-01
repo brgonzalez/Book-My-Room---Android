@@ -130,7 +130,6 @@ public final class ApacheHttpClient {
         input = new StringEntity(json,"UTF-8");
         input.setContentType("application/json");
         postRequest.setEntity(input);
-
         setRequestHeaders(postRequest);
     }
 

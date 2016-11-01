@@ -17,7 +17,12 @@ dependencies {
     compile group: 'com.ocpsoft', name: 'ocpsoft-pretty-time', version: '1.0.6'
 
 
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+
     compile "com.andkulikov:transitionseverywhere:1.6.7"
+
+    compile group: 'com.jcabi', name: 'jcabi-aspects', version: '0.22'
+    compile group: 'org.aspectj', name: 'aspectjrt', version: '1.8.9'
 
 
 

@@ -21,7 +21,7 @@ public class Attendee {
     public Attendee(JSONObject json){
         try {
             this.emailAddress = new EmailAddress(json.getJSONObject("EmailAddress"));
-            this.type = json.getString("Type").toString();
+            this.type = json.getString("Type");
 
         } catch (JSONException e) {
             e.printStackTrace();

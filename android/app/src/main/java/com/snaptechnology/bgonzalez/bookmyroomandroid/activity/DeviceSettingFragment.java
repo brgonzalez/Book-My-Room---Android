@@ -1,16 +1,20 @@
 package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
 
 /**
- * Created by bgonzalez on 24/08/2016.
+ *
+ *
+ * @autor Brayan González
+ * @since 24/08/2016.
  */
 
 import android.app.Activity;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.os.Bundle;//
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +22,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.UtilProperties;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtils;
 
 
 
 public class DeviceSettingFragment extends Fragment {
-
 
     public DeviceSettingFragment() {
         // Required empty public constructor
@@ -37,10 +40,13 @@ public class DeviceSettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View rootView = inflater.inflate(R.layout.fragment_device_setting, container, false);
         TextView location = (TextView) rootView.findViewById(R.id.location);
 
-        String data =UtilProperties.getLocationProperty(getActivity());
+
+        String data = FileUtils.readLocation(getActivity());
+
         location.setText(data);
         Button button = (Button) rootView.findViewById(R.id.btn_update_device_setting);
         button.setOnClickListener(new View.OnClickListener() {
@@ -55,11 +61,6 @@ public class DeviceSettingFragment extends Fragment {
             }
         });
         return rootView;
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
     }
 
     @Override

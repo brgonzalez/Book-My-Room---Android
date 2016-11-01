@@ -5,16 +5,17 @@
     android:orientation="vertical"
     android:id="@+id/fragment_home"
     tools:context="com.snaptechnology.bgonzalez.bookmyroomandroid.activity.HomeFragment"
-    android:splitMotionEvents="false">
+    android:splitMotionEvents="false"
+    android:background="@android:color/white">
 
     <!---->
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:stretchColumns="1"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginBottom="@dimen/margin_bottom_home_fragment"
+        android:layout_marginLeft="@dimen/margin_left_right_home_fragment"
+        android:layout_marginRight="@dimen/margin_left_right_home_fragment"
 
         android:id="@+id/table_calendar"
         android:clickable="true"
@@ -344,7 +345,7 @@
 
                                     android:layout_centerInParent="true"
                                     android:max="500"
-                                    android:progress="0"
+                                    android:progress="50"
                                     android:progressDrawable="@drawable/progress"
                                     android:visibility="invisible"
                                     />
@@ -469,10 +470,10 @@
                                     android:orientation="horizontal"
                                     android:layout_margin="1dp">
                                     <TextView
-                                        android:id="@+id/people_in_meeting"
+                                        android:id="@+id/people_image"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:background="@drawable/user4"
+                                        android:background="@drawable/icon_users2"
                                         android:gravity="center"
                                         android:layout_margin="@dimen/margin_circle_choose_time"
                                         android:visibility="visible"/>
@@ -619,7 +620,7 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
-                    android:text="06:00"/>
+                    android:text="07:00"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -630,254 +631,252 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
-                    android:text="18:00"
+                    android:text="17:00"
                     android:gravity="right"/>
             </TableRow>
 
-            <TableRow
-
-                android:background="@color/colorPrimaryDark">
+            <TableRow>
+                <TextView
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="@dimen/height_time_line_day"
+                android:gravity="center"
+                android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="10dp"
                     android:layout_weight="1"
+                    android:layout_height="@dimen/height_time_line_day"
                     android:gravity="center"
                     android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
                 <TextView
                     android:layout_width="0dip"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center" />
+                    android:layout_height="@dimen/height_time_line_day"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"/>
+                
 
             </TableRow>
 

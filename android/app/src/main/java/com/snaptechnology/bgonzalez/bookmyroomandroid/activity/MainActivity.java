@@ -1,19 +1,28 @@
 package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
 
 /**
- * Created by bgonzalez on 24/08/2016.
+ *
+ *
+ * @autor Brayan González
+ * @since 24/08/2016.
  */
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 
-
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
+import android.os.CountDownTimer;
 import android.os.StrictMode;
+
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+
+
+
+import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -21,35 +30,26 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.EventService;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.services.URLService;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.services.UpdateService;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
 
     private static String TAG = MainActivity.class.getSimpleName();
 
-    private Toolbar mToolbar;
-    private FragmentDrawer drawerFragment;
-
     private EventService eventService;
-    private UpdateService updateService;
-
-    private MainActivity mainActivity = MainActivity.this;
 
     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+    private static int FRAGMENT = 0;
 
 
     public MainActivity(){
@@ -66,23 +66,78 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
         StrictMode.setThreadPolicy(policy);
 
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        final SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE).setTitleText("Loading...");
+        pDialog.show();
+        pDialog.setCancelable(false);
+
+        new Thread(new Runnable() {// Thread to refresh the home fragment
+            @Override
+            public void run() {
+                while(true) {
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                    }
+                    //Log.e(TAG,"Has Windows Focus"+ hasWindowFocus());
+                    if(hasWindowFocus()) {
+                        try {
+                            displayView(FRAGMENT);
+
+                        } catch (NullPointerException e) {
+                            Log.i(TAG, "Refresh fragment not completed");
+                        }
+                    }
+                }
+            }
+        }).start();
+
+        new CountDownTimer(5000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                pDialog.getProgressHelper().setBarColor(ContextCompat.getColor(getApplication(),R.color.colorPrimaryDark));
+            }
+            public void onFinish() {
+                displayView(0);
+                pDialog.cancel();
+            }
+        }.start();
+
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        drawerFragment = (FragmentDrawer)
+        FragmentDrawer drawerFragment = (FragmentDrawer)
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
 
-        // display the first navigation drawer view on app launch
-        displayView(0);
+
     }
+
+
+
+    /*@Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+
+                getWindow().getDecorView()
+                        .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+
+        }
+    }*/
+
 
 
     @Override
@@ -123,91 +178,71 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         switch (position) {
             case 0:
                 fragment = new HomeFragment();
+                FRAGMENT = 0;
                 title = getString(R.string.title_home);
                 break;
             case 1:
-                fragment = new CalendarFragment();
+                fragment = new WeeklyCalendarFragment();
                 title = getString(R.string.title_calendar);
+                FRAGMENT = 1;
                 break;
             case 2:
                 fragment = new DeviceSettingFragment();
                 title = getString(R.string.title_device_settings);
+                FRAGMENT = 3;
                 break;
             default:
                 break;
         }
 
         if (fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.container_body, fragment);
+            transaction.addToBackStack(null);
+            transaction.commitAllowingStateLoss();
 
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_body, fragment);
-            fragmentTransaction.commit();
+            //getSupportActionBar().setTitle(title);
 
-            // set the toolbar title
-            getSupportActionBar().setTitle(title);
+
         }
+
 
     }
 
-    private void  synchronizeEvents(){
+    public static boolean hasOpenedDialogs(Fragment activity) {
+        List<Fragment> fragments = activity.getFragmentManager().getFragments();
+        if (fragments != null) {
+            for (Fragment fragment : fragments) {
+                if (fragment instanceof DialogFragment) {
+                    Log.e(TAG,"Hay fragments");
 
-        while(true) {
+                    return true;
+                }
+            }
+        }
+        Log.e(TAG,"No hay fragments");
+        return false;
+    }
+
+
+
+    /**
+     * Method to be updating the events
+     */
+    private void  synchronizeEvents(){
+        //noinspection InfiniteLoopStatement
+        for(;;) {
             try {
                 eventService.updateEvents();
-                Thread.sleep(40000);
-            } catch (InterruptedException e) {
+                Thread.sleep(10000);
+            }catch (InterruptedException e) {
                 e.printStackTrace();
-            }catch (NullPointerException e){
-                Log.e("Error","Connection Refused");
-                MainActivity.this.runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "Error: Connection Refused, don't use the application", Toast.LENGTH_LONG).show();
-                        /*SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(MainActivity.this, SweetAlertDialog.ERROR_TYPE);
-                                sweetAlertDialog.setTitleText("Oops...");
-                        sweetAlertDialog.setContentText("Something went wrong!");
-                        sweetAlertDialog.show();
-
-                        sweetAlertDialog.cancel();
-                        Log.e("s" ,"sas");*/
-                    }
-                });
+            }catch (NullPointerException e) {
+                Log.e(TAG, "Internet connection refused. Events were not updated");
+            }catch (IllegalStateException e){
+                Log.e(TAG,"IllegalStateException: Content has been consumed");
             }
-            try {
-                Thread.sleep(1500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-
-        }
-    }
-
-
-    private class SynchronizerEvents extends AsyncTask<Void, Void, Void> {
-
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            while(true) {
-                try {
-                    eventService.updateEvents();
-                    Thread.sleep(60000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                catch ( RuntimeException e){
-                    Log.e("Error", "Connection refused");
-                    Toast.makeText(getApplicationContext(),"Connection refused",Toast.LENGTH_LONG).show();
-                }
-            }
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-
-            super.onPostExecute(result);
         }
     }
 }

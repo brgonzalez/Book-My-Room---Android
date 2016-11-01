@@ -2,8 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d4e0cfd-d7b7-499d-adaa-04c517bf6d8f" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/AsyncTasks/DeleteAsyncTask.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/SimpleCircularProgressbar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/CalendarFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/animation/Circle.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/animation/CircleAngleAnimation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/httpclient/ApacheHttpClient.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/UpdateService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/utils/UtilProperties.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/rectangule_background.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/user.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/user2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/user3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/user4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.class" afterPath="$PROJECT_DIR$/build/classes/main/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/snaptechnology/bgonzalez/services/Office365Service.class" afterPath="$PROJECT_DIR$/build/classes/main/com/snaptechnology/bgonzalez/services/Office365Service.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/.idea/misc.xml" afterPath="$PROJECT_DIR$/../android/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/build.gradle" afterPath="$PROJECT_DIR$/../android/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/DeviceSettingFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/DeviceSettingFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/HomeFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/HomeFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/MainActivity.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/UpdateDeviceSettingFragment.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/activity/UpdateDeviceSettingFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/adapter/NavigationDrawerAdapter.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/adapter/NavigationDrawerAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/circleprogress/CircleProgressView.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/circleprogress/CircleProgressView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Attendee.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/model/Attendee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/EventService.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/EventService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/LocationService.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/LocationService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/TimeService.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/TimeService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/URLService.java" afterPath="$PROJECT_DIR$/../android/app/src/main/java/com/snaptechnology/bgonzalez/bookmyroomandroid/services/URLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/background_progress.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/drawable/background_progress.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/drawable/progress.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/drawable/progress.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_calendar.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_calendar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_home.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/layout/fragment_home.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/values-sw480dp/dimens.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/values-sw480dp/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/values-sw480dp/strings.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/values-sw480dp/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/values-w820dp/attrs.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/values-w820dp/attrs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/../android/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/Office365Service.java" afterPath="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/Office365Service.java" />
     </list>
     <ignored path="server.iws" />
@@ -43,8 +84,8 @@
       <file leaf-file-name="Office365Service.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/Office365Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+            <state relative-caret-position="-1">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,9 +96,39 @@
       <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="993">
+            <state relative-caret-position="1666">
               <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2205#2206#0" expanded="false" />
+                <element signature="e#2230#2231#0" expanded="false" />
+                <element signature="e#2264#2265#0" expanded="false" />
+                <element signature="e#2294#2295#0" expanded="false" />
+                <element signature="e#2331#2332#0" expanded="false" />
+                <element signature="e#2362#2363#0" expanded="false" />
+                <element signature="e#2485#2486#0" expanded="false" />
+                <element signature="e#2517#2518#0" expanded="false" />
+                <element signature="e#2550#2551#0" expanded="false" />
+                <element signature="e#2581#2582#0" expanded="false" />
+                <element signature="e#2613#2614#0" expanded="false" />
+                <element signature="e#2641#2642#0" expanded="false" />
+                <element signature="e#2671#2672#0" expanded="false" />
+                <element signature="e#2697#2698#0" expanded="false" />
+                <element signature="e#2733#2734#0" expanded="false" />
+                <element signature="e#2761#2762#0" expanded="false" />
+                <element signature="e#2807#2808#0" expanded="false" />
+                <element signature="e#2845#2846#0" expanded="false" />
+                <element signature="e#2895#2896#0" expanded="false" />
+                <element signature="e#2935#2936#0" expanded="false" />
+                <element signature="e#3098#3099#0" expanded="false" />
+                <element signature="e#3140#3141#0" expanded="false" />
+                <element signature="e#3189#3190#0" expanded="false" />
+                <element signature="e#3230#3231#0" expanded="false" />
+                <element signature="e#3272#3273#0" expanded="false" />
+                <element signature="e#3306#3307#0" expanded="false" />
+                <element signature="e#3344#3345#0" expanded="false" />
+                <element signature="e#3374#3375#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,7 +138,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="14" column="18" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#790#791#0" expanded="false" />
+                <element signature="e#822#823#0" expanded="false" />
+                <element signature="e#856#857#0" expanded="false" />
+                <element signature="e#886#887#0" expanded="false" />
+                <element signature="e#932#933#0" expanded="false" />
+                <element signature="e#970#971#0" expanded="false" />
+                <element signature="e#1001#1002#0" expanded="false" />
+                <element signature="e#1028#1029#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +173,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#782#783#0" expanded="false" />
+                <element signature="e#817#818#0" expanded="false" />
+                <element signature="e#879#880#0" expanded="false" />
+                <element signature="e#927#928#0" expanded="false" />
+                <element signature="e#958#959#0" expanded="false" />
+                <element signature="e#985#986#0" expanded="false" />
+                <element signature="e#1025#1026#0" expanded="false" />
+                <element signature="e#1057#1058#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,12 +191,9 @@
       <file leaf-file-name="EventController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/controllers/EventController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1798#1814#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="269">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,9 +201,11 @@
       <file leaf-file-name="LocationController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/controllers/LocationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="170">
               <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,9 +213,20 @@
       <file leaf-file-name="ApacheHttpClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-850">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="748">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding>
+                <element signature="e#1287#1288#0" expanded="false" />
+                <element signature="e#1331#1332#0" expanded="false" />
+                <element signature="e#5898#5899#0" expanded="false" />
+                <element signature="e#5938#5939#0" expanded="false" />
+                <element signature="e#6266#6267#0" expanded="false" />
+                <element signature="e#6325#6326#0" expanded="false" />
+                <element signature="e#6362#6363#0" expanded="false" />
+                <element signature="e#6393#6394#0" expanded="false" />
+                <element signature="e#6443#6444#0" expanded="false" />
+                <element signature="e#6483#6484#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,7 +234,7 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
+            <state relative-caret-position="850">
               <caret line="50" column="45" selection-start-line="50" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
@@ -589,8 +690,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Attendee.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/test/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/controllers/EventController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/Office365Service.java" />
       </list>
     </option>
@@ -609,10 +710,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="219" />
-    <option name="y" value="260" />
-    <option name="width" value="980" />
-    <option name="height" value="515" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -671,54 +772,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bgonzalez" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -1283,7 +1340,10 @@
       <workItem from="1476128853393" duration="2951000" />
       <workItem from="1476284510791" duration="9967000" />
       <workItem from="1476737481851" duration="1156000" />
-      <workItem from="1476805221066" duration="22031000" />
+      <workItem from="1476805221066" duration="23409000" />
+      <workItem from="1477331184140" duration="11841000" />
+      <workItem from="1477597496740" duration="2777000" />
+      <workItem from="1477931317345" duration="1884000" />
     </task>
     <task id="LOCAL-00001" summary="Adding JPA Repository Location">
       <created>1474316006025</created>
@@ -1429,26 +1489,26 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150420000" />
+    <option name="totallyTimeSpent" value="168300000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="219" y="260" width="980" height="515" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32587063" sideWeight="0.15145229" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43423137" sideWeight="0.15373352" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43423137" sideWeight="0.84626645" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32587063" sideWeight="0.8485477" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34751037" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24524158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1528,7 +1588,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="35" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="35" />
-          <folding />
+          <folding>
+            <element signature="e#1287#1288#0" expanded="false" />
+            <element signature="e#1331#1332#0" expanded="false" />
+            <element signature="e#5898#5899#0" expanded="false" />
+            <element signature="e#5938#5939#0" expanded="false" />
+            <element signature="e#6266#6267#0" expanded="false" />
+            <element signature="e#6325#6326#0" expanded="false" />
+            <element signature="e#6362#6363#0" expanded="false" />
+            <element signature="e#6393#6394#0" expanded="false" />
+            <element signature="e#6443#6444#0" expanded="false" />
+            <element signature="e#6483#6484#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1635,7 +1706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1837,7 +1907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1845,7 +1914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1853,9 +1921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1882,53 +1947,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-850">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="50" column="45" selection-start-line="50" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Attendee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#782#783#0" expanded="false" />
+            <element signature="e#817#818#0" expanded="false" />
+            <element signature="e#879#880#0" expanded="false" />
+            <element signature="e#927#928#0" expanded="false" />
+            <element signature="e#958#959#0" expanded="false" />
+            <element signature="e#985#986#0" expanded="false" />
+            <element signature="e#1025#1026#0" expanded="false" />
+            <element signature="e#1057#1058#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/model/Event.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="993">
+        <state relative-caret-position="1666">
           <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2205#2206#0" expanded="false" />
+            <element signature="e#2230#2231#0" expanded="false" />
+            <element signature="e#2264#2265#0" expanded="false" />
+            <element signature="e#2294#2295#0" expanded="false" />
+            <element signature="e#2331#2332#0" expanded="false" />
+            <element signature="e#2362#2363#0" expanded="false" />
+            <element signature="e#2485#2486#0" expanded="false" />
+            <element signature="e#2517#2518#0" expanded="false" />
+            <element signature="e#2550#2551#0" expanded="false" />
+            <element signature="e#2581#2582#0" expanded="false" />
+            <element signature="e#2613#2614#0" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2671#2672#0" expanded="false" />
+            <element signature="e#2697#2698#0" expanded="false" />
+            <element signature="e#2733#2734#0" expanded="false" />
+            <element signature="e#2761#2762#0" expanded="false" />
+            <element signature="e#2807#2808#0" expanded="false" />
+            <element signature="e#2845#2846#0" expanded="false" />
+            <element signature="e#2895#2896#0" expanded="false" />
+            <element signature="e#2935#2936#0" expanded="false" />
+            <element signature="e#3098#3099#0" expanded="false" />
+            <element signature="e#3140#3141#0" expanded="false" />
+            <element signature="e#3189#3190#0" expanded="false" />
+            <element signature="e#3230#3231#0" expanded="false" />
+            <element signature="e#3272#3273#0" expanded="false" />
+            <element signature="e#3306#3307#0" expanded="false" />
+            <element signature="e#3344#3345#0" expanded="false" />
+            <element signature="e#3374#3375#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/controllers/LocationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="170">
           <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/controllers/EventController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1798#1814#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1937,14 +2017,59 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="14" column="18" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#790#791#0" expanded="false" />
+            <element signature="e#822#823#0" expanded="false" />
+            <element signature="e#856#857#0" expanded="false" />
+            <element signature="e#886#887#0" expanded="false" />
+            <element signature="e#932#933#0" expanded="false" />
+            <element signature="e#970#971#0" expanded="false" />
+            <element signature="e#1001#1002#0" expanded="false" />
+            <element signature="e#1028#1029#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="45" selection-start-line="50" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/httpclient/ApacheHttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#1287#1288#0" expanded="false" />
+            <element signature="e#1331#1332#0" expanded="false" />
+            <element signature="e#5898#5899#0" expanded="false" />
+            <element signature="e#5938#5939#0" expanded="false" />
+            <element signature="e#6266#6267#0" expanded="false" />
+            <element signature="e#6325#6326#0" expanded="false" />
+            <element signature="e#6362#6363#0" expanded="false" />
+            <element signature="e#6393#6394#0" expanded="false" />
+            <element signature="e#6443#6444#0" expanded="false" />
+            <element signature="e#6483#6484#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/controllers/EventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/snaptechnology/bgonzalez/services/Office365Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        <state relative-caret-position="-1">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

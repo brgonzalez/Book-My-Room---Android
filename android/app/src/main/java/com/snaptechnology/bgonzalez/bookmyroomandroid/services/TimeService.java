@@ -1,5 +1,6 @@
 package com.snaptechnology.bgonzalez.bookmyroomandroid.services;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import java.text.DateFormat;
@@ -11,25 +12,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by bgonzalez on 14/09/2016.
+ * TimeService is a service to make different functions about date
+ * @author Brayan González
+ * @since 26/09/2016
  */
 public class TimeService {
-
-
+    
     private int timeZone = 6;
-
     private static String[][] dates = new String[24][6];
 
-    private int intWeek = 0;
+    private static int INT_WEEK = 0;
 
-    private int minMin = 15;
+    private final int minMin = 15;
 
-    private int scheduleRows = 48;
-    private int scheduleColumns = 6;
+    private static final int SCHEDULE_ROWS = 40;
+    private static final int SCHEDULE_COLUMNS = 6;
+    private static final int AMOUNT_HOURS_DAY = 10;
+    private static final int SCHEDULE_START_TIME = 7;
 
-    private final int startTime = 6;
-    private String minSimpleHour = "06:00";
-    private String maxSimpleHour = "18:00";
+    private String minSimpleHour = "07:00";
+    private String maxSimpleHour = "17:00";
 
     public TimeService(){
 
@@ -46,11 +48,11 @@ public class TimeService {
 
         cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
         cal.add(Calendar.DAY_OF_WEEK,1);
-        cal.add(Calendar.HOUR, 6 + timeZone);
+        cal.add(Calendar.HOUR, SCHEDULE_START_TIME + timeZone);
         String startDate = convertDateToString(cal.getTime());
 
         cal.add(Calendar.DAY_OF_YEAR, 5);
-        cal.add(Calendar.HOUR,12);
+        cal.add(Calendar.HOUR, AMOUNT_HOURS_DAY);
 
         String endDate = convertDateToString(cal.getTime());
 
@@ -61,7 +63,7 @@ public class TimeService {
     }
 
 
-    public String getInitialID(){
+    private String getInitialID(){
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, 0); //
         cal.clear(Calendar.MINUTE);
@@ -70,9 +72,8 @@ public class TimeService {
 
         cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
         cal.add(Calendar.DAY_OF_WEEK,1);
-        cal.add(Calendar.HOUR,  startTime + timeZone);
-        String initialID = convertDateToString(cal.getTime());
-        return initialID;
+        cal.add(Calendar.HOUR,  SCHEDULE_START_TIME + timeZone);
+        return convertDateToString(cal.getTime());
     }
 
     public String getInitialTimeDay(){
@@ -82,20 +83,19 @@ public class TimeService {
         cal.clear(Calendar.SECOND);
         cal.clear(Calendar.MILLISECOND);
 
-        cal.add(Calendar.HOUR,  startTime + timeZone);
-        String initialID = convertDateToString(cal.getTime());
-        return initialID;
+        cal.add(Calendar.HOUR,  SCHEDULE_START_TIME + timeZone);
+        return  convertDateToString(cal.getTime());
     }
 
-    public String changeToNextDay(String dateInString){
+    private String changeToNextDay(String dateInString){
         Date date = convertStringToDate(dateInString);
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.set(Calendar.HOUR,0);
-        cal.add(Calendar.HOUR, 6 + timeZone );
+        cal.set(Calendar.HOUR_OF_DAY,0);
+        cal.add(Calendar.DAY_OF_WEEK,1);
+        cal.add(Calendar.HOUR, SCHEDULE_START_TIME + timeZone );
 
-        String output = convertDateToString(cal.getTime());
-        return output;
+        return convertDateToString(cal.getTime());
     }
 
     public String addMinutes(String dateInString){
@@ -104,8 +104,7 @@ public class TimeService {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.MINUTE, minMin);
-        String output = convertDateToString(cal.getTime());
-        return output;
+        return convertDateToString(cal.getTime());
     }
 
 
@@ -115,11 +114,10 @@ public class TimeService {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.MINUTE, -minMin);
-        String output = convertDateToString(cal.getTime());
-        return output;
+        return  convertDateToString(cal.getTime());
     }
 
-    public String customizeDate(String dateInString){
+    private String customizeDate(String dateInString){
         return dateInString+"Z";
 
     }
@@ -134,7 +132,7 @@ public class TimeService {
 
 
     public String[][] updateDatesToCalendar(){
-        String[][] datesTemp = new String[scheduleRows][scheduleColumns];
+        String[][] datesTemp = new String[SCHEDULE_ROWS][SCHEDULE_COLUMNS];
 
         String date = getInitialID();
         Date temp = convertStringToDate(getInitialID());
@@ -142,16 +140,16 @@ public class TimeService {
         Calendar cal = Calendar.getInstance();
         cal.setTime(temp);
         int tempWeek =cal.get(Calendar.WEEK_OF_YEAR);
-        if ( tempWeek != intWeek){
-            for(int j = 0; j < scheduleColumns; j++){
-                for(int i = 0; i < scheduleRows; i++){
+        if ( tempWeek != INT_WEEK){
+            INT_WEEK = tempWeek;
+            for(int j = 0; j < SCHEDULE_COLUMNS; j++){
+                for(int i = 0; i < SCHEDULE_ROWS; i++){
                     datesTemp[i][j] = date ;
                     date = addMinutes(date);
                 }
                 date = changeToNextDay(date);
             }
             setDates(datesTemp);
-
         }
         return dates;
     }
@@ -159,11 +157,10 @@ public class TimeService {
     public String resetHoursStringDate(String dateInString){
         Date date = convertStringToDate(dateInString);
         date = resetHoursDate(date);
-        String output = convertDateToString(date);
-        return output;
+        return convertDateToString(date);
     }
 
-    public Date resetHoursDate(Date date){
+    private Date resetHoursDate(Date date){
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.set(Calendar.HOUR,0);
@@ -180,16 +177,15 @@ public class TimeService {
         cal.setTime(date);
         cal.add(Calendar.DAY_OF_WEEK, 1);
 
-        String output = convertDateToString(cal.getTime());
-        return output;
+        return convertDateToString(cal.getTime());
 
     }
 
-    public boolean isGreaterDate(String stringDate, String stringEndDate) {
+    public boolean isHigherOrEqual(String stringDate, String stringEndDate) {
         Date date =convertStringToDate(stringDate);
         Date endDate = convertStringToDate(stringEndDate);
 
-        return (date.compareTo(endDate) < 0) ? false : true;
+        return (date.compareTo(endDate) >= 0) ;
 
     }
 
@@ -221,7 +217,7 @@ public class TimeService {
             return String.valueOf(diffHours) +" hours  "+ String.valueOf(diffMinutes % 60 )+ " min";
         }
         else{
-            DateFormat df = new SimpleDateFormat("EEE, HH:mm:ss");
+            @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("EEE, HH:mm:ss");
             Calendar cal = Calendar.getInstance();
             cal.setTime(dateHigher);
             cal.add(Calendar.HOUR_OF_DAY, - timeZone);
@@ -233,8 +229,7 @@ public class TimeService {
         Date startDate = convertStringToDate(startDateInString);
         Date endDate = convertStringToDate(endDateInString);
         long diff = endDate.getTime() - startDate.getTime();
-        long diffSeconds = diff / 1000;
-        return diffSeconds;
+        return diff / 1000;
     }
 
     public Date convertStringToDate(String dateInString){
@@ -250,7 +245,7 @@ public class TimeService {
         return date;
     }
 
-    public String convertDateToString(Date date){
+    private String convertDateToString(Date date){
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         return customizeDate(dateFormat.format(date));
     }
@@ -279,7 +274,7 @@ public class TimeService {
         return convertDateToString(calendar.getTime());
     }
 
-    public Date getActualTime(){
+    private Date getActualTime(){
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -321,8 +316,8 @@ public class TimeService {
         return convertDateToString(getActualTime());
     }
 
-    public synchronized void setDates(String[][] dates) {
-        this.dates = dates;
+    private synchronized void setDates(String[][] dates) {
+        TimeService.dates = dates;
     }
 
     public int getMinMin() {
@@ -333,22 +328,11 @@ public class TimeService {
         return maxSimpleHour;
     }
 
-    public void setMaxSimpleHour(String maxSimpleHour) {
-        this.maxSimpleHour = maxSimpleHour;
-    }
-
     public String getMinSimpleHour() {
         return minSimpleHour;
     }
 
-    public void setMinSimpleHour(String minSimpleHour) {
-        this.minSimpleHour = minSimpleHour;
-    }
 
-
-    public int getTimeZone() {
-        return timeZone;
-    }
 
 
 

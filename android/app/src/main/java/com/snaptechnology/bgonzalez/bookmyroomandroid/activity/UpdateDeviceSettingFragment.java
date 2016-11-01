@@ -4,9 +4,9 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
 
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,7 +19,7 @@ import android.widget.Button;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.LocationService;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.UtilProperties;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtils;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.ArrayList;
@@ -64,14 +64,13 @@ public class UpdateDeviceSettingFragment extends Fragment {
 
         new ReaderProperties().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
-
-        locationSpinner.setHint(new UtilProperties().getLocationProperty(getActivity()));
+        locationSpinner.setHint(new FileUtils().readLocation(getActivity()));
 
         Button btnSave = (Button) rootView.findViewById(R.id.btn_save_device_setting);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new UtilProperties().setProperty(getActivity(),locationSpinner.getText().toString());
+                new FileUtils().writeLocation(getActivity(),locationSpinner.getText().toString());
                 refreshFragment();
             }
         });
@@ -85,9 +84,10 @@ public class UpdateDeviceSettingFragment extends Fragment {
         try{
             Fragment fragment = new DeviceSettingFragment();
             FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_body, fragment);
-            fragmentTransaction.commitAllowingStateLoss();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.container_body, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }catch ( NullPointerException e){
             Log.i("Warning refresh","Update fragment not completed");
         }

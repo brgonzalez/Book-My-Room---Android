@@ -6,7 +6,7 @@
     <string name="drawer_close">Close</string>
 
     <string name="nav_item_home">Home</string>
-    <string name="nav_item_calendar">Calendar</string>
+    <string name="nav_item_calendar">Weekly Calendar</string>
     <string name="nav_item_device_setting">Device Setting</string>
 
     <!-- navigation drawer item labels  -->
@@ -18,7 +18,7 @@
 
 
     <string name="title_device_settings">Device Settings</string>
-    <string name="title_calendar">Calendar</string>
+    <string name="title_calendar">Weekly Calendar</string>
     <string name="title_home">Home</string>
 
     <!-- TODO: Remove or change this placeholder text -->

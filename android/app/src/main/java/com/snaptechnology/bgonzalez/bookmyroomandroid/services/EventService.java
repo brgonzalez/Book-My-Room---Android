@@ -2,17 +2,15 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.services;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.httpclient.ApacheHttpClient;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.httpclient.OKHttpClient;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Event;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.VO.EventVO;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.UtilProperties;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,37 +29,17 @@ import java.util.Map;
  */
 public final class EventService  {
 
-    private ApacheHttpClient client;
+    private static  final String TAG = EventService.class.getSimpleName();
+    private OKHttpClient client;
     private URLService urlService;
-
-    public TimeService getTimeService() {
-        return timeService;
-    }
-
-    public void setTimeService(TimeService timeService) {
-        this.timeService = timeService;
-    }
-
     private TimeService timeService;
     private Context context;
-
-    public Map<String, Event> getEventMapper() {
-        return eventMapper;
-    }
-
-    public void setEventMapper(Map<String, Event> eventMapper) {
-        this.eventMapper = eventMapper;
-    }
-
     private Map<String, Event> eventMapper;
-
-
     private static EventService instance = null;
-
     private static List<Event> events;
 
-    public EventService(Context context){
-        this.client = new ApacheHttpClient();
+    private EventService(Context context){
+        this.client = new OKHttpClient();
         this.urlService = new URLService();
         this.timeService = new TimeService();
         this.context = context;
@@ -76,151 +54,97 @@ public final class EventService  {
         return instance;
     }
 
-    public boolean createEvent(Event event){
+    /**
+     * Method to send posts: create, delete, update
+     * @param event
+     * @param url
+     * @return true if the post was completed correctly and false in other case
+     */
+    public boolean doPost(Event event, String url){
         ObjectMapper mapper = new ObjectMapper();
-        String url = urlService.getURLCreateEvent();
         String json = null;
         try {
             json = mapper.writeValueAsString(event);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        client.postHttpRequest(url,json);
-        String output = client.getOutput();
-
+        String status;
         try {
-            JSONObject result  = new JSONObject(output);
-            if( result.getString("statusCode").equalsIgnoreCase("201")){
-                Log.i("Success","Event created successfully");
+            status = client.post(url, json);
+            if (new JSONObject(status).getString("statusCode").equalsIgnoreCase("200")) {
+                Log.i(TAG,"Operation successfully");
                 updateEvents();
                 return true;
             }else{
-                Log.i("Warning","Event was not created");
-                return false;
+                Log.i(TAG,"Operation was not successfully, response:" +status);
             }
-
-        } catch (JSONException e) {
-            Log.e("Error","Error trying to parse output from create a event");
-            e.printStackTrace();
+        }catch (JSONException e) {
+            Log.e(TAG,"JsonProcessingException error parsing the result body in doPost()");
         }
-
-        return false;
-
-    }
-
-    public boolean updateEvent(Event event){
-        ObjectMapper mapper = new ObjectMapper();
-        String url = urlService.getURLUpdateEvent();
-        String json = null;
-        try {
-            json = mapper.writeValueAsString(event);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        client.postHttpRequest(url,json);
-        String output = client.getOutput();
-
-        try {
-            JSONObject result  = new JSONObject(output);
-            if( result.getString("statusCode").equalsIgnoreCase("200")){
-                Log.i("Success","Event updated successfully");
-                updateEvents();
-                return true;
-            }else{
-                Log.i("Warning","Event was not updated");
-                return false;
-            }
-
-        } catch (JSONException e) {
-            Log.e("Error","Error trying to parse output from updated a event");
-            e.printStackTrace();
-        }
-        return false;
-
-    }
-
-    public boolean deleteEvent(Event event){
-        ObjectMapper mapper = new ObjectMapper();
-        String url = urlService.getURLDeleteEvent();
-        String json = null;
-        try {
-            json = mapper.writeValueAsString(event);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        client.postHttpRequest(url,json);
-        String output = client.getOutput();
-
-        try {
-            JSONObject result  = new JSONObject(output);
-            if( result.getString("statusCode").equalsIgnoreCase("204")){
-                Log.i("Success","Event deleted successfully");
-                updateEvents();
-                return true;
-            }else{
-                Log.i("Warning","Event was not deleted");
-                return false;
-            }
-
-        } catch (JSONException e) {
-            Log.e("Error","Error trying to parse output from delete a event");
-            e.printStackTrace();
-        }
-
         return false;
     }
 
-    public  void updateEvents(){
-
+    /**
+     * Method to update the events
+     */
+    public void updateEvents(){
         ObjectMapper mapper = new ObjectMapper();
-
         List<Event> events;
-
-        Log.i("Update Events", "Updating Events");
+        Log.i(TAG, "Updating Events");
         try {
-
             Map<String, String> startEndDate = timeService.getRangeToRequest();
-            String displayName = new UtilProperties().getLocationProperty(context);
-
+            String displayName = FileUtils.readLocation(context);
             EventVO eventVO = new EventVO(new Location(displayName), startEndDate.get("start"), startEndDate.get("end"));
+
             String json = mapper.writeValueAsString(eventVO);
             String url = urlService.getURLEvents();
-            Log.i("POST method", "Sending post method to "+ urlService.getURLEvents() +" with request body "+ json );
-            client.postHttpRequest(url,json );
+            Log.i(TAG, "Post to "+ urlService.getURLEvents() +", request body "+ json );
+            String result = client.post(url,json);
+            Log.i(TAG, "Output: "+result);
 
-            String output = client.getOutput();
-            Log.i("Output POST method", "The output is " +output);
-            events = mapper.readValue(output, TypeFactory.defaultInstance().constructCollectionType(List.class, Event.class));
+            events = mapper.readValue(result, TypeFactory.defaultInstance().constructCollectionType(List.class, Event.class));
+
             this.getEventMapper().clear();
-            this.setEvents(events);
-            String time ;
-            for(Event event : getEvent()){
-                time = event.getStart();
-
-                while( !timeService.isGreaterDate(time, event.getEnd())) {
-                    getEventMapper().put(time, event);
-                    time = timeService.addMinutes(time);
+            setEvents(events);
+            String startDate ;
+            for(Event event : getEvents()){
+                startDate = event.getStart();
+                while( !timeService.isHigherOrEqual(startDate, event.getEnd())) {
+                    getEventMapper().put(startDate, event);
+                    startDate = timeService.addMinutes(startDate);
                 }
             }
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        }catch (JsonProcessingException e) {
+            Log.e(TAG,"JsonProcessingException error parsing the result body in UpdateEvents()");
+            this.getEventMapper().clear();
+        }catch (IOException e) {
+            Log.e(TAG,"IOException error parsing the result body in UpdateEvents()");
+            this.getEventMapper().clear();
+        }catch (IllegalStateException e){
+            Log.e(TAG,"Error IllegalStateException to execute operation, was not executed at time");
+            this.getEventMapper().clear();
+        }catch (NullPointerException e){
+            Log.e(TAG,"Error NullPointerException to execute operation, probably the device is not connected with the server" );
+            this.getEventMapper().clear();
         }
     }
 
-
-    public List<Event> getEvent (){
+    public List<Event> getEvents(){
         return events;
     }
 
-    public static synchronized List<Event> getEvents() {
-        return events;
-    }
-
-    public static  synchronized void setEvents(List<Event> newEvents) {
+    private static  synchronized void setEvents(List<Event> newEvents) {
         events = newEvents;
     }
+
+    public TimeService getTimeService() {
+        return timeService;
+    }
+
+    public Map<String, Event> getEventMapper() {
+        return eventMapper;
+    }
+
 
 
 

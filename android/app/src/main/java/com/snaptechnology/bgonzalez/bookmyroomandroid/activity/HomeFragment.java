@@ -5,24 +5,29 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
  */
 
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.StrictMode;
 import android.os.SystemClock;
 import android.support.design.widget.TextInputLayout;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -35,18 +40,13 @@ import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Event;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.EventService;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.TimeService;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.EventHandlerUtilities;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.UtilProperties;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.services.URLService;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtils;
 import com.transitionseverywhere.TransitionManager;
 import com.transitionseverywhere.extra.Scale;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -54,9 +54,12 @@ import java.util.Map;
 
 
 public class HomeFragment extends Fragment {
-    /**Variable used to check the last click by the user*/
+    private static String TAG = HomeFragment.class.getSimpleName();
 
+    /**Variable used to check the last click by the user*/
     private static long mLastClickTime;
+
+    private static final int WAITING_TIME = 5000;
 
 
     /**Services to get the functions to do the task by the user*/
@@ -69,7 +72,8 @@ public class HomeFragment extends Fragment {
     /** Skip Policies to make request to the server easier */
     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
-    /** Constructor */
+    private static boolean wasSuccessfulOperation = false;
+
     public HomeFragment() {
     }
 
@@ -81,43 +85,31 @@ public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
-
         StrictMode.setThreadPolicy(policy); // set policies to this fragment
 
-        new Thread(new Runnable() {// Thread to refresh the home fragment
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(60000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                refreshFragment();
-            }
-        }).start();
-
-        // Main view of this fragment
         final View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
 
         // Declarations to main circle to book and delete events
         final ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
         final ViewGroup transitionsContainer = (ViewGroup) rootView.findViewById(R.id.transitions_container);
 
         // Get the status actual to the home fragment
-        Map<String, String > mainData = getDataHome();
+        Map<String, String> mainData = getDataHome();
 
-        if( mainData.get("state").equalsIgnoreCase("B")){ // in case of being busy
-
-            int meetingTime = (int)( timeService.calculateDifferenceDates(currentEvent.getStart(), currentEvent.getEnd()) *.1 ) ;
-            int lapsedMeetingTime =  (int) ( timeService.calculateDifferenceDates(currentEvent.getStart(),timeService.getActualTimeInString())*.1 );
+        if (mainData.get("state").equalsIgnoreCase("B")) { // in case of being busy
+            //calculates to progress circle bar
+            int meetingTime = (int) (timeService.calculateDifferenceDates(currentEvent.getStart(), currentEvent.getEnd()) * .1);
+            int lapsedMeetingTime = (int) (timeService.calculateDifferenceDates(currentEvent.getStart(), timeService.getActualTimeInString()) * .1);
 
             progressBar.bringToFront();
             progressBar.setVisibility(View.VISIBLE);
 
-            ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "progress", lapsedMeetingTime * 500 / meetingTime, 500); // see this max value coming back here, we animale towards that value
-            animation.setDuration (5000000);
-            animation.setInterpolator (new DecelerateInterpolator());
-            animation.start ();
+            int progress = lapsedMeetingTime * 500 / meetingTime;
+            ObjectAnimator animation = ObjectAnimator.ofInt(progressBar, "progress", progress, 500); // see this max value coming back here, we animale towards that value
+            animation.setDuration(5000000);
+            animation.setInterpolator(new DecelerateInterpolator());
+            animation.start();
 
             ImageView unavailableImage = (ImageView) rootView.findViewById(R.id.image_unavailable);
             unavailableImage.setVisibility(View.VISIBLE);
@@ -127,10 +119,11 @@ public class HomeFragment extends Fragment {
             cancelButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                    if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
                         return;
                     }
-                    mLastClickTime = SystemClock.elapsedRealtime();                    deleteEvent(currentEvent);
+                    mLastClickTime = SystemClock.elapsedRealtime();
+                    deleteEvent(currentEvent);
                 }
             });
 
@@ -143,8 +136,7 @@ public class HomeFragment extends Fragment {
             });
 
 
-        }
-        else{// in the case of being free
+        } else {// in the case of being free
 
             ImageView availableImage = (ImageView) rootView.findViewById(R.id.image_available);
             availableImage.setVisibility(View.VISIBLE);
@@ -160,90 +152,121 @@ public class HomeFragment extends Fragment {
 
             final String dateInString = timeService.getActualTimeInString();
             final List<String> availableMinutes = getAvailableMinutesToBook(dateInString);
-
             final String tmpEndDate = timeService.roundDateToHigherInString(dateInString);
 
-            for(int i = 0; i < availableMinutes.size(); i++){
+
+            //Calculate available minutes to book the location
+            for (int i = 0; i < availableMinutes.size(); i++) {
                 TextView minutesToBook = (TextView) rootView.findViewById(rIds.get(i));
 
-                final String endDate = timeService.addMinutes(tmpEndDate, i + 1 );
+                final String endDate = timeService.addMinutes(tmpEndDate, i + 1);
                 minutesToBook.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) { // To press save button in dialog showed
-
-                        //EventHandlerUtilities.preventDoubleClick();
-                        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                    public void onClick(View v) {
+                        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
                             return;
                         }
                         mLastClickTime = SystemClock.elapsedRealtime();
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         LayoutInflater inflater = getActivity().getLayoutInflater();
-
-                        final View dialogView =  inflater.inflate(R.layout.dialog_book_room_from_home,null);
+                        final View dialogView = inflater.inflate(R.layout.dialog_book_room_from_home, null);
                         builder.setView(dialogView);
-
                         final AlertDialog dialog = builder.create();
 
+                        //Button to book
                         Button buttonBookRoom = (Button) dialogView.findViewById(R.id.btn_book_room_from_home);
                         buttonBookRoom.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            //EventHandlerUtilities.preventDoubleClick();
-                            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
-                                return;
+                            @Override
+                            public void onClick(View v) {
+                                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                                    return;
+                                }
+                                mLastClickTime = SystemClock.elapsedRealtime();
+
+                                String startDate = timeService.roundDateToLessInString(dateInString);
+                                String subject = (((TextInputLayout) dialogView.findViewById(R.id.subject_book_room_from_home)).getEditText().getText()).toString();
+                                Event event = new Event("id", subject, new Location(FileUtils.readLocation(getActivity())), new ArrayList<Attendee>(), false, startDate, endDate);
+                                createEvent(event);
+                                dialog.cancel();
                             }
-                            mLastClickTime = SystemClock.elapsedRealtime();
+                        });
+                        dialog.show();
 
-                            String startDate = timeService.roundDateToLessInString(dateInString);
-                            String subject = (((TextInputLayout) dialogView.findViewById(R.id.subject_book_room_from_home)).getEditText().getText()).toString();
-                            Event event = new Event("id", subject, new Location(UtilProperties.getLocationProperty(getActivity())),new ArrayList<Attendee>(), false,  startDate,  endDate);
-                            createEvent(event);
-
-                            dialog.cancel();
-                        }
-                    });
-                    dialog.show();
                     }
                 });
             }
-
+            // Change the visibility of minutes to book the location
             transitionsContainer.findViewById(R.id.image_available).setOnClickListener(new VisibleToggleClickListener() {
                 @Override
                 protected void changeVisibility(boolean visible) {
-                TransitionManager.beginDelayedTransition(transitionsContainer, new Scale());
-                    for(int i = 0 ; i < availableMinutes.size(); i++){
+                    TransitionManager.beginDelayedTransition(transitionsContainer, new Scale());
+                    for (int i = 0; i < availableMinutes.size(); i++) {
                         (rootView.findViewById(rIds.get(i))).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
                     }
                 }
             });
         }
-
-        TextView availableIn =(TextView) rootView.findViewById(R.id.available_in);
+        // Modify the texts next to the main circle
+        TextView availableIn = (TextView) rootView.findViewById(R.id.available_in);
         availableIn.setText(mainData.get("availableIn"));
 
-        TextView nextMeeting =(TextView) rootView.findViewById(R.id.next_meeting);
+        TextView nextMeeting = (TextView) rootView.findViewById(R.id.next_meeting);
         nextMeeting.setText(mainData.get("nextMeeting"));
 
-        final TableLayout timeLine = (TableLayout) rootView.findViewById(R.id.time_line);
 
-        final TableRow rowTimeLine  = (TableRow) timeLine.getChildAt(1);
-        String start =  timeService.getInitialTimeDay();
-        for(int i = 0 ; i < rowTimeLine.getChildCount(); i++){
-            final TextView v = (TextView) rowTimeLine.getChildAt(i);
+        refreshTimeline(rootView);
 
-            if(eventService.getEventMapper().containsKey(start)){
-                v.setBackgroundColor(Color.RED);
+        //Button to show attendees
+        final TextView attendees = (TextView) rootView.findViewById(R.id.people_image);
+        attendees.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+                showAttendees();
+
             }
-            start = timeService.addMinutes(start);
-        }
+        });
+
+
 
         return rootView;
     }
 
     /**
+     * Method to display dialog showing the attendees
+     */
+    private void showAttendees(){
+        /** TODO: Add the organizer to the attendees list*/
+        List<String> attendeesName = new ArrayList<>();
+        if(currentEvent != null){
+            if(currentEvent.getAttendees().size()==0){
+                attendeesName.add("Unregistered attendees");
+            }else{
+                for(Attendee attendee : currentEvent.getAttendees()){
+                    attendeesName.add(attendee.getEmailAddress().getName());
+                }
+            }
+
+        }else{
+            attendeesName.add("No booking");
+        }
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View convertView = inflater.inflate(R.layout.dialog_atendees, null);
+        alertDialog.setView(convertView);
+        ListView lv = (ListView) convertView.findViewById(R.id.listView1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,attendeesName);
+        lv.setAdapter(adapter);
+        alertDialog.show();
+    }
+
+    /**
      * Method to get the available minutes to book a meeting
-     * @param date
+     * @param date current date
      * @return String list that contains available minutes
      */
     public List<String> getAvailableMinutesToBook(String date){
@@ -280,18 +303,18 @@ public class HomeFragment extends Fragment {
         boolean startIsHigherToCurrent;
         boolean endIsHigherToCurrent;
 
-        int sizeEvents = eventService.getEvent().size();
+        int sizeEvents = eventService.getEvents().size();
         Event tmpEvent ;
         for(int i = 0 ; i < sizeEvents; i++){
-            tmpEvent = eventService.getEvent().get(i);
-            startIsHigherToCurrent = timeService.isGreaterDate(tmpEvent.getStart(), currentDateInString);
-            endIsHigherToCurrent = timeService.isGreaterDate(tmpEvent.getEnd(), currentDateInString);
+            tmpEvent = eventService.getEvents().get(i);
+            startIsHigherToCurrent = timeService.isHigherOrEqual(tmpEvent.getStart(), currentDateInString);
+            endIsHigherToCurrent = timeService.isHigherOrEqual(tmpEvent.getEnd(), currentDateInString);
 
             //**Start and end are higher than current*/
             if( startIsHigherToCurrent && endIsHigherToCurrent ){
                 dataHome.put("state","F");
                 dataHome.put("availableIn","Now");
-                dataHome.put("nextMeeting",timeService.calculateDifferenceInString(currentDateInString, eventService.getEvent().get(i).getStart()));
+                dataHome.put("nextMeeting",timeService.calculateDifferenceInString(currentDateInString, eventService.getEvents().get(i).getStart()));
                 currentEvent = null;
                 return dataHome;
             }
@@ -303,16 +326,16 @@ public class HomeFragment extends Fragment {
                 //**if exist other event in the week*/
                 if ( i + 1  < sizeEvents){
 
-                    dataHome.put("nextMeeting", timeService.calculateDifferenceInString(currentDateInString, eventService.getEvent().get(i+1).getStart()));
+                    dataHome.put("nextMeeting", timeService.calculateDifferenceInString(currentDateInString, eventService.getEvents().get(i+1).getStart()));
                     while( i + 1 < sizeEvents){
                         //** Compare actual with next event*/
-                        if ( ! eventService.getEvent().get(i).getEnd().equalsIgnoreCase(eventService.getEvent().get( i + 1 ).getStart())){
-                            dataHome.put("availableIn",timeService.calculateDifferenceInString(currentDateInString,eventService.getEvent().get(i).getEnd()));
+                        if ( ! eventService.getEvents().get(i).getEnd().equalsIgnoreCase(eventService.getEvents().get( i + 1 ).getStart())){
+                            dataHome.put("availableIn",timeService.calculateDifferenceInString(currentDateInString,eventService.getEvents().get(i).getEnd()));
                             return dataHome;
                         }
                         i++;
                     }
-                    dataHome.put("availableIn",timeService.calculateDifferenceInString(currentDateInString,eventService.getEvent().get(sizeEvents - 1).getEnd()));
+                    dataHome.put("availableIn",timeService.calculateDifferenceInString(currentDateInString,eventService.getEvents().get(sizeEvents - 1).getEnd()));
                     return dataHome;
 
 
@@ -323,10 +346,8 @@ public class HomeFragment extends Fragment {
                     return dataHome;
                 }
             }
-            //**Start and end are less than current*/
-            else if( !startIsHigherToCurrent && !endIsHigherToCurrent  ){
-                /**Pass to next event*/
-            }
+            // In other case do not make anything/
+
         }
         currentEvent = null;
         dataHome.put("state","F");
@@ -338,51 +359,57 @@ public class HomeFragment extends Fragment {
 
     /**
      * Method to create a event from the GUI
-     * @param event
+     * @param event event to create
      */
     private void createEvent(final Event event){
+        final Thread createThread =new Thread(new Runnable() {// Thread to refresh the home fragment
+            @Override
+            public void run() {
+                wasSuccessfulOperation = eventService.doPost(event,new URLService().getURLCreateEvent());
+            }
+        });
+        createThread.start();
+
         final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Creating...");
         pDialog.show();
         pDialog.setCancelable(false);
 
-        new CountDownTimer(800 * 7, 800) {
-            boolean isExecuted = false;
-            boolean isCreated = false;
+        new CountDownTimer(WAITING_TIME, 800) {
             public void onTick(long millisUntilFinished) {
                 try{
-                    pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.blue_btn_bg_color));
-                }catch (IllegalStateException e){
-                    Log.e("Error","Error showing progress bar because user tried to create two event at same time");
-                }
-                while (isExecuted == false){
-                    isExecuted = true;
-                    isCreated = eventService.createEvent(event);
+                    pDialog.getProgressHelper().setBarColor(ContextCompat.getColor(getActivity(),R.color.colorPrimaryDark));
+                }catch (NullPointerException e){
+                    Log.e(TAG,"Error while was changed the color of waiting bar");
                 }
             }
-
             public void onFinish() {
-                if(isCreated) {
+                try {
+                    createThread.join();
+                } catch (InterruptedException e) {
+                    Log.e(TAG, "InterruptedException joining createThread");
+                }
+                if(wasSuccessfulOperation) {
                     pDialog.setTitleText("Success!")
                             .setConfirmText("OK")
                             .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
-
+                    wasSuccessfulOperation = false;
                 }else{
-                    pDialog.setTitleText("Error! The meeting was not created")
+                    pDialog.setTitleText("Error! Try again")
+                            .setContentText("Probably the device do not have access to the server")
                             .setConfirmText("OK")
                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                 }
                 refreshFragment();
-
             }
         }.start();
-
     }
 
     /**
      * Method to delete a event from the GUI
-     * @param event
+     * @param event to delete
      */
-    private void deleteEvent(final Event event){
+    private void deleteEvent(final Event event) throws NullPointerException{
+
         final SweetAlertDialog sweetAlertDialog =  new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE);
                 sweetAlertDialog.setTitleText("Are you sure?")
                 .setContentText("Won't be able to recover this meeting!")
@@ -392,73 +419,96 @@ public class HomeFragment extends Fragment {
                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
+
+                        final Thread deleteThread = new Thread(new Runnable() {// Thread to refresh the home fragment
+                            @Override
+                            public void run() {
+                                wasSuccessfulOperation = eventService.doPost(event, new URLService().getURLDeleteEvent());
+                            }
+                        });
+                        deleteThread.start();
+
                         final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Deleting");
                         pDialog.show();
                         pDialog.setCancelable(false);
 
-                        new CountDownTimer(800 * 7, 800) {
-                            boolean isExecuted = false;
-                            boolean isDeleted = false;
+                        new CountDownTimer(WAITING_TIME, 1000) {
+                            //display waiting bar
                             public void onTick(long millisUntilFinished) {
                                 try{
-                                    pDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.blue_btn_bg_color));
-                                }catch (IllegalStateException e){
-                                    Log.e("Error","Error showing progress bar because user tried to create two event at same time");
-                                }
-                                while (isExecuted == false){
-                                    isExecuted = true;
-                                    isDeleted = eventService.deleteEvent(event);
+                                    pDialog.getProgressHelper().setBarColor(ContextCompat.getColor(getActivity(),R.color.colorPrimaryDark));
+                                }catch (NullPointerException e){
+                                    Log.e(TAG,"Error while was changed the color of waiting bar");
                                 }
                             }
-
                             public void onFinish() {
-                                if(isDeleted) {
+                                try {
+                                    deleteThread.join();
+                                } catch (InterruptedException e) {
+                                    Log.e(TAG, "InterruptedException joining deleteThread");
+                                }
+                                if(wasSuccessfulOperation) {
                                     pDialog.setTitleText("Deleted it!")
                                             .setConfirmText("OK")
                                             .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
                                     sweetAlertDialog.cancel();
-
-
+                                    wasSuccessfulOperation = false;
                                 }else{
                                     pDialog.setTitleText("Error!")
                                             .setConfirmText("OK")
                                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                                     sweetAlertDialog.cancel();
                                 }
-
                                 refreshFragment();
-
                             }
                         }.start();
-
                     }
                 })
                 .show();
     }
 
+
+    private void refreshTimeline(View rootView){
+        final TableLayout timeLine = (TableLayout) rootView.findViewById(R.id.time_line);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final TableRow rowTimeLine = (TableRow) timeLine.getChildAt(1);
+                String start = timeService.getInitialTimeDay();
+                for (int i = 0; i < rowTimeLine.getChildCount(); i++) {
+                    final TextView v = (TextView) rowTimeLine.getChildAt(i);
+                    if (eventService.getEventMapper().containsKey(start)) {
+                        v.setBackgroundColor(Color.RED);
+                    }
+                    start = timeService.addMinutes(start);
+                }
+            }
+        }).start();
+    }
+
     /**
      * Method to refresh the fragment
      */
-    private void refreshFragment(){
-        try{
+    private void refreshFragment()  {
+        try {
             Fragment fragment = new HomeFragment();
             FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_body, fragment);
-            fragmentTransaction.commitAllowingStateLoss();
-        }catch ( NullPointerException e){
-            Log.i("Warning refresh","Update fragment not completed");
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.container_body, fragment);
+            transaction.addToBackStack(null);
+            transaction.commitAllowingStateLoss();
+
+        } catch (NullPointerException e) {
+            Log.i(TAG, "Refresh fragment not completed");
         }
-    }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-    }
 
+    }
     @Override
     public void onDetach() {
         super.onDetach();
     }
+
+
 
 }
