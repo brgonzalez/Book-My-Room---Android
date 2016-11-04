@@ -9,8 +9,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/item_menu_padding_left"
-        android:paddingTop="@dimen/item_menu_padding_top"
-        android:textSize="@dimen/extra_small_size_text"
-        android:textStyle="bold" />
+        android:paddingTop="@dimen/item_menu_padding"
+        android:paddingBottom="@dimen/item_menu_padding"
+        android:textSize="@dimen/small_size_text"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"/>
 
 </RelativeLayout>

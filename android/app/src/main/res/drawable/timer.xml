@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
     <item>
         <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-            android:src="@drawable/ic_snap_finance"
+            android:src="@drawable/ic_app"
             android:tileMode="repeat" android:gravity="center"
             />
     </item>

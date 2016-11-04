@@ -279,7 +279,7 @@
                                         android:layout_marginTop="0dp"
                                         android:background="@drawable/circle_finished"
                                         android:gravity="center"
-                                        android:text="Finished?"
+                                        android:text="Cancel?"
                                         android:textColor="@color/textColorPrimary"
                                         android:textSize="@dimen/extra_small_size_text"
                                         android:textStyle="bold"

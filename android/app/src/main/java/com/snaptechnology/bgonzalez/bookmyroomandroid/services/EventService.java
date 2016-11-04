@@ -80,6 +80,8 @@ public final class EventService  {
             }
         }catch (JSONException e) {
             Log.e(TAG,"JsonProcessingException error parsing the result body in doPost()");
+        }catch (NullPointerException e){
+            Log.e(TAG,e.getMessage());
         }
         return false;
     }
@@ -92,7 +94,7 @@ public final class EventService  {
         List<Event> events;
         Log.i(TAG, "Updating Events");
         try {
-            Map<String, String> startEndDate = timeService.getRangeToRequest();
+            Map<String, String> startEndDate = timeService.getRangeDays();
             String displayName = FileUtils.readLocation(context);
             EventVO eventVO = new EventVO(new Location(displayName), startEndDate.get("start"), startEndDate.get("end"));
 
@@ -100,7 +102,7 @@ public final class EventService  {
             String url = urlService.getURLEvents();
             Log.i(TAG, "Post to "+ urlService.getURLEvents() +", request body "+ json );
             String result = client.post(url,json);
-            Log.i(TAG, "Output: "+result);
+            //Log.i(TAG, "Output: "+result);
 
             events = mapper.readValue(result, TypeFactory.defaultInstance().constructCollectionType(List.class, Event.class));
 
@@ -117,15 +119,20 @@ public final class EventService  {
         }catch (JsonProcessingException e) {
             Log.e(TAG,"JsonProcessingException error parsing the result body in UpdateEvents()");
             this.getEventMapper().clear();
+            setEvents(new ArrayList<Event>());
         }catch (IOException e) {
             Log.e(TAG,"IOException error parsing the result body in UpdateEvents()");
             this.getEventMapper().clear();
+            setEvents(new ArrayList<Event>());
         }catch (IllegalStateException e){
             Log.e(TAG,"Error IllegalStateException to execute operation, was not executed at time");
             this.getEventMapper().clear();
+            setEvents(new ArrayList<Event>());
         }catch (NullPointerException e){
             Log.e(TAG,"Error NullPointerException to execute operation, probably the device is not connected with the server" );
             this.getEventMapper().clear();
+            setEvents(new ArrayList<Event>());
+
         }
     }
 

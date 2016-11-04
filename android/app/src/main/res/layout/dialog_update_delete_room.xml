@@ -24,7 +24,7 @@
                 android:text="Book Room"
                 android:textColor="@color/textColorPrimary"
                 android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="@dimen/small_size_text"/>
 
 >
 
@@ -32,7 +32,7 @@
 
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/size_top_elements_dialog"
+            android:layout_marginTop="@dimen/margin_dialog_container"
             android:id="@+id/subject_update_delete"
             android:layout_height="wrap_content"
             android:layout_width="@dimen/width_update_dialog"
@@ -47,6 +47,7 @@
                 android:hint="Meeting name"
                 android:layout_width="@dimen/width_update_dialog"
                 android:layout_centerHorizontal="true"
+                android:textSize="@dimen/small_size_text"
                 />
 
         </android.support.design.widget.TextInputLayout>
@@ -79,7 +80,8 @@
                 app:met_floatingLabel="normal"
                 android:textColorHint="#CFD8DC"
                 android:layout_marginLeft="@dimen/margin_left_start_spinner"
-                android:layout_marginTop="@dimen/size_top_elements_dialog" />
+                android:layout_marginTop="@dimen/margin_dialog_container"
+                android:textSize="@dimen/small_size_text"/>
 
             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
                 android:id="@+id/end_time_meeting"
@@ -89,7 +91,8 @@
                 app:met_floatingLabel="normal"
                 android:textColorHint="#CFD8DC"
                 android:layout_marginLeft="@dimen/margin_left_end_spinner"
-                android:layout_marginTop="@dimen/size_top_elements_dialog"/>
+                android:layout_marginTop="@dimen/margin_dialog_container"
+                android:textSize="@dimen/small_size_text"/>
         </RelativeLayout>
 
 
@@ -102,25 +105,25 @@
             android:layout_alignLeft="@+id/subject_update_delete">
 
             <Button android:id="@+id/btn_update_meeting"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/height_button"
                 android:layout_width="@dimen/btn_width_update_dialog"
                 android:text="@string/btn_save"
                 android:background="@color/colorPrimary"
-                android:layout_marginTop="@dimen/margin_button_dialog"
+                android:layout_marginTop="@dimen/margin_dialog_button"
                 android:textColor="@android:color/white"
-                android:layout_marginBottom="@dimen/margin_button_dialog"
+                android:layout_marginBottom="@dimen/margin_dialog_button"
                 android:onClick="update_event"/>
 
 
             <Button android:id="@+id/btn_delete_meeting"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/height_button"
                 android:layout_width="@dimen/btn_width_update_dialog"
                 android:text="@string/btn_delete"
                 android:background="@color/colorRedDark"
-                android:layout_marginTop="@dimen/margin_button_dialog"
+                android:layout_marginTop="@dimen/margin_dialog_button"
                 android:textColor="@android:color/white"
                 android:layout_marginLeft="200dp"
-                android:layout_marginBottom="@dimen/margin_button_dialog"
+                android:layout_marginBottom="@dimen/margin_dialog_button"
                 android:onClick="deleteEvent"/>
 
         </RelativeLayout>

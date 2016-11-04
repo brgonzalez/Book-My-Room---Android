@@ -99,8 +99,8 @@ public class HomeFragment extends Fragment {
 
         if (mainData.get("state").equalsIgnoreCase("B")) { // in case of being busy
             //calculates to progress circle bar
-            int meetingTime = (int) (timeService.calculateDifferenceDates(currentEvent.getStart(), currentEvent.getEnd()) * .1);
-            int lapsedMeetingTime = (int) (timeService.calculateDifferenceDates(currentEvent.getStart(), timeService.getActualTimeInString()) * .1);
+            int meetingTime = (int) (timeService.getDifference(currentEvent.getStart(), currentEvent.getEnd()) * .1);
+            int lapsedMeetingTime = (int) (timeService.getDifference(currentEvent.getStart(), timeService.getTimeInString()) * .1);
 
             progressBar.bringToFront();
             progressBar.setVisibility(View.VISIBLE);
@@ -150,9 +150,9 @@ public class HomeFragment extends Fragment {
             rIds.add(R.id.sixty_minutes);
 
 
-            final String dateInString = timeService.getActualTimeInString();
+            final String dateInString = timeService.getTimeInString();
             final List<String> availableMinutes = getAvailableMinutesToBook(dateInString);
-            final String tmpEndDate = timeService.roundDateToHigherInString(dateInString);
+            final String tmpEndDate = timeService.roundUp(dateInString);
 
 
             //Calculate available minutes to book the location
@@ -184,11 +184,11 @@ public class HomeFragment extends Fragment {
                                 }
                                 mLastClickTime = SystemClock.elapsedRealtime();
 
-                                String startDate = timeService.roundDateToLessInString(dateInString);
+                                String startDate = timeService.roundDown(dateInString);
                                 String subject = (((TextInputLayout) dialogView.findViewById(R.id.subject_book_room_from_home)).getEditText().getText()).toString();
                                 Event event = new Event("id", subject, new Location(FileUtils.readLocation(getActivity())), new ArrayList<Attendee>(), false, startDate, endDate);
+                                dialog.dismiss();
                                 createEvent(event);
-                                dialog.cancel();
                             }
                         });
                         dialog.show();
@@ -274,10 +274,10 @@ public class HomeFragment extends Fragment {
         List<String> availableMinutes = new ArrayList<>();
         int minutes = timeService.getMinMin();
 
-        String limitDateOfDay = timeService.addADay(timeService.resetHoursStringDate(date));
+        String limitDateOfDay = timeService.addADay(timeService.cleanDate(date));
 
         Date actual = timeService.convertStringToDate(date);
-        date = timeService.roundDateToHigherInString(date);
+        date = timeService.roundUp(date);
         Date nextDay = timeService.convertStringToDate(limitDateOfDay);
 
         while(!eventService.getEventMapper().containsKey(date) && actual.compareTo(nextDay) < 0 && availableMinutes.size() < 4) {
@@ -299,7 +299,7 @@ public class HomeFragment extends Fragment {
     private Map<String,String> getDataHome(){
         Map<String,String> dataHome = new HashMap<>();
 
-        String currentDateInString = timeService.getActualTimeInString();
+        String currentDateInString = timeService.getTimeInString();
         boolean startIsHigherToCurrent;
         boolean endIsHigherToCurrent;
 
@@ -314,7 +314,7 @@ public class HomeFragment extends Fragment {
             if( startIsHigherToCurrent && endIsHigherToCurrent ){
                 dataHome.put("state","F");
                 dataHome.put("availableIn","Now");
-                dataHome.put("nextMeeting",timeService.calculateDifferenceInString(currentDateInString, eventService.getEvents().get(i).getStart()));
+                dataHome.put("nextMeeting",timeService.getDifferenceInText(currentDateInString, eventService.getEvents().get(i).getStart()));
                 currentEvent = null;
                 return dataHome;
             }
@@ -326,22 +326,22 @@ public class HomeFragment extends Fragment {
                 //**if exist other event in the week*/
                 if ( i + 1  < sizeEvents){
 
-                    dataHome.put("nextMeeting", timeService.calculateDifferenceInString(currentDateInString, eventService.getEvents().get(i+1).getStart()));
+                    dataHome.put("nextMeeting", timeService.getDifferenceInText(currentDateInString, eventService.getEvents().get(i+1).getStart()));
                     while( i + 1 < sizeEvents){
                         //** Compare actual with next event*/
                         if ( ! eventService.getEvents().get(i).getEnd().equalsIgnoreCase(eventService.getEvents().get( i + 1 ).getStart())){
-                            dataHome.put("availableIn",timeService.calculateDifferenceInString(currentDateInString,eventService.getEvents().get(i).getEnd()));
+                            dataHome.put("availableIn",timeService.getDifferenceInText(currentDateInString,eventService.getEvents().get(i).getEnd()));
                             return dataHome;
                         }
                         i++;
                     }
-                    dataHome.put("availableIn",timeService.calculateDifferenceInString(currentDateInString,eventService.getEvents().get(sizeEvents - 1).getEnd()));
+                    dataHome.put("availableIn",timeService.getDifferenceInText(currentDateInString,eventService.getEvents().get(sizeEvents - 1).getEnd()));
                     return dataHome;
 
 
                 }else{
                     dataHome.put("nextMeeting", "Next Week");
-                    dataHome.put("availableIn",timeService.calculateDifferenceInString(currentDateInString,tmpEvent.getEnd()));
+                    dataHome.put("availableIn",timeService.getDifferenceInText(currentDateInString,tmpEvent.getEnd()));
                     dataHome.put("state","B");
                     return dataHome;
                 }
@@ -370,14 +370,14 @@ public class HomeFragment extends Fragment {
         });
         createThread.start();
 
-        final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Creating...");
-        pDialog.show();
-        pDialog.setCancelable(false);
+        final SweetAlertDialog createDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Creating...");
+        createDialog.show();
+        createDialog.setCancelable(false);
 
         new CountDownTimer(WAITING_TIME, 800) {
             public void onTick(long millisUntilFinished) {
                 try{
-                    pDialog.getProgressHelper().setBarColor(ContextCompat.getColor(getActivity(),R.color.colorPrimaryDark));
+                    createDialog.getProgressHelper().setBarColor(ContextCompat.getColor(getActivity(),R.color.colorPrimaryDark));
                 }catch (NullPointerException e){
                     Log.e(TAG,"Error while was changed the color of waiting bar");
                 }
@@ -389,12 +389,12 @@ public class HomeFragment extends Fragment {
                     Log.e(TAG, "InterruptedException joining createThread");
                 }
                 if(wasSuccessfulOperation) {
-                    pDialog.setTitleText("Success!")
+                    createDialog.setTitleText("Success!")
                             .setConfirmText("OK")
                             .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
                     wasSuccessfulOperation = false;
                 }else{
-                    pDialog.setTitleText("Error! Try again")
+                    createDialog.setTitleText("Error! Try again")
                             .setContentText("Probably the device do not have access to the server")
                             .setConfirmText("OK")
                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);

@@ -28,75 +28,82 @@
             <TextView
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_margin="1dip"
+                android:layout_margin="@dimen/margin_cell_table"
                 android:layout_weight="0.5"
                 android:text="Hour"
                 android:gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                android:textSize="@dimen/extra_small_size_text"/>
 
             <TextView
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
-                android:layout_margin="1dip"
+                android:layout_margin="@dimen/margin_cell_table"
                 android:layout_weight="1"
                 android:text="Monday"
                 android:gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                android:textSize="@dimen/extra_small_size_text"/>
 
             <TextView
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_margin="1dip"
+                android:layout_margin="@dimen/margin_cell_table"
                 android:layout_weight="1"
                 android:text="Tuesday"
                 android:gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorPrimary"
+                android:textSize="@dimen/extra_small_size_text"/>
             <TextView
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_margin="1dip"
+                android:layout_margin="@dimen/margin_cell_table"
                 android:layout_weight="1"
                 android:text="Wednesday"
                 android:gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorPrimary"
+                android:textSize="@dimen/extra_small_size_text"/>
             <TextView
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_margin="1dip"
+                android:layout_margin="@dimen/margin_cell_table"
                 android:layout_weight="1"
                 android:text="Thursday"
                 android:gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorPrimary"
+                android:textSize="@dimen/extra_small_size_text"/>
             <TextView
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_margin="1dip"
+                android:layout_margin="@dimen/margin_cell_table"
                 android:layout_weight="1"
                 android:text="Friday"
                 android:gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorPrimary"
+                android:textSize="@dimen/extra_small_size_text"/>
             <TextView
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_margin="1dip"
+                android:layout_margin="@dimen/margin_cell_table"
                 android:layout_weight="1"
                 android:text="Saturday"
                 android:gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                android:textSize="@dimen/extra_small_size_text"/>
         </TableRow>
 
     </TableLayout>
@@ -104,7 +111,6 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
         android:id="@+id/scrollView"
         android:layout_below="@+id/header_schedule"
         android:splitMotionEvents="false">
@@ -123,17 +129,17 @@
 
             <!--Row to meetings-->
 
-
             <TableRow>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
-                    android:layout_margin="1dip"
+                    android:layout_margin="@dimen/margin_cell_table"
                     android:layout_weight="0.5"
                     android:text="07:00"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@color/windowBackground"
+                    android:textSize="@dimen/extra_small_size_text"
                     />
                 <TextView
                     android:layout_width="0dip"
@@ -142,7 +148,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -150,7 +156,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -158,7 +164,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -166,7 +172,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -174,7 +180,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -182,7 +188,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -193,7 +199,7 @@
                     android:text="07:15"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -201,7 +207,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -209,7 +215,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -217,7 +223,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -225,7 +231,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -233,7 +239,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -241,7 +247,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -252,6 +258,15 @@
                     android:text="07:30"
                     android:gravity="center"
                     android:background="@color/windowBackground"
+                    android:textSize="@dimen/extra_small_size_text"/>
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="@dimen/height_row_table_calendar"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@color/windowBackground"
+                    android:textSize="@dimen/extra_small_size_text"
                     />
                 <TextView
                     android:layout_width="0dip"
@@ -260,7 +275,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -268,7 +283,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -276,7 +291,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -284,7 +299,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -292,15 +307,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="@dimen/height_row_table_calendar"
-                    android:layout_margin="1dip"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -311,7 +318,7 @@
                     android:text="07:45"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -319,7 +326,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -327,7 +334,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -335,7 +342,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -343,7 +350,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -351,7 +358,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -359,7 +366,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -371,7 +378,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -379,7 +386,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -387,7 +394,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -395,7 +402,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -403,7 +410,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -411,7 +418,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -419,7 +426,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -430,7 +437,7 @@
                     android:text="08:15"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -438,7 +445,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -446,7 +453,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -454,7 +461,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -462,7 +469,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -470,7 +477,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -478,7 +485,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -489,7 +496,7 @@
                     android:text="08:30"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -497,7 +504,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -505,7 +512,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -513,7 +520,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -521,7 +528,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -529,7 +536,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -537,7 +544,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -548,7 +555,7 @@
                     android:text="08:45"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -556,7 +563,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -564,7 +571,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -572,7 +579,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -580,7 +587,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -588,7 +595,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -596,7 +603,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -608,7 +615,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -616,7 +623,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -624,7 +631,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -632,7 +639,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -640,7 +647,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -648,7 +655,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -656,7 +663,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -667,7 +674,7 @@
                     android:text="09:15"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -675,7 +682,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -683,7 +690,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -691,7 +698,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -699,7 +706,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -707,7 +714,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -715,7 +722,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -726,7 +733,7 @@
                     android:text="09:30"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -734,7 +741,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -742,7 +749,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -750,7 +757,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -758,7 +765,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -766,7 +773,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -774,7 +781,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -785,7 +792,7 @@
                     android:text="09:45"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -793,7 +800,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -801,7 +808,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -809,7 +816,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -817,7 +824,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -825,7 +832,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -833,7 +840,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -845,7 +852,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -853,7 +860,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -861,7 +868,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -869,7 +876,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -877,7 +884,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -885,7 +892,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -893,7 +900,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -904,7 +911,7 @@
                     android:text="10:15"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -912,7 +919,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -920,7 +927,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -928,7 +935,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -936,7 +943,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -944,7 +951,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -952,7 +959,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -963,7 +970,7 @@
                     android:text="10:30"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -971,7 +978,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -979,7 +986,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -987,7 +994,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -995,7 +1002,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1003,7 +1010,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1011,7 +1018,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1022,7 +1029,7 @@
                     android:text="10:45"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1030,7 +1037,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1038,7 +1045,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1046,7 +1053,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1054,7 +1061,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1062,7 +1069,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1070,7 +1077,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1082,7 +1089,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1090,7 +1097,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1098,7 +1105,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1106,7 +1113,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1114,7 +1121,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1122,7 +1129,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1130,7 +1137,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1141,7 +1148,7 @@
                     android:text="11:15"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1149,7 +1156,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1157,7 +1164,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1165,7 +1172,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1173,7 +1180,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1181,7 +1188,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1189,7 +1196,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1200,7 +1207,7 @@
                     android:text="11:30"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1208,7 +1215,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1216,7 +1223,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1224,7 +1231,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1232,7 +1239,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1240,7 +1247,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1248,7 +1255,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
 
             <TableRow>
@@ -1260,7 +1267,7 @@
                     android:text="11:45"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1268,7 +1275,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1276,7 +1283,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1284,7 +1291,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1292,7 +1299,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1300,7 +1307,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1308,7 +1315,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
 
             <TableRow>
@@ -1321,7 +1328,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1329,7 +1336,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1337,7 +1344,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1345,7 +1352,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1353,7 +1360,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1361,7 +1368,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1369,7 +1376,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1380,7 +1387,7 @@
                     android:text="12:15"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1388,7 +1395,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1396,7 +1403,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1404,7 +1411,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1412,7 +1419,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1420,7 +1427,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1428,7 +1435,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1439,7 +1446,7 @@
                     android:text="12:30"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1447,7 +1454,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1455,7 +1462,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1463,7 +1470,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1471,7 +1478,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1479,7 +1486,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1487,7 +1494,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1498,7 +1505,7 @@
                     android:text="12:45"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1506,7 +1513,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1514,7 +1521,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1522,7 +1529,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1530,7 +1537,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1538,7 +1545,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1546,7 +1553,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1558,7 +1565,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1566,7 +1573,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1574,7 +1581,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1582,7 +1589,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1590,7 +1597,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1598,7 +1605,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1606,7 +1613,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1617,7 +1624,7 @@
                     android:text="13:15"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1625,7 +1632,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1633,7 +1640,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1641,7 +1648,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1649,7 +1656,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1657,7 +1664,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1665,7 +1672,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1676,7 +1683,7 @@
                     android:text="13:30"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1684,7 +1691,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1692,7 +1699,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1700,7 +1707,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1708,7 +1715,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1716,7 +1723,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1724,7 +1731,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1735,7 +1742,7 @@
                     android:text="13:45"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1743,7 +1750,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1751,7 +1758,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1759,7 +1766,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1767,7 +1774,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1775,7 +1782,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1783,7 +1790,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1795,7 +1802,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1803,7 +1810,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1811,7 +1818,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1819,7 +1826,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1827,7 +1834,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1835,7 +1842,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1843,7 +1850,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1854,7 +1861,7 @@
                     android:text="14:15"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1862,7 +1869,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1870,7 +1877,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1878,7 +1885,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1886,7 +1893,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1894,7 +1901,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1902,7 +1909,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1913,7 +1920,7 @@
                     android:text="14:30"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1921,7 +1928,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1929,7 +1936,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1937,7 +1944,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1945,7 +1952,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1953,7 +1960,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1961,7 +1968,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -1972,7 +1979,7 @@
                     android:text="14:45"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1980,7 +1987,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1988,7 +1995,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -1996,7 +2003,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2004,7 +2011,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2012,7 +2019,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2020,7 +2027,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -2032,7 +2039,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2040,7 +2047,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2048,7 +2055,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2056,7 +2063,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2064,7 +2071,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2072,7 +2079,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2080,7 +2087,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -2091,7 +2098,7 @@
                     android:text="15:15"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2099,7 +2106,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2107,7 +2114,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2115,7 +2122,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2123,7 +2130,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2131,7 +2138,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2139,7 +2146,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -2150,7 +2157,7 @@
                     android:text="15:30"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2158,7 +2165,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2166,7 +2173,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2174,7 +2181,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2182,7 +2189,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2190,7 +2197,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2198,7 +2205,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -2209,7 +2216,7 @@
                     android:text="15:45"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2217,7 +2224,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2225,7 +2232,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2233,7 +2240,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2241,7 +2248,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2249,7 +2256,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2257,7 +2264,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -2269,7 +2276,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2277,7 +2284,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2285,7 +2292,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2293,7 +2300,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2301,7 +2308,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2309,7 +2316,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2317,7 +2324,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -2328,7 +2335,7 @@
                     android:text="16:15"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2336,7 +2343,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2344,7 +2351,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2352,7 +2359,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2360,7 +2367,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2368,7 +2375,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2376,7 +2383,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -2387,7 +2394,7 @@
                     android:text="16:30"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2395,7 +2402,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2403,7 +2410,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2411,7 +2418,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2419,7 +2426,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2427,7 +2434,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2435,7 +2442,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
             <TableRow>
                 <TextView
@@ -2446,7 +2453,7 @@
                     android:text="16:45"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2454,7 +2461,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                     />
+                    android:textSize="@dimen/extra_small_size_text" />
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2462,7 +2469,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2470,7 +2477,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2478,7 +2485,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2486,7 +2493,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="@dimen/height_row_table_calendar"
@@ -2494,7 +2501,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@color/windowBackground"
-                    />
+                    android:textSize="@dimen/extra_small_size_text"/>
             </TableRow>
 
 

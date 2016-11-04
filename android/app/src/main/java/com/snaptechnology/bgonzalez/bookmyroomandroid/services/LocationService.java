@@ -46,6 +46,8 @@ public class LocationService {
         } catch (IOException e) {
             e.printStackTrace();
             Log.e(TAG,"IOException error IOException in Location Service");
+        }catch (NullPointerException e){
+            Log.e(TAG,"NullPointerException reading locations");
 
         }
         return locations;

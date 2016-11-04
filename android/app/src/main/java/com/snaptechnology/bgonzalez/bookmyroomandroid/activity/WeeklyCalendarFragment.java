@@ -2,7 +2,6 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
 
 import android.app.AlertDialog;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -72,7 +71,7 @@ public class WeeklyCalendarFragment extends Fragment {
         //TextView headerCalendar = (TextView) rootView.findViewById(R.id.week);
         //headerCalendar.setText(getStringHeaderCalendar());
 
-        eventService.getTimeService().updateDatesToCalendar();
+        eventService.getTimeService().updateIdsWeeklyCalendar();
 
         //**Store dates to assign to each cell(TextView) of the table */
         String[][] ids = eventService.getTimeService().getDates();
@@ -91,6 +90,7 @@ public class WeeklyCalendarFragment extends Fragment {
                 String tag = ids[i][j-1];
                 column.setTag(tag);
                 column.setTextColor(Color.WHITE);
+                //column.setText(tag);
 
                 final boolean isThereEvent = eventService.getEventMapper().containsKey(tag);
 
@@ -133,7 +133,7 @@ public class WeeklyCalendarFragment extends Fragment {
         final AlertDialog dialog = builder.create();
 
         TextView headerDialogToBook = (TextView) dialogToBook.findViewById(R.id.title_book_room);
-        headerDialogToBook.setText(String.format("Book Room - %s", timeService.convertComplexHourToSimpleHour(cell.getTag().toString())));
+        headerDialogToBook.setText(String.format("Book Room - %s", timeService.convertComplexToSimpleHour(cell.getTag().toString())));
 
         final MaterialBetterSpinner availableMinutesSpinner = (MaterialBetterSpinner)dialogToBook.findViewById(R.id.spinner_time_book_room);
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(dialogToBook.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableMinutes(cell.getTag().toString()));
@@ -168,12 +168,12 @@ public class WeeklyCalendarFragment extends Fragment {
                 event.setSubject((((TextInputLayout) dialogToBook.findViewById(R.id.subject_book_room)).getEditText().getText()).toString());
                 event.setLocation(new Location(FileUtils.readLocation(getActivity())));
                 event.setAttendees(new ArrayList<Attendee>());
-                event.setIsAllDay(checkbox.isChecked());
+                event.setIsAllDay(false);
 
                 if( checkbox.isChecked()){
-                    String start = timeService.resetHoursStringDate(cell.getTag().toString());
-                    event.setStart(start);
-                    event.setEnd(timeService.addADay(start));
+                    String start = timeService.cleanDate(cell.getTag().toString());
+                    event.setStart(timeService.convertSimpleToComplexHour("06:00",timeService.getIntCurrentDay(cell.getTag().toString())));
+                    event.setEnd(timeService.convertSimpleToComplexHour("18:00",timeService.getIntCurrentDay(cell.getTag().toString())));
                 }else{
                     event.setStart(cell.getTag().toString());
                     String duration = availableMinutesSpinner.getEditableText().toString();
@@ -203,14 +203,14 @@ public class WeeklyCalendarFragment extends Fragment {
         });
         createThread.start();
 
-        final SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Creating...");
-        pDialog.show();
-        pDialog.setCancelable(false);
+        final SweetAlertDialog createDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE).setTitleText("Creating...");
+        createDialog.show();
+        createDialog.setCancelable(false);
 
         new CountDownTimer(WAITING_TIME, 800) {
             public void onTick(long millisUntilFinished) {
                 try{
-                    pDialog.getProgressHelper().setBarColor(ContextCompat.getColor(getActivity(),R.color.colorPrimaryDark));
+                    createDialog.getProgressHelper().setBarColor(ContextCompat.getColor(getActivity(),R.color.colorPrimaryDark));
                 }catch (NullPointerException e){
                     Log.e(TAG,"Error while was changed the color of waiting bar");
                 }
@@ -222,12 +222,12 @@ public class WeeklyCalendarFragment extends Fragment {
                     Log.e(TAG, "InterruptedException joining createThread");
                 }
                 if(wasSuccessfulOperation) {
-                    pDialog.setTitleText("Success!")
+                    createDialog.setTitleText("Success!")
                             .setConfirmText("OK")
                             .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
                     wasSuccessfulOperation = false;
                 }else{
-                    pDialog.setTitleText("Error! Try again")
+                    createDialog.setTitleText("Error! Try again")
                             .setContentText("Probably the device do not have access to the server")
                             .setConfirmText("OK")
                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);
@@ -253,21 +253,21 @@ public class WeeklyCalendarFragment extends Fragment {
         final AlertDialog dialog = builder.create();
 
         TextView headerDialog = (TextView) dialogView.findViewById(R.id.title_book_room);
-        headerDialog.setText(String.format("%s%s", getString(R.string.nameMeeting), event.getSubject()));
+        headerDialog.setText(String.format(getString(R.string.nameMeeting)+ event.getSubject()));
         ((TextInputLayout) dialogView.findViewById(R.id.subject_update_delete)).getEditText().setText(event.getSubject());
 
 
         /** Setting Spinner */
         final MaterialBetterSpinner startDatesSpinner = (MaterialBetterSpinner)dialogView.findViewById(R.id.start_time_meeting);
-        final ArrayAdapter<String> startDates = new ArrayAdapter<>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableStartTimes(event));
+        final ArrayAdapter<String> startDates = new ArrayAdapter<>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line,getAvailableTimes(event) );
         startDatesSpinner.setAdapter(startDates);
-        startDatesSpinner.setText(timeService.convertComplexHourToSimpleHour(event.getStart()));
+        startDatesSpinner.setText(timeService.convertComplexToSimpleHour(event.getStart()));
 
         /** Setting Spinner */
         final MaterialBetterSpinner spinnerEndTimes = (MaterialBetterSpinner)dialogView.findViewById(R.id.end_time_meeting);
-        final ArrayAdapter<String> endTimes = new ArrayAdapter<>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableEndTimes(event));
+        final ArrayAdapter<String> endTimes = new ArrayAdapter<>(dialogView.getContext(), android.R.layout.simple_dropdown_item_1line, getAvailableTimes(event));
         spinnerEndTimes.setAdapter(endTimes);
-        spinnerEndTimes.setText(timeService.convertComplexHourToSimpleHour(event.getEnd()));
+        spinnerEndTimes.setText(timeService.convertComplexToSimpleHour(event.getEnd()));
 
 
         Button updateButton = (Button) dialogView.findViewById(R.id.btn_update_meeting);
@@ -279,12 +279,23 @@ public class WeeklyCalendarFragment extends Fragment {
                 }
                 mLastClickTime = SystemClock.elapsedRealtime();
 
-                event.setSubject((((TextInputLayout) dialogView.findViewById(R.id.subject_update_delete)).getEditText().getText()).toString());
-                event.setStart(timeService.convertSimpleHourToComplexHour(startDatesSpinner.getEditableText().toString(), timeService.getIntOfActualDay(event.getStart())));
-                event.setEnd(timeService.convertSimpleHourToComplexHour(spinnerEndTimes.getEditableText().toString(), timeService.getIntOfActualDay(event.getStart())));
+                String startDate = timeService.convertSimpleToComplexHour(startDatesSpinner.getEditableText().toString(), timeService.getIntCurrentDay(event.getStart()));
+                String endDate = timeService.convertSimpleToComplexHour(spinnerEndTimes.getEditableText().toString(), timeService.getIntCurrentDay(event.getStart()));
+                if(!timeService.isHigherOrEqual( startDate ,endDate)){
+                    event.setSubject((((TextInputLayout) dialogView.findViewById(R.id.subject_update_delete)).getEditText().getText()).toString());
+                    event.setStart(startDate);
+                    event.setEnd(endDate);
 
-                updateEvent(event);
-                dialog.cancel();
+                    updateEvent(event);
+                    dialog.cancel();
+                }else{
+                    new SweetAlertDialog(getContext(), SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Error")
+                            .setContentText("End Time must be higher than Start Time")
+                            .show();
+                }
+
+
             }
         });
 
@@ -413,6 +424,23 @@ public class WeeklyCalendarFragment extends Fragment {
         }.start();
     }
 
+    public List<String> getAvailableTimes(Event event){
+        //TODO join this function
+        List<String> availableTimes = new ArrayList<>();
+
+        for(String time : getAvailableStartTimes(event)){
+            availableTimes.add(time);
+        }
+        String tmpTime = event.getStart();
+        while(!timeService.isHigherOrEqual(event.getEnd(),tmpTime)){
+            availableTimes.add(timeService.convertComplexToSimpleHour(tmpTime));
+            tmpTime = timeService.addMinutes(tmpTime);
+        }
+        for(String time : getAvailableEndTimes(event)){
+            availableTimes.add(time);
+        }
+        return availableTimes;
+    }
 
     public List<String> getAvailableStartTimes(Event event){
         List<String> availableStartTimes = new ArrayList<>();
@@ -420,8 +448,8 @@ public class WeeklyCalendarFragment extends Fragment {
         String tmp = timeService.lessMinutes(event.getStart());
         String simpleHour;
         int cnt = 0;
-        while (! eventService.getEventMapper().containsKey(tmp) && cnt < 8 && !timeService.convertComplexHourToSimpleHour(event.getStart()).equalsIgnoreCase(timeService.getMinSimpleHour())){
-            simpleHour = timeService.convertComplexHourToSimpleHour(tmp);
+        while (! eventService.getEventMapper().containsKey(tmp) && cnt < 16 && !timeService.convertComplexToSimpleHour(event.getStart()).equalsIgnoreCase(timeService.getMinSimpleHour())){
+            simpleHour = timeService.convertComplexToSimpleHour(tmp);
             availableStartTimes.add(0,simpleHour);
             if(simpleHour.equalsIgnoreCase(timeService.getMinSimpleHour())){
                 break;
@@ -429,7 +457,7 @@ public class WeeklyCalendarFragment extends Fragment {
             tmp = timeService.lessMinutes(tmp);
             cnt++;
         }
-        availableStartTimes.add(timeService.convertComplexHourToSimpleHour(event.getStart()));
+        availableStartTimes.add(timeService.convertComplexToSimpleHour(event.getStart()));
         return availableStartTimes;
     }
 
@@ -438,9 +466,9 @@ public class WeeklyCalendarFragment extends Fragment {
         String simpleHour;
         int cnt = 0;
         String tmp = event.getEnd();
-        while (! eventService.getEventMapper().containsKey(tmp) && cnt < 8){
-            simpleHour = timeService.convertComplexHourToSimpleHour(tmp);
-            availableEndTimes.add(timeService.convertComplexHourToSimpleHour(tmp));
+        while (! eventService.getEventMapper().containsKey(tmp) && cnt < 16){
+            simpleHour = timeService.convertComplexToSimpleHour(tmp);
+            availableEndTimes.add(timeService.convertComplexToSimpleHour(tmp));
             if(simpleHour.equalsIgnoreCase(timeService.getMaxSimpleHour())){
                 break;
             }
@@ -461,7 +489,7 @@ public class WeeklyCalendarFragment extends Fragment {
         List<String> availableMinutes = new ArrayList<>();
         int minutes = timeService.getMinMin();
 
-        String limitDate = timeService.resetHoursStringDate(date);
+        String limitDate = timeService.cleanDate(date);
         limitDate = timeService.addADay(limitDate);
 
         Date actual = timeService.convertStringToDate(date);
@@ -480,7 +508,7 @@ public class WeeklyCalendarFragment extends Fragment {
 
     /*
     public String getStringHeaderCalendar(){
-        Map<String,String> startEnd = timeService.getRangeToRequest();
+        Map<String,String> startEnd = timeService.getRangeDays();
         String start = startEnd.get("start").split("T")[0];
         String end =  startEnd.get("end").split("T")[0];
         return start +"  -  " +end;
@@ -504,7 +532,7 @@ public class WeeklyCalendarFragment extends Fragment {
      * @return true if is available and false in other case
      */
     public boolean isToAllDay(String date){
-        date = timeService.resetHoursStringDate(date);
+        date = timeService.cleanDate(date);
         String nextDayInString = timeService.addADay(date);
         Date actualDayDate= timeService.convertStringToDate(date);
         Date nextDayInDate = timeService.convertStringToDate(nextDayInString);

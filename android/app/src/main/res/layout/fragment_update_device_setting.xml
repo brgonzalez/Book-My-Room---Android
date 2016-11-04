@@ -9,14 +9,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/label_update_device_setting"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="32dp"
+            android:textSize="@dimen/extra_big_size_text"
             android:text="Device Setting"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
@@ -37,34 +39,32 @@
                 android:layout_marginTop="70dp"/>-->
 
 
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/location_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint=""
-                app:met_floatingLabel="normal"
-                android:textColorHint="#CFD8DC"
-                android:gravity="center"
-                android:layout_marginTop="80dp"
-                android:textSize="@dimen/small_size_text"
-                android:minWidth="300dp"
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/location_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint=""
+            app:met_floatingLabel="normal"
+            android:textColorHint="#CFD8DC"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/margin_element"
+            android:textSize="@dimen/small_size_text"
+            android:minWidth="300dp"
 
-                android:layout_below="@id/label_update_device_setting"
-                android:layout_centerHorizontal="true" />
+            android:layout_below="@+id/label_update_device_setting"
+            android:layout_alignStart="@+id/btn_save_device_setting" />
 
-            <Button android:id="@+id/btn_save_device_setting"
-                android:layout_height="wrap_content"
+        <Button android:id="@+id/btn_save_device_setting"
+                android:layout_height="@dimen/height_button"
                 android:layout_width="300dp"
                 android:text="@string/btn_save_device_setting"
                 android:background="@color/colorPrimary"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="@dimen/margin_element"
                 android:textColor="@android:color/white"
-                android:layout_below="@id/location_spinner"
-                android:layout_centerHorizontal="true" />
+            android:layout_below="@+id/location_spinner"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
-
-
 
 
 </RelativeLayout>

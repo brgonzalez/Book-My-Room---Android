@@ -8,6 +8,7 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
  */
 
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import android.os.CountDownTimer;
@@ -72,6 +73,19 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         StrictMode.setThreadPolicy(policy);
 
 
+        if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE) {
+            Toast.makeText(this, "Large screen", Toast.LENGTH_LONG).show();
+        }
+        else if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_NORMAL) {
+            Toast.makeText(this, "Normal sized screen", Toast.LENGTH_LONG).show();
+        }
+        else if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_SMALL) {
+            Toast.makeText(this, "Small sized screen", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(this, "Screen size is neither large, normal or small", Toast.LENGTH_LONG).show();
+        }
+
 
         final SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE).setTitleText("Loading...");
         pDialog.show();
@@ -82,14 +96,13 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             public void run() {
                 while(true) {
                     try {
-                        Thread.sleep(5000);
+                        Thread.sleep(30000);
                     } catch (InterruptedException e) {
                     }
                     //Log.e(TAG,"Has Windows Focus"+ hasWindowFocus());
                     if(hasWindowFocus()) {
                         try {
                             displayView(FRAGMENT);
-
                         } catch (NullPointerException e) {
                             Log.i(TAG, "Refresh fragment not completed");
                         }
@@ -121,8 +134,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     }
 
-
-
     /*@Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -138,8 +149,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         }
     }*/
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -152,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        /*int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
@@ -160,9 +169,9 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         }
 
         if(id == R.id.action_search){
-            Toast.makeText(getApplicationContext(), "Search action is selected!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "Search action is selected!", Toast.LENGTH_SHORT).show();
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -196,13 +205,18 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         }
 
         if (fragment != null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.container_body, fragment);
-            transaction.addToBackStack(null);
-            transaction.commitAllowingStateLoss();
+            try {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.container_body, fragment);
+                transaction.addToBackStack(null);
+                transaction.commitAllowingStateLoss();
+            }catch (IllegalStateException e){
+                displayView(position);
+            }
 
             //getSupportActionBar().setTitle(title);
+            //getActionBar().setTitle(title);
 
 
         }
@@ -235,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         for(;;) {
             try {
                 eventService.updateEvents();
-                Thread.sleep(10000);
+                Thread.sleep(20000);
             }catch (InterruptedException e) {
                 e.printStackTrace();
             }catch (NullPointerException e) {

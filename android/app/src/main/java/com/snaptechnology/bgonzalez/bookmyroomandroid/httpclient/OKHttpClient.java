@@ -45,7 +45,7 @@ public final class OKHttpClient {
 
         String result= null;
         try {
-            Response response = okHttpClient.newCall(request).execute();
+             Response response = okHttpClient.newCall(request).execute();
             result = response.body().string();
         } catch (IOException e) {
             e.printStackTrace();
