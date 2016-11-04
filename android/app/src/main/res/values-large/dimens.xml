@@ -1,0 +1,65 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_drawer_width">260dp</dimen>
+
+    <dimen name="margin_element">33dp</dimen>
+
+
+
+    <!--HomeActivity -->
+    <dimen name="thickness_timer">30dp</dimen>
+    <dimen name="padding_image_timer">28dp</dimen>
+    <dimen name="margin_circle_choose_time">4dp</dimen>
+    <dimen name="margin_bottom_home_fragment">8dp</dimen>
+    <dimen name="margin_left_right_home_fragment">22dp</dimen>
+    <dimen name="height_time_line_day">10dp</dimen>
+    <dimen name="width_circle_time">80dp</dimen>
+    <dimen name="height_circle_time">80dp</dimen>
+
+
+
+    <!--Calendar-->
+    <dimen name="height_row_table_calendar">24dp</dimen>
+    <dimen name="margin_cell_table">1dp</dimen>
+
+
+    <!--Text Size -->
+    <dimen name="extra_big_size_text">35dp</dimen>
+    <dimen name="big_size_text">30dp</dimen>
+    <dimen name="medium_size_text">25dp</dimen>
+    <dimen name="small_size_text">19dp</dimen>
+    <dimen name="extra_small_size_text">14dp</dimen>
+
+    <!--Menu-->
+    <dimen name="item_menu_padding_left">30dp</dimen>
+    <dimen name="item_menu_padding">25dp</dimen>
+    <dimen name="size_icon_menu">90dp</dimen>
+    <dimen name="height_layout_icon">140dp</dimen>
+    <dimen name="margin_rows_menu">16dp</dimen>
+
+
+    <dimen name="margin_dialog_button">35dp</dimen>
+
+    <!-- Dialog-->
+    <dimen name="margin_dialog_title">15dp</dimen>
+    <dimen name="margin_dialog_container">15dp</dimen>
+
+
+
+    <!--Update Dialog-->
+    <dimen name="width_update_dialog">400dp</dimen>
+    <dimen name="btn_width_update_dialog">190dp</dimen>
+    <dimen name="spinner_width_update_dialog">120dp</dimen>
+    <dimen name="margin_left_start_spinner">0dp</dimen>
+    <dimen name="margin_left_end_spinner">200dp</dimen>
+
+
+
+    <dimen name="height_button">42dp</dimen>
+
+
+
+
+</resources>

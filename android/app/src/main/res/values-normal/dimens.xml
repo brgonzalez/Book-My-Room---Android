@@ -1,0 +1,66 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="margin_element">20dp</dimen>
+
+
+    <!--HomeActivity -->
+    <dimen name="thickness_timer">15dp</dimen>
+    <dimen name="padding_image_timer">23dp</dimen>
+    <dimen name="margin_circle_choose_time">4dp</dimen>
+    <dimen name="margin_bottom_home_fragment">8dp</dimen>
+    <dimen name="margin_left_right_home_fragment">20dp</dimen>
+    <dimen name="height_time_line_day">6dp</dimen>
+    <dimen name="width_circle_time">80dp</dimen>
+    <dimen name="height_circle_time">80dp</dimen>
+
+
+    <!--Calendar-->
+    <dimen name="height_row_table_calendar">16dp</dimen>
+    <dimen name="margin_cell_table">0.7dp</dimen>
+
+
+    <!--Text Size -->
+    <dimen name="extra_big_size_text">23dp</dimen>
+    <dimen name="big_size_text">20dp</dimen>
+    <dimen name="medium_size_text">17dp</dimen>
+    <dimen name="small_size_text">11dp</dimen>
+    <dimen name="extra_small_size_text">9dp</dimen>
+
+    <!--Menu-->
+    <dimen name="item_menu_padding_left">30dp</dimen>
+    <dimen name="item_menu_padding">20dp</dimen>
+    <dimen name="size_icon_menu">70dp</dimen>
+    <dimen name="height_layout_icon">110dp</dimen>
+    <dimen name="margin_rows_menu">16dp</dimen>
+    <dimen name="nav_drawer_width">190dp</dimen>
+
+
+
+
+
+    <!-- Dialog-->
+    <dimen name="margin_dialog_title">9dp</dimen>
+    <dimen name="margin_dialog_container">7dp</dimen>
+    <dimen name="width_dialog_elements">250dp</dimen>
+    <dimen name="margin_dialog_button">25dp</dimen>
+
+
+
+    <!--Update Dialog-->
+    <dimen name="width_update_dialog">350dp</dimen>
+    <dimen name="btn_width_update_dialog">150dp</dimen>
+    <dimen name="spinner_width_update_dialog">120dp</dimen>
+    <dimen name="margin_left_start_spinner">0dp</dimen>
+    <dimen name="margin_left_end_spinner">200dp</dimen>
+
+    <!--Buttons-->
+    <dimen name="height_button">35dp</dimen>
+
+
+
+
+
+</resources>
