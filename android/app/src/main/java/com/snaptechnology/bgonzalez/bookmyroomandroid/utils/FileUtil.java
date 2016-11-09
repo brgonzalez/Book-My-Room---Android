@@ -9,9 +9,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class FileUtils {
+public class FileUtil {
 
-    private static final String TAG = FileUtils.class.getName();
+    private static final String TAG = FileUtil.class.getName();
     private static String locationFile = "location_file";
 
     public static String readLocation(Context context) {
@@ -33,6 +33,7 @@ public class FileUtils {
                 inputStream.close();
                 ret = stringBuilder.toString();
             }
+            return ret;
         }
         catch (FileNotFoundException e) {
             Log.e(TAG, "File not found: " + e.toString());
@@ -41,7 +42,7 @@ public class FileUtils {
         } catch (NullPointerException e){
             Log.e(TAG, "NullPointerException reading file");
         }
-        return ret;
+        return "Device is not configured";
     }
 
     public static void writeLocation(Context context, String data){

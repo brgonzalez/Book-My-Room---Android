@@ -33,13 +33,14 @@ public class LocationService {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        List<Location> locations = new ArrayList<>();
+        List<Location> locations;
         try {
             String url = urlService.getURLAllLocations();
             Log.i(TAG,"Getting locations, Url:  "+ url);
             String output =client.get(url);
             Log.i(TAG,"Output:"+output);
             locations = mapper.readValue(output,TypeFactory.defaultInstance().constructCollectionType(List.class, Location.class));
+            return locations;
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             Log.e(TAG,"JsonProcessingException error to process JSON Object in LocationService");
@@ -48,9 +49,8 @@ public class LocationService {
             Log.e(TAG,"IOException error IOException in Location Service");
         }catch (NullPointerException e){
             Log.e(TAG,"NullPointerException reading locations");
-
         }
-        return locations;
+        return new ArrayList<>();
 
     }
 }

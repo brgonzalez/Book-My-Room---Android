@@ -41,7 +41,7 @@ import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.EventService;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.TimeService;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.URLService;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtils;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtil;
 import com.transitionseverywhere.TransitionManager;
 import com.transitionseverywhere.extra.Scale;
 
@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
     /**Variable used to check the last click by the user*/
     private static long mLastClickTime;
 
-    private static final int WAITING_TIME = 5000;
+    private static final int WAITING_TIME = 4000;
 
 
     /**Services to get the functions to do the task by the user*/
@@ -186,7 +186,7 @@ public class HomeFragment extends Fragment {
 
                                 String startDate = timeService.roundDown(dateInString);
                                 String subject = (((TextInputLayout) dialogView.findViewById(R.id.subject_book_room_from_home)).getEditText().getText()).toString();
-                                Event event = new Event("id", subject, new Location(FileUtils.readLocation(getActivity())), new ArrayList<Attendee>(), false, startDate, endDate);
+                                Event event = new Event("id", subject, new Location(FileUtil.readLocation(getActivity())), new ArrayList<Attendee>(), false, startDate, endDate);
                                 dialog.dismiss();
                                 createEvent(event);
                             }

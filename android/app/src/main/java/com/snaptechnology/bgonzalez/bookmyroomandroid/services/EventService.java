@@ -10,7 +10,7 @@ import com.snaptechnology.bgonzalez.bookmyroomandroid.httpclient.OKHttpClient;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Event;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.VO.EventVO;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtils;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -81,7 +81,7 @@ public final class EventService  {
         }catch (JSONException e) {
             Log.e(TAG,"JsonProcessingException error parsing the result body in doPost()");
         }catch (NullPointerException e){
-            Log.e(TAG,e.getMessage());
+            Log.e(TAG,"NullPointerException");
         }
         return false;
     }
@@ -89,13 +89,13 @@ public final class EventService  {
     /**
      * Method to update the events
      */
-    public void updateEvents(){
+    public boolean updateEvents(){
         ObjectMapper mapper = new ObjectMapper();
         List<Event> events;
         Log.i(TAG, "Updating Events");
         try {
             Map<String, String> startEndDate = timeService.getRangeDays();
-            String displayName = FileUtils.readLocation(context);
+            String displayName = FileUtil.readLocation(context);
             EventVO eventVO = new EventVO(new Location(displayName), startEndDate.get("start"), startEndDate.get("end"));
 
             String json = mapper.writeValueAsString(eventVO);
@@ -116,24 +116,19 @@ public final class EventService  {
                     startDate = timeService.addMinutes(startDate);
                 }
             }
+            return true;
         }catch (JsonProcessingException e) {
             Log.e(TAG,"JsonProcessingException error parsing the result body in UpdateEvents()");
-            this.getEventMapper().clear();
-            setEvents(new ArrayList<Event>());
         }catch (IOException e) {
             Log.e(TAG,"IOException error parsing the result body in UpdateEvents()");
-            this.getEventMapper().clear();
-            setEvents(new ArrayList<Event>());
         }catch (IllegalStateException e){
             Log.e(TAG,"Error IllegalStateException to execute operation, was not executed at time");
-            this.getEventMapper().clear();
-            setEvents(new ArrayList<Event>());
         }catch (NullPointerException e){
             Log.e(TAG,"Error NullPointerException to execute operation, probably the device is not connected with the server" );
-            this.getEventMapper().clear();
-            setEvents(new ArrayList<Event>());
-
         }
+        this.getEventMapper().clear();
+        setEvents(new ArrayList<Event>());
+        return false;
     }
 
     public List<Event> getEvents(){

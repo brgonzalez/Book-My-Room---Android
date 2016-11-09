@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_meeting_name_book_room"
                 android:singleLine="true"
-                android:hint="Meeting name"
+                android:hint="Meeting name (Optional)"
                 android:layout_width="@dimen/width_dialog_elements"
                 android:layout_centerHorizontal="true"
                 android:textSize="@dimen/small_size_text"

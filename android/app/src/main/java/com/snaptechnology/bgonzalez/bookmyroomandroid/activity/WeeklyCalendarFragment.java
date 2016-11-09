@@ -33,8 +33,7 @@ import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.EventService;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.TimeService;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.URLService;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.EventHandlerUtilities;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtils;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtil;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.ArrayList;
@@ -48,7 +47,7 @@ public class WeeklyCalendarFragment extends Fragment {
     private static final String TAG = WeeklyCalendarFragment.class.getSimpleName();
 
     //The WAITING_TIME must be higher or equals to the timeout to make a request
-    private static final int WAITING_TIME = 5000;
+    private static final int WAITING_TIME = 4000;
     private long mLastClickTime = 0;
 
     private EventService eventService = EventService.getInstance(getActivity());
@@ -166,7 +165,7 @@ public class WeeklyCalendarFragment extends Fragment {
                 Event event = new Event();
                 event.setId("id");
                 event.setSubject((((TextInputLayout) dialogToBook.findViewById(R.id.subject_book_room)).getEditText().getText()).toString());
-                event.setLocation(new Location(FileUtils.readLocation(getActivity())));
+                event.setLocation(new Location(FileUtil.readLocation(getActivity())));
                 event.setAttendees(new ArrayList<Attendee>());
                 event.setIsAllDay(false);
 
@@ -303,8 +302,10 @@ public class WeeklyCalendarFragment extends Fragment {
         buttonDeleteEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                EventHandlerUtilities.preventDoubleClick();
-                deleteEvent(event);
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();                deleteEvent(event);
                 dialog.cancel();
             }
         });
@@ -365,6 +366,7 @@ public class WeeklyCalendarFragment extends Fragment {
                                     wasSuccessfulOperation = false;
                                 }else{
                                     pDialog.setTitleText("Error!")
+                                            .setContentText("The meeting was not deleted")
                                             .setConfirmText("OK")
                                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                                     sweetAlertDialog.cancel();
@@ -415,7 +417,8 @@ public class WeeklyCalendarFragment extends Fragment {
                     wasSuccessfulOperation = false;
 
                 }else{
-                    pDialog.setTitleText("Error! The meeting was not updated")
+                    pDialog.setTitleText("Error!")
+                            .setContentText("The meeting was not updated")
                             .setConfirmText("OK")
                             .changeAlertType(SweetAlertDialog.ERROR_TYPE);
                 }

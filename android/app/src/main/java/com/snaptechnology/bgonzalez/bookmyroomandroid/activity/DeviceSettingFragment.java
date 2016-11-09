@@ -7,8 +7,6 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.activity;
  * @since 24/08/2016.
  */
 
-import android.app.Activity;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -21,7 +19,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtils;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtil;
 
 
 
@@ -44,7 +42,7 @@ public class DeviceSettingFragment extends Fragment {
         TextView location = (TextView) rootView.findViewById(R.id.location);
 
 
-        String data = FileUtils.readLocation(getActivity());
+        String data = FileUtil.readLocation(getActivity());
 
         location.setText(data);
         Button button = (Button) rootView.findViewById(R.id.btn_update_device_setting);
@@ -66,4 +64,6 @@ public class DeviceSettingFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
+
 }

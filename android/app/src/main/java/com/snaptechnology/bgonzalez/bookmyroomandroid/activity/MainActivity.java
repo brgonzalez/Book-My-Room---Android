@@ -28,13 +28,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.EventService;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtil;
 
 import java.util.List;
 
@@ -52,16 +55,16 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     private static int FRAGMENT = 0;
 
-
+    private Thread updateThread;
     public MainActivity(){
         this.eventService = EventService.getInstance(MainActivity.this);
-        Runnable myRunnable = new Runnable() {
+        updateThread = new Thread() {
             public void run() {
                 synchronizeEvents();
             }
         };
-        Thread thread = new Thread(myRunnable);
-        thread.start();
+        updateThread.start();
+
     }
 
     @Override
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         StrictMode.setThreadPolicy(policy);
 
 
-        if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE) {
+        /*if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE) {
             Toast.makeText(this, "Large screen", Toast.LENGTH_LONG).show();
         }
         else if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_NORMAL) {
@@ -84,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         }
         else {
             Toast.makeText(this, "Screen size is neither large, normal or small", Toast.LENGTH_LONG).show();
-        }
+        }*/
 
 
         final SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE).setTitleText("Loading...");
@@ -110,6 +113,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 }
             }
         }).start();
+
+
 
         new CountDownTimer(5000, 1000) {
             public void onTick(long millisUntilFinished) {
@@ -153,6 +158,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem menuItem = menu.getItem(0);
+        menuItem.setTitle(FileUtil.readLocation(getApplicationContext()));
         return true;
     }
 
@@ -161,8 +168,13 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        /*int id = item.getItemId();
+        int id = item.getItemId();
 
+        if (id == R.id.room_account) {
+            displayView(2);
+            return true;
+        }
+        /*
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -198,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             case 2:
                 fragment = new DeviceSettingFragment();
                 title = getString(R.string.title_device_settings);
-                FRAGMENT = 3;
+                FRAGMENT = 2;
                 break;
             default:
                 break;
@@ -248,7 +260,17 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         //noinspection InfiniteLoopStatement
         for(;;) {
             try {
-                eventService.updateEvents();
+
+
+                if(! eventService.updateEvents() ){
+                    this.runOnUiThread(new Runnable() {
+                        public void run() {
+                            for(int i = 0 ; i < 2; i++){
+                                Toast.makeText(getApplicationContext(), "Error, Please check your network connection and device setting ", Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+                    });                }
                 Thread.sleep(20000);
             }catch (InterruptedException e) {
                 e.printStackTrace();
@@ -258,5 +280,11 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 Log.e(TAG,"IllegalStateException: Content has been consumed");
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        updateThread.interrupt();
     }
 }

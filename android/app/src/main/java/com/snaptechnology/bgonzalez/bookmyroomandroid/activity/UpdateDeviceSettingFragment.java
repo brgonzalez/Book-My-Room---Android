@@ -11,17 +11,19 @@ import android.support.v4.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.R;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.model.Location;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.services.EventService;
 import com.snaptechnology.bgonzalez.bookmyroomandroid.services.LocationService;
-import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtils;
+import com.snaptechnology.bgonzalez.bookmyroomandroid.utils.FileUtil;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.ArrayList;
@@ -34,6 +36,7 @@ public class UpdateDeviceSettingFragment extends Fragment {
 
     private static String TAG = UpdateDeviceSettingFragment.class.getSimpleName();
 
+    private EventService eventService = EventService.getInstance(getActivity());
 
     MaterialBetterSpinner locationSpinner ;
     List<Location> locationsRequest;
@@ -42,7 +45,7 @@ public class UpdateDeviceSettingFragment extends Fragment {
 
     ArrayAdapter<String> adapter;
 
-    private static int WAITING_TIME = 5000;
+    private static int WAITING_TIME = 4000;
 
     public UpdateDeviceSettingFragment() {
         // Required empty public constructor
@@ -62,7 +65,7 @@ public class UpdateDeviceSettingFragment extends Fragment {
 
 
         locationSpinner.setHint("Room name");
-        String current = new FileUtils().readLocation(getActivity());
+        String current = new FileUtil().readLocation(getActivity());
         if(current != null){
             locationSpinner.setText(current);
         }
@@ -124,18 +127,20 @@ public class UpdateDeviceSettingFragment extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FileUtils().writeLocation(getActivity(),locationSpinner.getText().toString());
+                new FileUtil().writeLocation(getActivity(),locationSpinner.getText().toString());
                 SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE);
                 sweetAlertDialog.setTitleText("Success");
                 sweetAlertDialog.setContentText("Room Account was changed");
                 sweetAlertDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        refreshFragment();
                         sweetAlertDialog.dismiss();
+                        refreshFragment();
+                        eventService.updateEvents();
                     }
                 });
                 sweetAlertDialog.show();
+
             }
         });
 
