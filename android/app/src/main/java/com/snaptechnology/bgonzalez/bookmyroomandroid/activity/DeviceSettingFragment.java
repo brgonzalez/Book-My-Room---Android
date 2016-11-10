@@ -49,6 +49,9 @@ public class DeviceSettingFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Method to change the fragment to UpdateDeviceSettingFragment
+     */
     private void changeFragment(){
         Fragment fragment = new UpdateDeviceSettingFragment();
         FragmentManager fragmentManager = getFragmentManager();

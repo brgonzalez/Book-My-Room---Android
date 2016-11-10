@@ -230,9 +230,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-
-
         return rootView;
     }
 
@@ -250,7 +247,6 @@ public class HomeFragment extends Fragment {
                     attendeesName.add(attendee.getEmailAddress().getName());
                 }
             }
-
         }else{
             attendeesName.add("No booking");
         }
@@ -287,7 +283,6 @@ public class HomeFragment extends Fragment {
             date = timeService.addMinutes(date);
             actual = timeService.convertStringToDate(date);
         }
-
         return availableMinutes;
     }
 
@@ -467,7 +462,10 @@ public class HomeFragment extends Fragment {
                 .show();
     }
 
-
+    /**
+     * Method to refresh the time line day of home screen
+     * @param rootView main view
+     */
     private void refreshTimeline(View rootView){
         final TableLayout timeLine = (TableLayout) rootView.findViewById(R.id.time_line);
         new Thread(new Runnable() {
