@@ -47,7 +47,7 @@ public class WeeklyCalendarFragment extends Fragment {
     private static final String TAG = WeeklyCalendarFragment.class.getSimpleName();
 
     //The WAITING_TIME must be higher or equals to the timeout to make a request
-    private static final int WAITING_TIME = 4000;
+    private static final int WAITING_TIME = 5000;
     private long mLastClickTime = 0;
 
     private EventService eventService = EventService.getInstance(getActivity());
@@ -168,6 +168,7 @@ public class WeeklyCalendarFragment extends Fragment {
                 event.setLocation(new Location(FileUtil.readLocation(getActivity())));
                 event.setAttendees(new ArrayList<Attendee>());
                 event.setIsAllDay(false);
+                event.setOrganizer(null);
 
                 if( checkbox.isChecked()){
                     String start = timeService.cleanDate(cell.getTag().toString());
@@ -435,7 +436,7 @@ public class WeeklyCalendarFragment extends Fragment {
             availableTimes.add(time);
         }
         String tmpTime = event.getStart();
-        while(!timeService.isHigherOrEqual(event.getEnd(),tmpTime)){
+        while(timeService.isHigherOrEqual(event.getEnd(),tmpTime)){
             availableTimes.add(timeService.convertComplexToSimpleHour(tmpTime));
             tmpTime = timeService.addMinutes(tmpTime);
         }
