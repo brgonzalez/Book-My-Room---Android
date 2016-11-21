@@ -102,7 +102,7 @@ public final class EventService  {
             String url = urlService.getURLEvents();
             Log.i(TAG, "Post to "+ urlService.getURLEvents() +", request body "+ json );
             String result = client.post(url,json);
-            //Log.i(TAG, "Output: "+result);
+            Log.i(TAG, "Output: "+result);
 
             events = mapper.readValue(result, TypeFactory.defaultInstance().constructCollectionType(List.class, Event.class));
 

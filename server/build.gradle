@@ -51,6 +51,7 @@ dependencies {
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.2'
 
 
+	compile group: 'org.json', name: 'json', version: '20160212'
 
 
 

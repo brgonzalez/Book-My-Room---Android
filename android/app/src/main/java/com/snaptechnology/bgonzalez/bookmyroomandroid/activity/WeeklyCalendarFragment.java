@@ -461,7 +461,7 @@ public class WeeklyCalendarFragment extends Fragment {
             tmp = timeService.lessMinutes(tmp);
             cnt++;
         }
-        availableStartTimes.add(timeService.convertComplexToSimpleHour(event.getStart()));
+        //availableStartTimes.add(timeService.convertComplexToSimpleHour(event.getStart()));
         return availableStartTimes;
     }
 
@@ -469,7 +469,7 @@ public class WeeklyCalendarFragment extends Fragment {
         List<String> availableEndTimes = new ArrayList<>();
         String simpleHour;
         int cnt = 0;
-        String tmp = event.getEnd();
+        String tmp = timeService.addMinutes(event.getEnd());
         while (! eventService.getEventMapper().containsKey(tmp) && cnt < 16){
             simpleHour = timeService.convertComplexToSimpleHour(tmp);
             availableEndTimes.add(timeService.convertComplexToSimpleHour(tmp));

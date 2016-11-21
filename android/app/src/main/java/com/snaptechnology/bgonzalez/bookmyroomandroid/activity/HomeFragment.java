@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
     /**Variable used to check the last click by the user*/
     private static long mLastClickTime;
 
-    private static final int WAITING_TIME = 4000;
+    private static final int WAITING_TIME = 5000;
 
 
     /**Services to get the functions to do the task by the user*/
@@ -186,7 +186,7 @@ public class HomeFragment extends Fragment {
 
                                 String startDate = timeService.roundDown(dateInString);
                                 String subject = (((TextInputLayout) dialogView.findViewById(R.id.subject_book_room_from_home)).getEditText().getText()).toString();
-                                Event event = new Event("id", subject, new Location(FileUtil.readLocation(getActivity())), new ArrayList<Attendee>(), false, startDate, endDate);
+                                Event event = new Event("id", subject, new Location(FileUtil.readLocation(getActivity())),null, new ArrayList<Attendee>(), false, startDate, endDate);
                                 dialog.dismiss();
                                 createEvent(event);
                             }
@@ -239,14 +239,17 @@ public class HomeFragment extends Fragment {
     private void showAttendees(){
         /** TODO: Add the organizer to the attendees list*/
         List<String> attendeesName = new ArrayList<>();
+
         if(currentEvent != null){
-            if(currentEvent.getAttendees().size()==0){
-                attendeesName.add("Unregistered attendees");
-            }else{
-                for(Attendee attendee : currentEvent.getAttendees()){
+            if(currentEvent.getOrganizer()!= null){
+                attendeesName.add(currentEvent.getOrganizer().getEmailAddress().getName() + " ( Organizer )");
+            }
+            for(Attendee attendee : currentEvent.getAttendees()){
+                if(!attendee.getEmailAddress().getName().equalsIgnoreCase(currentEvent.getOrganizer().getEmailAddress().getName())){
                     attendeesName.add(attendee.getEmailAddress().getName());
                 }
             }
+
         }else{
             attendeesName.add("No booking");
         }
@@ -360,6 +363,7 @@ public class HomeFragment extends Fragment {
         final Thread createThread =new Thread(new Runnable() {// Thread to refresh the home fragment
             @Override
             public void run() {
+                eventService.updateEvents();
                 wasSuccessfulOperation = eventService.doPost(event,new URLService().getURLCreateEvent());
             }
         });
@@ -499,14 +503,10 @@ public class HomeFragment extends Fragment {
         } catch (NullPointerException e) {
             Log.i(TAG, "Refresh fragment not completed");
         }
-
-
     }
     @Override
     public void onDetach() {
         super.onDetach();
     }
-
-
 
 }

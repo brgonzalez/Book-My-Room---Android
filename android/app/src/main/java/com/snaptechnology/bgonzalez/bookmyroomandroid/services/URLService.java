@@ -5,8 +5,7 @@ package com.snaptechnology.bgonzalez.bookmyroomandroid.services;
  */
 public class URLService {
 
-    //private String server = "http://192.168.100.4:8080";
-    private String server = "http://10.110.10.153:8080";
+    private String server ="http://10.110.10.158:8080";
 
     private static final String EVENT = "/event";
     private static final String LOCATION = "/location";

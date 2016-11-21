@@ -1,6 +1,7 @@
 package com.snaptechnology.bgonzalez.bookmyroomandroid.utils;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.util.Log;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,10 +9,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Properties;
 
 public class FileUtil {
 
-    private static final String TAG = FileUtil.class.getName();
+    private static final String TAG = FileUtil.class.getSimpleName();
     private static String locationFile = "location_file";
 
     public static String readLocation(Context context) {

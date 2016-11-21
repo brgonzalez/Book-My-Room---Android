@@ -49,10 +49,8 @@ public class EventController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public Map<String,Integer> createEvent (@RequestBody Event event){
-        System.out.println("create1");
         Map<String,Integer> status = new HashMap<String,Integer>();
         status.put("statusCode",office365Service.createEvent(event));
-        System.out.println("create2");
 
         return status;
     }

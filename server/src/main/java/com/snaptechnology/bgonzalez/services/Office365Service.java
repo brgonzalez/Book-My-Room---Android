@@ -51,6 +51,7 @@ public class Office365Service {
 
         client.getHttpRequest(urlService.getURLEvents(eventVO.getStart(),eventVO.getEnd()));
 
+        //logger.info(client.getOutput());
         JSONArray json = new JSONObject(client.getOutput()).getJSONArray("value");
 
         for(int i = 0; i < json.length(); i++){
@@ -82,7 +83,7 @@ public class Office365Service {
             e.printStackTrace();
             logger.error("Error trying to get status code to create a event in Office365 Service, request body did not mapped");
         }
-        logger.info("Output from API Office 365 : " + client.getOutput());
+        //logger.info("Output from API Office 365 : " + client.getOutput());
 
         return (statusCode == 201) ? 200 : statusCode ;
     }
@@ -109,7 +110,7 @@ public class Office365Service {
             logger.error("Error trying to get status code to update a event in Office365 Service, request body did not mapped");
         }
 
-        logger.info("Output from API Office 365 : " + client.getOutput());
+        //logger.info("Output from API Office 365 : " + client.getOutput());
 
         return statusCode;
     }
@@ -127,7 +128,7 @@ public class Office365Service {
 
         int statusCode = client.deleteHttpRequest(urlService.getURLDeleteEvent(event)).getStatusCode();
 
-        /**logger.info("Output from API Office 365 : " + client.getOutput()); //It has not output*/
+        /*logger.info("Output from API Office 365 : " + client.getOutput()); //It has not output*/
 
         return (statusCode == 204) ? 200 : statusCode ;
     }
@@ -139,10 +140,9 @@ public class Office365Service {
         String dataDelta = new JSONObject(client.getOutput()).getString("@odata.deltaLink");
 
         setDelta(dataDelta);
-        System.out.println(urlService.getURLSynchronizeEvents(startDate, endDate, delta));
 
         JSONArray json = new JSONObject(client.getOutput()).getJSONArray("value");
-        System.out.println(client.getOutput());
+        //System.out.println(client.getOutput());
 
         for(int i = 0; i < json.length(); i++){
             events.add(new Event(json.getJSONObject(i)));

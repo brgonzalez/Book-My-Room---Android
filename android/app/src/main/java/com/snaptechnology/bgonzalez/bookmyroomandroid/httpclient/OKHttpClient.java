@@ -23,7 +23,7 @@ public final class OKHttpClient {
     private static final String TAG = OKHttpClient.class.getSimpleName();
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private OkHttpClient okHttpClient;
-    private static final int TIMEOUT = 6;
+    private static final int TIMEOUT = 7;
 
     public OKHttpClient(){
         this.okHttpClient = new OkHttpClient.Builder()

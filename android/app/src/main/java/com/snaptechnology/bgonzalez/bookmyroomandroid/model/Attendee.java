@@ -1,5 +1,7 @@
 package com.snaptechnology.bgonzalez.bookmyroomandroid.model;
 
+import android.util.Log;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.json.JSONException;
@@ -13,6 +15,9 @@ import org.json.JSONObject;
  */
 
 public class Attendee {
+
+    private final static String TAG = Attendee.class.getSimpleName();
+
     @JsonProperty("EmailAddress")
     private EmailAddress emailAddress;
     @JsonProperty("Type")
@@ -24,7 +29,7 @@ public class Attendee {
             this.type = json.getString("Type");
 
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG,"JSONException parsing attendee");
         }
     }
 

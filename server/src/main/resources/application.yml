@@ -1,9 +1,0 @@
-spring:
-    datasource:
-        url: jdbc:postgresql://localhost/Book My Room
-        username: postgres
-        password: postgres
-    jpa:
-      generate-ddl: true
-
-

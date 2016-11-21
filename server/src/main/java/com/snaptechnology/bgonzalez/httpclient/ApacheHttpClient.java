@@ -40,6 +40,8 @@ public final class ApacheHttpClient {
 
     private Location location;
     private String password ="BrgcBrgc5snap";
+
+    //private String password ="Toku2648";
     private Encoder encoder;
     private String codeBasicAuth;
 
@@ -75,7 +77,7 @@ public final class ApacheHttpClient {
          * setBr();  // this set cause a error
          * setOutput(); // this set cause a error
          */
-        log.info("Status code : " + response.getStatusLine().getStatusCode());
+        log.info("Status code : " + response.getStatusLine().getStatusCode() + response.getStatusLine().getReasonPhrase());
         return response.getStatusLine();
     }
 
@@ -160,12 +162,12 @@ public final class ApacheHttpClient {
      * @param request could be a get request, a post request, a delete request or patch request
      */
     private void setRequestHeaders(HttpRequestBase request){
-        codeBasicAuth = encoder.encode(location.getDisplayName(),password);
+        codeBasicAuth = encoder.encode();
         request.addHeader("Authorization", "Basic " + codeBasicAuth);
         request.addHeader("Accept", "application/json");
         request.addHeader("Content-Type" , "Application/Json;charset=UTF-8" );
-        request.addHeader("Accept-Language", "es-419,es;q=0.8");
-        request.addHeader("Prefer", "odata.track-changes");
+        //request.addHeader("Accept-Language", "es-419,es;q=0.8");
+        //request.addHeader("Prefer", "odata.track-changes");
     }
 
     /**
